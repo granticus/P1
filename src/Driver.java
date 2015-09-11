@@ -31,5 +31,9 @@ public class Driver {
 		oFile.close();
 	}
 
-	
+	public int[] firstLine(InputStream file) {
+		
+		
+		return null;
+	}
 }
