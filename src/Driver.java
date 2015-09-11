@@ -24,9 +24,12 @@ public class Driver {
 		
 		InputStream read = new FileInputStream(iFile);
 		
+
 		
-		oFile.close();
+		
+		
 		read.close();
+		oFile.close();
 		
 		
 	}
