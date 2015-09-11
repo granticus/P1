@@ -8,13 +8,25 @@
  * @author Alex Hsu
  *
  */
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 	
 		int numSimulations = Integer.parseInt(args[0]);
-		String iFile = args[1];
-		String oFile = args[1];
+		File iFile = new File(args[1]);
+		PrintWriter oFile = new PrintWriter (args[2]);
+		
+		InputStream read = new FileInputStream(iFile);
+		
+		
+		oFile.close();
+		read.close();
 		
 		
 	}
