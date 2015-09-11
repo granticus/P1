@@ -11,8 +11,12 @@
 public class Driver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+		int numSimulations = Integer.parseInt(args[0]);
+		String iFile = args[1];
+		String oFile = args[1];
+		
+		
 	}
 
 }
