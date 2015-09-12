@@ -43,11 +43,10 @@ public class Driver {
 		for (int k = 0; k < strInts.length; k++) {
 			num[k] = Integer.parseInt(strInts[k]);
 		}
-		
 		return null;
 	}
 	
 	private static void getReactions(String line) {
-		
+		String [] reactions = line.split("->");
 	}
 }
