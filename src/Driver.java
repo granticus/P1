@@ -48,5 +48,6 @@ public class Driver {
 	
 	private static void getReactions(String line) {
 		String [] reactions = line.split("->");
+		//products will be reactions.length - 1;
 	}
 }
