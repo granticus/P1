@@ -49,7 +49,8 @@ public class Driver {
 	private static void getReactions(String line) {
 		String [] equation = line.split("->");
 		//products will be equation.length - 1;
-		
+		String [] products = equation[equation.length-1].split(" ");
+		int x = Integer.parseInt(products[0]);
 		
 		
 	}
