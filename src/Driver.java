@@ -21,7 +21,7 @@ public class Driver {
 		int numSimulations = Integer.parseInt(args[0]);
 		File iFile = new File(args[1]);
 		PrintWriter oFile = new PrintWriter (args[2]);
-		
+		String []
 		InputStream read = new FileInputStream(iFile);
 		
 		
@@ -31,8 +31,8 @@ public class Driver {
 		oFile.close();
 	}
 
-	public int[] firstLine(InputStream file) {
-		
+	private int[] firstLine(String fLine) {
+		int[] flNumbers = new Int(4);
 		
 		return null;
 	}
