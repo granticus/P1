@@ -28,7 +28,7 @@ public class Driver {
 		int[] initNPop = getInts(lines[1]);
 		int[] initDPop = getInts(lines[2]);
 		
-		//Deal with 4th line later
+		//Deal with 4th line later (still not finished and unsure of how to be called.
 		
 		
 		
