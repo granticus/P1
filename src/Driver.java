@@ -24,9 +24,9 @@ public class Driver {
 		
 		InputStream read = new FileInputStream(iFile);
 		String [] lines = read.toString().split("\n");
-		int[] fline = firstLine(lines[0]);
-		int[] initNPop = secondLine(lines[1]);
-		int[] initDPop = thirdLines(lines[2]);
+		int[] fline = getInts(lines[0]);
+		int[] initNPop = getInts(lines[1]);
+		int[] initDPop = getInts(lines[2]);
 		
 		//Deal with 4th line later
 		
@@ -36,24 +36,18 @@ public class Driver {
 		oFile.close();
 	}
 
-	private static int[] thirdLines(String tLine) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private static int[] secondLine(String sLine) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private static int[] firstLine(String fLine) {
-		int[] flNumbers = new int[4];
-		String[] fInts = fLine.split(" ");
+	private static int[] getInts(String line) {
+		int[] num = new int[4];
+		String[] strInts = line.split(" ");
 		
-		for (int k = 0; k < fInts.length; k++) {
-			
+		for (int k = 0; k < strInts.length; k++) {
+			num[k] = Integer.parseInt(strInts[k]);
 		}
 		
 		return null;
+	}
+	
+	private static void getReactions(String line) {
+		
 	}
 }
