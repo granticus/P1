@@ -23,7 +23,12 @@ public class Driver {
 		PrintWriter oFile = new PrintWriter (args[2]);
 		
 		InputStream read = new FileInputStream(iFile);
-		String [] lines = fileGetLines(read);
+		String [] lines = read.toString().split("\n");
+		int[] fline = firstLine(lines[0]);
+		int[] initNPop = secondLine(lines[1]);
+		int[] initDPop = thirdLines(lines[2]);
+		
+		//Deal with 4th line later
 		
 		
 		
@@ -31,13 +36,23 @@ public class Driver {
 		oFile.close();
 	}
 
-	private static String[] fileGetLines(InputStream read) {
+	private static int[] thirdLines(String tLine) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	private int[] firstLine(String fLine) {
+	private static int[] secondLine(String sLine) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private static int[] firstLine(String fLine) {
 		int[] flNumbers = new int[4];
+		String[] fInts = fLine.split(" ");
+		
+		for (int k = 0; k < fInts.length; k++) {
+			
+		}
 		
 		return null;
 	}
