@@ -48,7 +48,8 @@ public class Heap {
 		heapArray[curr] = key;
 		
 		while((curr != 0) && (heapArray[curr] > heapArray[parent(curr)])){
-			
+			swap(curr, parent(curr));
+			curr = parent(curr)
 		}
 	}
 	
