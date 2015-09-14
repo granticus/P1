@@ -18,7 +18,7 @@ public class Heap {
 	}
 	
 	public int leftChild (int pos){
-		if(pos >= currentSize/2) { return -1; }	
+		if (pos >= currentSize/2) return -1;
 		return 2*pos + 1;
 	}
 	
@@ -27,7 +27,7 @@ public class Heap {
 	}
 	
 	public int parent (int pos){
-		return pos/2;
+		return (pos - 1)/2;
 	}
 	
 	public void insert (int key){
