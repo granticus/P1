@@ -18,11 +18,11 @@ public class Heap {
 	}
 	
 	public int leftChild (int pos){
-		return 0;
+		return (2*pos);
 	}
 	
 	public int rightChild (int pos){
-		return 0;
+		return (2*pos) + 1;
 	}
 	
 	public int parent (int pos){
