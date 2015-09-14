@@ -23,6 +23,7 @@ public class Heap {
 	}
 	
 	public int rightChild (int pos){
+		if (pos >= (currentSize-1)/2) return -1;
 		return 2*pos + 2;
 	}
 	
