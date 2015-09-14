@@ -79,5 +79,14 @@ public class Heap {
 	
 	public int remove(int pos){
 		if((pos < 0) || (pos >= currentSize)) return -1;
+		if (pos == (currentSize -1)) currentSize--;
+		else {
+			swap(pos, --currentSize);
+			while((pos > 0) && heapArray[pos] < heapArray[parent(pos)]){
+				swap(pos, parent(pos));
+				pos = parent(pos);
+			}
+			if (currentSize != 0) siftDown(pos);
+		}
 	}
 }
