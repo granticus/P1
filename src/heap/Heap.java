@@ -19,11 +19,11 @@ public class Heap {
 	
 	public int leftChild (int pos){
 		if(pos >= currentSize/2) { return -1; }	
-		return (2*pos);
+		return 2*pos + 1;
 	}
 	
 	public int rightChild (int pos){
-		return (2*pos) + 1;
+		return 2*pos + 2;
 	}
 	
 	public int parent (int pos){
@@ -31,6 +31,7 @@ public class Heap {
 	}
 	
 	public void insert (int key){
+		heapArray[++currentSize] = key;
 		
 	}
 	
