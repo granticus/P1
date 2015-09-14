@@ -88,5 +88,6 @@ public class Heap {
 			}
 			if (currentSize != 0) siftDown(pos);
 		}
+		return heapArray[currentSize];
 	}
 }
