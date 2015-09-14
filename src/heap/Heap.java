@@ -33,8 +33,16 @@ public class Heap {
 	}
 	
 	public void insert (int key){
-		heapArray[++currentSize] = key;
+		if(currentSize >= maxSize){
+			System.out.println("Heap full");
+			return;
+		}
+		int curr = currentSize++;
+		heapArray[curr] = key;
 		
+		while((curr != 0) && (heapArray[curr] > heapArray[parent(curr)])){
+			
+		}
 	}
 	
 	public void buildHeap() {
