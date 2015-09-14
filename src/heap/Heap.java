@@ -28,6 +28,7 @@ public class Heap {
 	}
 	
 	public int parent (int pos){
+		if (pos <= 0) return -1;
 		return (pos - 1)/2;
 	}
 	
