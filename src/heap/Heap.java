@@ -54,7 +54,9 @@ public class Heap {
 	}
 	
 	public void buildHeap() {
-		
+		for (int i = n/2-1; i >= 0; i--) {
+			siftDown();
+		}
 	}
 	
 	public void siftDown() {
