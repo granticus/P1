@@ -54,12 +54,12 @@ public class Heap {
 	}
 	
 	public void buildHeap() {
-		for (int i = n/2-1; i >= 0; i--) {
-			siftDown();
+		for (int i = currentSize/2-1; i >= 0; i--) {
+			siftDown(i);
 		}
 	}
 	
-	public void siftDown() {
+	public void siftDown(int pos) {
 		
 	}
 	
