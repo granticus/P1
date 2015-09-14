@@ -16,4 +16,36 @@ public class Heap {
 	public boolean isLeaf (int pos){
 		return (pos >= currentSize/2) && (pos < currentSize); 
 	}
+	
+	public int leftChild (int pos){
+		return 0;
+	}
+	
+	public int rightChild (int pos){
+		return 0;
+	}
+	
+	public int parent (int pos){
+		return 0;
+	}
+	
+	public void insert (int key){
+		
+	}
+	
+	public void buildHeap() {
+		
+	}
+	
+	public void siftDown() {
+		
+	}
+	
+	public int removeMin() {
+		return 0;
+	}
+	
+	public int remove(int pos){
+		return 0;
+	}
 }
