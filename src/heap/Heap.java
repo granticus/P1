@@ -32,6 +32,13 @@ public class Heap {
 		return (pos - 1)/2;
 	}
 	
+	private void swap(int fpos, int spos){
+		int tmp;
+		tmp = heapArray[fpos];
+		heapArray[fpos] = heapArray[spos];
+		heapArray[spos] = tmp;
+	}
+	
 	public void insert (int key){
 		if(currentSize >= maxSize){
 			System.out.println("Heap full");
