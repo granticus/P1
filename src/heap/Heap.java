@@ -60,14 +60,24 @@ public class Heap {
 	}
 	
 	public void siftDown(int pos) {
+		if((pos < 0) || (pos >= currentSize)) return;
 		
+		while(!isLeaf(pos)){
+			int j = leftChild(pos);
+			
+		}
 	}
 	
 	public int removeMin() {
-		return 0;
+		if (currentSize == 0) return -1;
+		swap(0, --currentSize);
+		if(currentSize != 0){
+			siftDown(0);
+		}
+		return heapArray[currentSize];
 	}
 	
 	public int remove(int pos){
-		return 0;
+		if((pos < 0) || (pos >= currentSize)) return -1;
 	}
 }
