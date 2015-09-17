@@ -89,12 +89,8 @@ public class Driver {
 		//Find index of "s" and try to get an int b4 and after
 		//TODO Not finished.
 	}
-<<<<<<< HEAD
-}
-=======
 	
 	private static double nTau(double propensity) {
 		return Math.log(1/Math.random())/propensity;
 	}
 }
->>>>>>> branch 'master' of https://github.com/granticus/P1.git
