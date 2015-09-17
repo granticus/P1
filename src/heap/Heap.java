@@ -95,4 +95,10 @@ public class Heap {
 		}
 		return heapArray[currentSize];
 	}
+	
+	public void printArray(){
+		for(int i = 0; i < currentSize; i++){
+			System.out.print(heapArray[currentSize] + ", ");
+		}
+	}
 }

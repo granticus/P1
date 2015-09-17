@@ -13,11 +13,12 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import heap.Heap;
 
 public class Driver {
 
 	public static void main(String[] args) throws IOException {
-	
+	/*
 		int numSimulations = Integer.parseInt(args[0]);
 		File iFile = new File(args[1]);
 		PrintWriter oFile = new PrintWriter (args[2]);
@@ -34,6 +35,11 @@ public class Driver {
 		
 		read.close();
 		oFile.close();
+	*/
+		Heap h = new Heap(10);
+		h.insert(5);
+		h.insert(2);
+		System.out.println("here");
 	}
 
 	private static int[] getInts(String line) {
