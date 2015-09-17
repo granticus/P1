@@ -64,7 +64,12 @@ public class Heap {
 		
 		while(!isLeaf(pos)){
 			int j = leftChild(pos);
-			
+			if((j < currentSize-1) && heapArray[j] > heapArray[j+1]){
+				j++;
+			}
+			if(heapArray[pos] <= heapArray[j]){ return; }
+			swap(pos, j);
+			pos = j;
 		}
 	}
 	
