@@ -6,7 +6,7 @@
 public class InputParser {
 	
 	/**
-	 * Instantiates a new input parser.
+	 * Instantiates a new input parser. The class should not store anything, so the main method is empty and does nothing.
 	 */
 	public InputParser() {};
 	
