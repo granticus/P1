@@ -71,11 +71,6 @@ public class Driver {
 		reactions[2] = reac3;
 		*/
 		
-		//SETUP UP INITIAL PROPENSITIES
-		for(int i = 0; i < totalReactions; i++){
-			reactions[i].calculatePropensity(populations);
-		}
-		
 		double currentTime;
 		
 		for(int i = 0; i < numSimulations; i++){
@@ -84,7 +79,13 @@ public class Driver {
 			
 			while(currentTime < finalSimTime){
 				for(int j = 0; j < reactions.length; j++){
-					
+					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
+				}
+				int lowestFireTimeIndex = 0;
+				for(int j = 1; j < reactions.length; j++){
+					if(reactions[j].getCurrentTau() < reactions[lowestFireTimeIndex].getCurrentTau()){
+						lowestFireTimeIndex = j;
+					}
 				}
 				//calculate fire times
 				//choose lowest fire time

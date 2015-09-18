@@ -36,4 +36,7 @@ public class Reaction {
 	public double getCurrentTau(){
 		return currentTau;
 	}
+	public int[] getNetChanges(){
+		return netChanges;
+	}
 }
