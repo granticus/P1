@@ -74,8 +74,17 @@ public class InputParser {
 		return rTable;
 	}
 	
-	public double [][] getReactants(String line) {
+	/**
+	 * Gets the reactants.
+	 *
+	 * @param line the line
+	 * @param equationNumber the equation number
+	 * @param rTable the r table
+	 * @return the reactants
+	 */
+	public int [][] getReactants(String line, int equationNumber, double[][] rTable) {
 		String [] elements = line.split(" ");
+		int[][] reactants = new int[rTable.length-1][rTable[0].length];
 		
 		for (int i = 0; i < elements.length; i++) {
 			
@@ -84,7 +93,7 @@ public class InputParser {
 			int sIndex = elements[i].indexOf('S');
 			
 			if (elements[i].substring(0, 2).equals("->")) {
-				return;
+				return reactants;
 			}
 			else if (elements[i].substring(0, 1).equals("+")) {
 				break;
@@ -92,18 +101,12 @@ public class InputParser {
 			else if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			
 			species = Integer.valueOf(elements[i].substring(sIndex+1)); //careful,sometimes the reaction starts at zero.
 			
-			if (side == 0) {
-				rTable[species][equationNumber]-=numSpecies;
-			}
-			else if (side == 1) {
-				rTable[species][equationNumber]+=numSpecies;
-			}
+			reactants[species][equationNumber]+=numSpecies;
 		}
 			
-		return rTable;
+		return reactants;
 	}
 	
 }
