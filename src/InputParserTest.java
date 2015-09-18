@@ -47,20 +47,44 @@ public class InputParserTest {
 	@Test
 	public void testParseReaction() {
 
+		//Total Species is 3
+		int tSpe = 3;
+		
+		int []expected4 = {1, 0, 0};
 		String line4 = "-> 100 S1";
+		
+		
 		String line5 = "2S1 ->0.001 S2";
+		
+		
 		String line6 = "S2 ->0.5 2S1";
+		
+		
 		String line7 = "S2 ->0.04 S3";
+	
+	
 	}
 	
 	@Test
 	public void testGetReactants() {
+
+		int tSpe = 3;
 
 		String line4 = "-> 100 S1";
 		String line5 = "2S1 ->0.001 S2";
 		String line6 = "S2 ->0.5 2S1";
 		String line7 = "S2 ->0.04 S3";
 		
+	}
+	
+	@Test
+	public void testGetConstant() {
+
+
+		String line4 = "-> 100 S1";
+		String line5 = "2S1 ->0.001 S2";
+		String line6 = "S2 ->0.5 2S1";
+		String line7 = "S2 ->0.04 S3";
 	}
 
 }

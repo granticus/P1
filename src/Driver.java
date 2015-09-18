@@ -73,7 +73,9 @@ public class Driver {
 				//add chosen time to currentTime
 			}
 		}
-		
+		/**
+		 * Do line that outputs a string line to a file.
+		 */
 		oFile.close();
 		read.close();
 	}
