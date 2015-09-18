@@ -48,7 +48,7 @@ public class Driver {
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[numReactions];
 		for(int reactionNum = 0; reactionNum < numReactions; reactionNum++){
-			double k = .1; //READ IN K, DELETE THIS LINE
+			//double k = .1; //READ IN K, DELETE THIS LINE
 			//reactions[reactionNum] = new Reaction(k, REACTANTS_ARRAY, NET_CHANGES);
 		}
 		
