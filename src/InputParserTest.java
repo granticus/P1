@@ -48,32 +48,47 @@ public class InputParserTest {
 	public void testParseReaction() {
 
 		//Total Species is 3
-		int tSpe = 3;
+		int totalSpecies = 3;
 		
-		int []expected4 = {1, 0, 0};
-		String line4 = "-> 100 S1";
+		int [] expected4 = {1, 0, 0};
+		String line4 = "->100 S1";
+		Assert.assertArrayEquals(expected4, parse.parseReaction(line4, totalSpecies));
 		
-		
+		int [] expected5 = {-2, 1, 0};
 		String line5 = "2S1 ->0.001 S2";
+		Assert.assertArrayEquals(expected5, parse.parseReaction(line5, totalSpecies));
 		
-		
+		int [] expected6 = {2, -1, 0};
 		String line6 = "S2 ->0.5 2S1";
+		Assert.assertArrayEquals(expected6, parse.parseReaction(line6, totalSpecies));
 		
-		
+		int [] expected7 = {0, -1, 1};
 		String line7 = "S2 ->0.04 S3";
-	
-	
+		Assert.assertArrayEquals(expected7, parse.parseReaction(line7, totalSpecies));
 	}
 	
 	@Test
 	public void testGetReactants() {
 
-		int tSpe = 3;
+		int totalSpecies = 3;
 
-		String line4 = "-> 100 S1";
+
+		int [] expected4 = {0, 0, 0};
+		String line4 = "->100 S1";
+		Assert.assertArrayEquals(expected4, parse.getReactants(line4, totalSpecies));
+		
+		int [] expected5 = {1, 1, 0};
 		String line5 = "2S1 ->0.001 S2";
+		Assert.assertArrayEquals(expected5, parse.getReactants(line5, totalSpecies));
+		
+		int [] expected6 = {0, 1, 0};
 		String line6 = "S2 ->0.5 2S1";
+		Assert.assertArrayEquals(expected6, parse.getReactants(line6, totalSpecies));
+		
+		int [] expected7 = {0, 1, 0};
 		String line7 = "S2 ->0.04 S3";
+		Assert.assertArrayEquals(expected7, parse.getReactants(line7, totalSpecies));
+
 		
 	}
 	
@@ -81,7 +96,7 @@ public class InputParserTest {
 	public void testGetConstant() {
 
 
-		String line4 = "-> 100 S1";
+		String line4 = "->100 S1";
 		String line5 = "2S1 ->0.001 S2";
 		String line6 = "S2 ->0.5 2S1";
 		String line7 = "S2 ->0.04 S3";
