@@ -124,12 +124,16 @@ public class InputParser {
 
 
 	public double getKConstant(String line) {
-		String[] elements = line.split(" ");
+		int kIndex = line.indexOf("->") + 2;
+		int endKIndex = line.substring(kIndex).indexOf(' ');
+		return Double.parseDouble(line.substring(kIndex, endKIndex));
+		
+		/*String[] elements = line.split(" ");
 		for (int i = 0; i < elements.length; i++) {
 			if (elements[i].substring(0, 2).equals("->")) {
 				return Double.parseDouble(elements[i].substring(3));
 			}
-		}
+		}*/
 		return 0;
 	}
 }
