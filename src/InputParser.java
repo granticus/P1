@@ -65,13 +65,13 @@ public class InputParser {
 			int numSpecies = 1;
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
-			
-			if (!elements[i].substring(0, 1).equals("+")) {
+			if (elements[i].substring(0, 2).equals("->")) {
+				side = 1;
+				rTable[kIndex][equationNumber] = Integer
+						.valueOf(elements[i].substring(3));
+			}
+			else if (!elements[i].substring(0, 1).equals("+")) {
 
-				if (elements[i].substring(0, 2).equals("->")) {
-					side = 1;
-					rTable[kIndex][equationNumber] = Integer
-							.valueOf(elements[i].substring(3));
 
 				} else if (elements[i + 1].substring(0, 1).equals("+")) {
 
