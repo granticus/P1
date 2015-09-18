@@ -33,4 +33,7 @@ public class Reaction {
 	public void setCurrentTau(double t){
 		currentTau = t;
 	}
+	public double getCurrentTau(){
+		return currentTau;
+	}
 }
