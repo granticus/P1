@@ -65,7 +65,7 @@ public class InputParser {
 			int numSpecies = 1;
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
-			
+
 			if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
 				rTable[kIndex][equationNumber] = Integer.valueOf(elements[i]
@@ -103,10 +103,10 @@ public class InputParser {
 	 * @return the reactants returns an array that has width of all the species
 	 *         and whether those species are present in the reaction.
 	 */
-	public int[][] getReactants(String line, int equationNumber,
-			double[][] rTable) {
+	public int[] getReactants(String line, int equationNumber,
+			int numOfSpecies) {
 		String[] elements = line.split(" ");
-		int[][] reactants = new int[rTable.length - 1][rTable[0].length];
+		int[] reactants = new int[numOfSpecies];
 
 		for (int i = 0; i < elements.length; i++) {
 
@@ -116,16 +116,17 @@ public class InputParser {
 
 			if (elements[i].substring(0, 2).equals("->")) {
 				break;
-			} else if (!elements[i].substring(0, 1).equals("+")){
+			} else if (!elements[i].substring(0, 1).equals("+")) {
 				if (elements[i].matches("\\d+S\\d+")) {
-				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+					numSpecies = Integer.valueOf(elements[i].substring(0,
+							sIndex));
+				}
+				species = Integer.valueOf(elements[i].substring(sIndex + 1));
+				// careful,sometimes the reaction starts at zero.
+
+				reactants[species][equationNumber] += numSpecies;
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1));
-			// careful,sometimes the reaction starts at zero.
-
-			reactants[species][equationNumber] += numSpecies;
 		}
-
 		return reactants;
 	}
 
