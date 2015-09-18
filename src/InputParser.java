@@ -34,7 +34,7 @@ public class InputParser {
 
 		 */
 	
-	public int [][] reacAndProd(String line, int equationNumber, int[][] rTable) {
+	public double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
 		String [] elements = line.split(" ");
 		int side = 0;
 		int kIndex = rTable.length;
