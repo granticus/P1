@@ -4,10 +4,11 @@ public class Reaction {
 	private double propensity;
 	
 	private int[]reactants;
-	private int[]netChange;
+	private int[]netChanges;
 	
-	public Reaction(double k, int numSpecies){
-		reactants = new int[numSpecies];
+	public Reaction(double k, int[]reactants, int[]netChanges){
+		this.reactants = reactants;
+		this.netChanges = netChanges;
 		this.k = k;
 	}
 }
