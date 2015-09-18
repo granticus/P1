@@ -54,7 +54,7 @@ public class InputParser {
 				rTable[kIndex][equationNumber] = Integer.valueOf(elements[i].substring(3));
 				i++;
 			}
-			else if (elements[i].substring(0, 1).equals("+")) {
+			else if (elements[i+1].substring(0, 1).equals("+")) {
 				i++;
 			}
 			else if (elements[i].matches("\\d+S\\d+")) {
