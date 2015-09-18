@@ -50,7 +50,7 @@ public class InputParser {
 	 * @return the double[] returns an updated equation table with the net loss
 	 *         or gain from the equation with the k at the end.
 	 */
-	public double[] parseReaction(String line, int totalSpecies) {
+	public int[] parseReaction(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
 		int side = 0;
 		double[] netReaction = new double[totalSpecies + 1];
