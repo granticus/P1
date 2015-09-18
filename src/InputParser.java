@@ -75,7 +75,7 @@ public class InputParser {
 	}
 	
 	/**
-	 * Gets the reactants.
+	 * Gets the reactants and outputs them onto a table.
 	 *
 	 * @param line the line
 	 * @param equationNumber the equation number
