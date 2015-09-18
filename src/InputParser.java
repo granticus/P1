@@ -1,80 +1,129 @@
-import java.io.*;
-
-
+/**
+ * The Class InputParser. This class has methods to take a String and return the
+ * necessary data from the string. It can return an array of ints if the String
+ * needs each of those elements. It can also update the reactionary table.
+ * 
+ * @author Alex Hsu
+ * @author Grant Golden
+ * 
+ */
 public class InputParser {
 
-	public static void main(String[] args) throws IOException {
-	
-		int numSimulations = Integer.parseInt(args[0]);
-		//This pretty much generates nS # of output files
-		File iFile = new File(args[1]);
-		PrintWriter oFile = new PrintWriter (args[2]);
-		
-		InputStream read = new FileInputStream(iFile);
-		String [] lines = read.toString().split("\n");
-		int[] fline = getInts(lines[0]);
-		/*
-		 * fline[0] is number of species
-		 * fline[1] specifies the number of reactions
-		 * fline[2] specifies # of chemical species that will be displayed in the output
-		 * fline[3] final time when simulation time should end.
-		 * 
-		 */
-		
-		int[] initProp;
-		int[] pop = getInts(lines[1]);
-		//int[] output = new int[fline[2]]; 
-		int[] dPop = getInts(lines[2]); //subtract the individual elements by 1 in order the index of array
-		//We will need this later, but not currently important.
-		/*
-		for (int j = 0; j < output.length; j++) {
-			output[j] = initNPop[dPop[j]-1];
-		}*/
-		//unless we keep dPop
-		
-		double time = 0;
-		
-		
-		//while (time < numSimulations)
-		// double tau = nTau(/*propensity*/0);
-		// time += tau;
-		
-		for (int i = 4; i < 4 + fline[1]; i++) {
-			//Parses line by line
-			
-			
-			
-		}
-		
-		
-		
-		read.close();
-		oFile.close();
-	}
+	/**
+	 * Instantiates a new input parser. The class should not store anything, so
+	 * the main method is empty and does nothing.
+	 */
+	public InputParser() {
+	};
 
-	private static int[] getInts(String line) {
+	/**
+	 * Gets the ints. Takes a String and returns all the ints from the line.
+	 * This will only work if the line is split by whitespace and filled with
+	 * only numbers of type integer.
+	 *
+	 * @param line
+	 *            The String that will be parsed for its ints. Cannot be null.
+	 *            Has to only contain numbers of type integer.
+	 * @return the ints An array of the integers in the line.
+	 */
+	public int[] getInts(String line) {
 		int[] num = new int[4];
 		String[] strInts = line.split(" ");
-		
+
 		for (int k = 0; k < strInts.length; k++) {
 			num[k] = Integer.parseInt(strInts[k]);
 		}
 		return null;
 	}
-	
-	private static void getReactions(String line) {
-		String [] equation = line.split("->");
-		//products will be equation.length - 1;
-		if (equation.length < 2) {
-			
+
+	/**
+	 * Reactions and products. This will take a chemical equation and will
+	 * update the equation table that the equation corresponds too. This will
+	 * also get the k value of a reaction. This method should only be called
+	 * once, and once the string has been parsed, should not be called again.
+	 *
+	 * @param line
+	 *            The String that will be parsed. Cannot be null. Must follow
+	 *            the specified format and rules.
+	 * @param totalSpecies
+	 *            This will determine how long to build the array.
+	 * @return the double[] returns an updated equation table with the net loss
+	 *         or gain from the equation with the k at the end.
+	 */
+	public double[] parseReaction(String line, int totalSpecies) {
+		String[] elements = line.split(" ");
+		int side = 0;
+		double[] netReaction = new double[totalSpecies + 1];
+
+		for (int i = 0; i < elements.length; i++) {
+
+			int numSpecies = 1;
+			int species = 0;
+			int sIndex = elements[i].indexOf('S');
+
+			if (elements[i].substring(0, 2).equals("->")) {
+				side = 1;
+				netReaction[totalSpecies] = Integer.valueOf(elements[i]
+						.substring(3));
+				// k constant will be stored at the end since arrays starts
+				// at 0
+			} else if (!elements[i].substring(0, 1).equals("+")) {
+
+				if (elements[i].matches("\\d+S\\d+")) {
+					numSpecies = Integer.valueOf(elements[i].substring(0,
+							sIndex));
+				}
+				species = Integer.valueOf(elements[i].substring(sIndex + 1));
+				// careful,sometimes the reaction starts at zero.
+
+				if (side == 0) {
+					netReaction[species] -= numSpecies;
+				} else if (side == 1) {
+					netReaction[species] += numSpecies;
+				}
+			}
 		}
-		String [] products = equation[equation.length-1].split(" ");
-		if (products[0].split("+").length == 1) {
-			//product contains 2 separate species.
-		}
-		int rateConstant = Integer.parseInt(products[0]);
-		//Find index of "s" and try to get an int b4 and after
-		//TODO Not finished.
+
+		return netReaction;
 	}
-	
+
+	/**
+	 * Gets the reactants and outputs them onto a table.
+	 *
+	 * @param line
+	 *            The String that will have the chemical equation.
+	 * @param equationNumber
+	 *            The equation number that will dictate the row.
+	 * @param totalSpecies
+	 *            This will decide how long the array is.
+	 * @return the reactants returns an array that has width of all the species
+	 *         and whether those species are present in the reaction, but not
+	 *         products.
+	 */
+	public int[] getReactants(String line, int totalSpecies) {
+		String[] elements = line.split(" ");
+		int[] reactants = new int[totalSpecies];
+
+		for (int i = 0; i < elements.length; i++) {
+
+			int numSpecies = 1;
+			int species = 0;
+			int sIndex = elements[i].indexOf('S');
+
+			if (elements[i].substring(0, 2).equals("->")) {
+				break;
+			} else if (!elements[i].substring(0, 1).equals("+")) {
+				if (elements[i].matches("\\d+S\\d+")) {
+					numSpecies = Integer.valueOf(elements[i].substring(0,
+							sIndex));
+				}
+				species = Integer.valueOf(elements[i].substring(sIndex + 1));
+				// careful,sometimes the reaction starts at zero.
+
+				reactants[species] += numSpecies;
+			}
+		}
+		return reactants;
+	}
+
 }

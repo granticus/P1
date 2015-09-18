@@ -17,7 +17,18 @@ import java.io.PrintWriter;
 public class Driver {
 
 	public static void main(String[] args) throws IOException {
+<<<<<<< HEAD
+=======
+	
+		InputParser parse = new InputParser();
 		
+		int numSimulations = Integer.parseInt(args[0]);
+		//This pretty much generates nS # of output files
+		File iFile = new File(args[1]);
+		PrintWriter oFile = new PrintWriter (args[2]);
+>>>>>>> branch 'master' of https://github.com/granticus/P1.git
+		
+<<<<<<< HEAD
 		int numSimulations = 1;
 		
 		//FIRST LINE
@@ -38,6 +49,11 @@ public class Driver {
 		
 		//THIRD LINE
 		int[] trackedIndices = new int[numOutputted];
+=======
+		InputStream read = new FileInputStream(iFile);
+		String [] lines = read.toString().split("\n");
+		int[] fline = parse.getInts(lines[0]);
+>>>>>>> branch 'master' of https://github.com/granticus/P1.git
 		
 		for(int i = 0; i < numOutputted; i++){
 			//trackedIndices[i] = READ IN VALUES
@@ -72,6 +88,7 @@ public class Driver {
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	private static int[] getInts(String line) {
 		int[] num = new int[4];
@@ -98,6 +115,8 @@ public class Driver {
 		//TODO Not finished.
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/granticus/P1.git
 	private static double nTau(double propensity) {
 		return Math.log(1/Math.random())/propensity;
 	}
