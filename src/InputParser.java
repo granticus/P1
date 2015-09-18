@@ -65,7 +65,7 @@ public class InputParser {
 				side = 1;
 				netReaction[totalSpecies] = Integer.valueOf(elements[i]
 						.substring(3));
-				// k constant will be store at the end since the arrays starts
+				// k constant will be stored at the end since the arrays starts
 				// at 0
 			} else if (!elements[i].substring(0, 1).equals("+")) {
 
