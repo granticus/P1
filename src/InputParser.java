@@ -123,17 +123,17 @@ public class InputParser {
 	}
 
 
+	/**
+	 * Gets the k constant of a reaction by looking for the arrow and getting the number immediately after it..
+	 *
+	 * @param line The equation the will have the k constant
+	 * @return the k constant
+	 */
 	public double getKConstant(String line) {
 		int kIndex = line.indexOf("->") + 2;
 		int endKIndex = line.substring(kIndex).indexOf(' ');
-		return Double.parseDouble(line.substring(kIndex, endKIndex));
-		
-		/*String[] elements = line.split(" ");
-		for (int i = 0; i < elements.length; i++) {
-			if (elements[i].substring(0, 2).equals("->")) {
-				return Double.parseDouble(elements[i].substring(3));
-			}
-		}*/
+		if (kIndex != 1)
+			return Double.parseDouble(line.substring(kIndex, endKIndex));
 		return 0;
 	}
 }
