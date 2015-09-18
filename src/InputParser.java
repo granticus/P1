@@ -97,9 +97,8 @@ public class InputParser {
 	 *            The String that will have the chemical equation.
 	 * @param equationNumber
 	 *            The equation number that will dictate the row.
-	 * @param rTable
-	 *            The table so the new reaction table will know the length and
-	 *            width
+	 * @param numOfSpecies
+	 *            The will decide how long the array is.
 	 * @return the reactants returns an array that has width of all the species
 	 *         and whether those species are present in the reaction.
 	 */
@@ -124,7 +123,7 @@ public class InputParser {
 				species = Integer.valueOf(elements[i].substring(sIndex + 1));
 				// careful,sometimes the reaction starts at zero.
 
-				reactants[species][equationNumber] += numSpecies;
+				reactants[species] += numSpecies;
 			}
 		}
 		return reactants;
