@@ -3,6 +3,8 @@ public class Reaction {
 	private double k;
 	private double propensity;
 	
+	private int numFired;
+	
 	private int[]reactants;
 	private int[]netChanges;
 	

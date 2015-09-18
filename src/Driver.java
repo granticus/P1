@@ -34,13 +34,14 @@ public class Driver {
 		int[] populations = parse.getInts(lines[1]);
 			
 		//THIRD LINE
-		int[] trackedIndices = parse.getInts(lines[2]);
+		int[] trackedIndices = parse.getInts(lines[2]); // SUBTRACT 1 MAYBE LATER
 		
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
-			//double k = .1; //READ IN K, DELETE THIS LINE
-			//reactions[reactionNum] = new Reaction(k, REACTANTS_ARRAY, NET_CHANGES);
+			
+			reactions[reactionNum] = new Reaction(parse.getK(), parse.getReactants(lines[reactionNum+3], numSpecies),
+					parse.parseReaction(lines[reactionNum+3], numSpecies));
 		}
 		
 		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
@@ -55,11 +56,17 @@ public class Driver {
 			reactions[i].calculatePropensity(populations);
 		}
 		
-		int currentTime = 0;
+		double currentTime;
 		
 		for(int i = 0; i < numSimulations; i++){
+			
+			currentTime = 0;
+			
 			while(currentTime < finalSimTime){
-				
+				//calculate fire times
+				//choose lowest fire time
+				//update populations using the netChange of the chosen reaction
+				//add chosen time to currentTime
 			}
 		}
 	}
