@@ -6,7 +6,8 @@ public class Reaction {
 	private int[]reactants;
 	private int[]netChange;
 	
-	public Reaction(double k){
+	public Reaction(double k, int numSpecies){
+		reactants = new int[numSpecies];
 		this.k = k;
 	}
 }
