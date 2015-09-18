@@ -122,11 +122,12 @@ public class InputParser {
 		return reactants;
 	}
 
-
 	/**
-	 * Gets the k constant of a reaction by looking for the arrow and getting the number immediately after it..
+	 * Gets the k constant of a reaction by looking for the arrow and getting
+	 * the number immediately after it..
 	 *
-	 * @param line The equation the will have the k constant
+	 * @param line
+	 *            The equation the will have the k constant
 	 * @return the k constant from the equation.
 	 */
 	public double getKConstant(String line) {
