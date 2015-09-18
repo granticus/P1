@@ -97,7 +97,7 @@ public class InputParser {
 	 * @param totalSpecies
 	 *            This will decide how long the array is.
 	 * @return the reactants returns an array that has width of all the species
-	 *         and whether those species are present in the reaction, not products.
+	 *         and whether those species are present in the reaction, but not products.
 	 */
 	public int[] getReactants(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
