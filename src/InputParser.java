@@ -47,8 +47,8 @@ public class InputParser {
 	 *            the specified format and rules.
 	 * @param totalSpecies
 	 *            This will determine how long to build the array.
-	 * @return the double[] returns an updated equation table with the net
-	 *         loss or gain from the equation with the k at the end.
+	 * @return the double[] returns an updated equation table with the net loss
+	 *         or gain from the equation with the k at the end.
 	 */
 	public double[] parseReaction(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
@@ -97,7 +97,8 @@ public class InputParser {
 	 * @param totalSpecies
 	 *            This will decide how long the array is.
 	 * @return the reactants returns an array that has width of all the species
-	 *         and whether those species are present in the reaction, but not products.
+	 *         and whether those species are present in the reaction, but not
+	 *         products.
 	 */
 	public int[] getReactants(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
