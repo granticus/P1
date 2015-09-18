@@ -78,18 +78,26 @@ public class Driver {
 			currentTime = 0;
 			
 			while(currentTime < finalSimTime){
-				for(int j = 0; j < reactions.length; j++){
+				
+				//calculate fire times
+				for(int j = 0; j < totalReactions; j++){
 					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 				}
+				
+				//choose lowest fire time
 				int lowestFireTimeIndex = 0;
-				for(int j = 1; j < reactions.length; j++){
+				for(int j = 1; j < totalReactions; j++){
 					if(reactions[j].getCurrentTau() < reactions[lowestFireTimeIndex].getCurrentTau()){
 						lowestFireTimeIndex = j;
 					}
 				}
-				//calculate fire times
-				//choose lowest fire time
+				
 				//update populations using the netChange of the chosen reaction
+				int[] currNetChange = reactions[lowestFireTimeIndex].getNetChanges();
+				for(int j = 0; j < totalReactions; j++){
+					
+				}
+				
 				//add chosen time to currentTime
 			}
 		}
