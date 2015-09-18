@@ -79,8 +79,8 @@ public class InputParser {
 	 *
 	 * @param line The String that will have the chemical equation.
 	 * @param equationNumber The equation number that will dictate the row.
-	 * @param rTable the r table
-	 * @return the reactants
+	 * @param rTable The table so the new reaction table will know the length and width
+	 * @return the reactants returns an array that has width of all the species and whether those species are present in the reaction.
 	 */
 	public int [][] getReactants(String line, int equationNumber, double[][] rTable) {
 		String [] elements = line.split(" ");
