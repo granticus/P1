@@ -27,8 +27,8 @@ public class InputParser {
 	 * @return the ints An array of the integers in the line.
 	 */
 	public int[] getInts(String line) {
-		int[] num = new int[4];
 		String[] strInts = line.split(" ");
+		int[] num = new int[strInts.length];
 
 		for (int k = 0; k < strInts.length; k++) {
 			num[k] = Integer.parseInt(strInts[k]);

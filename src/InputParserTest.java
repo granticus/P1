@@ -36,11 +36,11 @@ public class InputParserTest {
 		
 		int [] expected2 = {1000, 200, 0};
 		String line2 = "1000 200 0";
-		Assert.assertArrayEquals(expected2, parse.getInts(line2)));
+		Assert.assertArrayEquals(expected2, parse.getInts(line2));
 		
 		int [] expected3 = {2};
 		String line3 = "2";
-		Assert.assertArrayEquals(expected3, parse.getInts(line3)));
+		Assert.assertArrayEquals(expected3, parse.getInts(line3));
 
 	}
 	
