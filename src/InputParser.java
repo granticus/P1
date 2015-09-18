@@ -47,7 +47,7 @@ public class InputParser {
 	 *            the specified format and rules.
 	 * @param totalSpecies
 	 *            This will determine how long to build the array.
-	 * @return the double[][] returns an updated equation table with the net
+	 * @return the double[] returns an updated equation table with the net
 	 *         loss or gain from the equation.
 	 */
 	public double[] parseReaction(String line, int totalSpecies) {
