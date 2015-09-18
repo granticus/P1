@@ -50,10 +50,10 @@ public class InputParser {
 	 * @return the double[] returns an updated equation table with the net loss
 	 *         or gain from the equation with the k at the end.
 	 */
-	public double[] parseReaction(String line, int totalSpecies) {
+	public int[] parseReaction(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
 		int side = 0;
-		double[] netReaction = new double[totalSpecies + 1];
+		int[] netReaction = new int[totalSpecies];
 
 		for (int i = 0; i < elements.length; i++) {
 
@@ -63,10 +63,6 @@ public class InputParser {
 
 			if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
-				netReaction[totalSpecies] = Integer.valueOf(elements[i]
-						.substring(3));
-				// k constant will be stored at the end since arrays starts
-				// at 0
 			} else if (!elements[i].substring(0, 1).equals("+")) {
 
 				if (elements[i].matches("\\d+S\\d+")) {
@@ -126,4 +122,14 @@ public class InputParser {
 		return reactants;
 	}
 
+
+	public double getKConstant(String line) {
+		String[] elements = line.split(" ");
+		for (int i = 0; i < elements.length; i++) {
+			if (elements[i].substring(0, 2).equals("->")) {
+				return Double.parseDouble(elements[i].substring(3));
+			}
+		}
+		return 0;
+	}
 }
