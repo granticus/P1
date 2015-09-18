@@ -46,12 +46,12 @@ public class InputParser {
 		 */
 	
 	/**
-	 * Reactions and products. This will take a chemical equation and will update the equation table that the equation corresponds too. This will also get the k value of a reaction.
+	 * Reactions and products. This will take a chemical equation and will update the equation table that the equation corresponds too. This will also get the k value of a reaction. This method should only be called once, and once the string has been parsed, should not be called again.
 	 *
 	 * @param line The String that will be parsed. Cannot be null. Must follow the specified format and rules.
 	 * @param equationNumber What number reaction (and row) the equation will go under in the equation table.
 	 * @param rTable The equation table that will be updated everytime a reaction fires.
-	 * @return the double[][]
+	 * @return the double[][] returns an updated equation table with the right values to the eqation.
 	 */
 	public double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
 		String [] elements = line.split(" ");
