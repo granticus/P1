@@ -14,8 +14,9 @@ public class InputParser {
 		}
 		return null;
 	}
-/*
-  		 * ei. :
+
+	/*
+  		ei. :
 		  
 		  	3 3 2 10
 			1000 1000 0
