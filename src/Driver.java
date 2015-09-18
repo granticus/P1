@@ -33,6 +33,34 @@ public class Driver {
 
 	public static void main(String[] args) throws IOException {
 
+		//SAMPLE HARDCODED DATA
+		int numSimulations = 1;
+		
+		int numSpecies = 3;
+		int totalReactions = 3;
+		int numOutputted = 2;
+		int finalSimTime = 10;
+		
+		int[] populations = new int[3];
+		populations[0] = 1000;
+		populations[1] = 1000;
+		populations[2] = 0;
+		
+		int[] trackedIndices = new int[2];
+		trackedIndices[0] = 0;
+		trackedIndices[1] = 1;
+		
+		Reaction [] reactions = new Reaction[totalReactions];
+		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
+		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
+		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1}); // FOR NOW, manually set
+		reactions[0] = reac1;
+		reactions[1] = reac2;
+		reactions[2] = reac3;
+		
+		
+		/*
+		//INPUTTED DATA
 		InputParser parse = new InputParser();
 		
 		int numSimulations = Integer.parseInt(args[0]);
@@ -62,13 +90,6 @@ public class Driver {
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.parseReaction(lines[reactionNum+3], numSpecies));
 		}
-		/*
-		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
-		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
-		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1}); // FOR NOW, manually set
-		reactions[0] = reac1;
-		reactions[1] = reac2;
-		reactions[2] = reac3;
 		*/
 		
 		double currentTime;
@@ -76,6 +97,8 @@ public class Driver {
 		for(int i = 0; i < numSimulations; i++){
 			
 			currentTime = 0;
+			
+			System.out.println(currentTime + "\t" + populations[0] + populations[1]);
 			
 			while(currentTime < finalSimTime){
 				
@@ -99,7 +122,7 @@ public class Driver {
 				}
 				
 				//add chosen time to currentTime
-				currentTime += reactions[j].getCurrentTau();
+				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
 		}
 	}
