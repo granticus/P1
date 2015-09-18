@@ -18,51 +18,65 @@ public class Driver {
 
 	public static void main(String[] args) throws IOException {
 	
-		int numSimulations = Integer.parseInt(args[0]);
-		//This pretty much generates nS # of output files
-		File iFile = new File(args[1]);
-		PrintWriter oFile = new PrintWriter (args[2]);
+		//FIRST LINE
+		int numSpecies = 3;
+		int numReactions = 3;
+		int numOutputted = 2;
+		int finalSimTime = 10;
 		
-		InputStream read = new FileInputStream(iFile);
-		String [] lines = read.toString().split("\n");
-		int[] fline = getInts(lines[0]);
-		/*
-		 * fline[0] is number of species
-		 * fline[1] specifies the number of reactions
-		 * fline[2] specifies # of chemical species that will be displayed in the output
-		 * fline[3] final time when simulation time should end.
-		 * 
-		 */
+		int[] populations = new int[numSpecies];
 		
-		int[] initProp;
-		int[] pop = getInts(lines[1]);
-		//int[] output = new int[fline[2]]; 
-		int[] dPop = getInts(lines[2]); //subtract the individual elements by 1 in order the index of array
-		//We will need this later, but not currently important.
-		/*
-		for (int j = 0; j < output.length; j++) {
-			output[j] = initNPop[dPop[j]-1];
-		}*/
-		//unless we keep dPop
+		//SECOND LINE
+		for(int i = 0; i < numSpecies; i++){
+			//populations[i] = 	READ IN THE VALUES
+		}
+		populations[0] = 1000;
+		populations[1] = 1000;
+		populations[2] = 0; 	//FOR NOW, manually set them
 		
-		double time = 0;
+		//THIRD LINE
+		int[] trackedIndices = new int[numOutputted];
 		
+		for(int i = 0; i < numOutputted; i++){
+			//trackedIndices[i] = READ IN VALUES
+		}
+		trackedIndices[0] = 1;
+		trackedIndices[1] = 2;
 		
-		//while (time < numSimulations)
-		// double tau = nTau(/*propensity*/0);
-		// time += tau;
+		//REST OF LINES
+		double [][] reactions = new double[numReactions][numSpecies+1]; //+1 because of k
+		for(int reactionNum = 0; reactionNum < numReactions; reactionNum++){
+			for(int i = 0; i < numSpecies; i++){
+				reactions[reactionNum][i] = 10; //READ IN SPECIES VALUES (+1, -2, 0, etc..)
+			}
+			reactions[reactionNum][numSpecies] = .1; //READ IN K
+		}
+		reactions[0][0] = 1;
+		reactions[0][1] = 0;
+		reactions[0][2] = 0;
+		reactions[0][3] = 10;
 		
-		for (int i = 4; i < 4 + fline[1]; i++) {
-			//Parses line by line
-			
-			
-			
+		reactions[1][0] = -1;
+		reactions[1][1] = 1;
+		reactions[1][2] = 0;
+		reactions[1][3] = .01;
+		
+		reactions[0][0] = 0;
+		reactions[0][1] = -1;
+		reactions[0][2] = 1;
+		reactions[0][3] = 10; //FOR NOW, manually set
+		
+		//SETUP UP INITIAL PROPENSITIES
+		double[] propensities = new double[numReactions];
+		for(int i = 0; i < numReactions; i++){
+			propensities[i] = 
 		}
 		
+		int currentTime = 0;
 		
-		
-		read.close();
-		oFile.close();
+		while(currentTime < finalSimTime){
+			
+		}
 	}
 
 	private static int[] getInts(String line) {
