@@ -50,7 +50,7 @@ public class InputParser {
 	 *
 	 * @param line The String that will be parsed. Cannot be null. Must follow the specified format and rules.
 	 * @param equationNumber What number reaction (and row) the equation will go under in the equation table.
-	 * @param rTable the r table
+	 * @param rTable The equation table that will be updated everytime a reaction fires.
 	 * @return the double[][]
 	 */
 	public double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
