@@ -78,7 +78,7 @@ public class InputParser {
 	 * Gets the reactants and outputs them onto a table.
 	 *
 	 * @param line The String that will have the chemical equation.
-	 * @param equationNumber the equation number
+	 * @param equationNumber The equation number that will dictate the row.
 	 * @param rTable the r table
 	 * @return the reactants
 	 */
