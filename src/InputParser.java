@@ -25,25 +25,6 @@ public class InputParser {
 		}
 		return null;
 	}
-
-	/*
-  		ei. :
-		  
-		  	3 3 2 10
-			1000 1000 0
-			1 2
-			
-			S1 ->10 2S1
-			S1 + S2 ->0.01 2S2
-			S2 ->10 S3
-			2S2
-			
-			S1	S2	S3 	k
-			1	0	0	10
-			-1	1	0	.01
-			0	-1	1	10
-
-		 */
 	
 	/**
 	 * Reactions and products. This will take a chemical equation and will update the equation table that the equation corresponds too. This will also get the k value of a reaction. This method should only be called once, and once the string has been parsed, should not be called again.
