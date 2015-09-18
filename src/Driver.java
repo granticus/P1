@@ -73,6 +73,9 @@ public class Driver {
 				//add chosen time to currentTime
 			}
 		}
+		
+		oFile.close();
+		read.close();
 	}
 	
 	private static double nTau(double propensity) {
