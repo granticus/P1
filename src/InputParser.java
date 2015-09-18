@@ -1,19 +1,19 @@
 
 /**
- * The Class InputParser. This class has methods to take a String and return the necessary data from the string. It can return an array
- * 	of ints if the String needs each of those elements. It can also update the reactionary table.
+ * The Class InputParser. This class has methods to take a String and return the necessary data from the string. It can return an array	of ints if the String needs each of those elements. It can also update the reactionary table.
  */
 public class InputParser {
 	
 	/**
-	 * Instantiates a new input parser. The class should not store anything, so the main method is empty and does nothing.
+	 * Instantiates a new input parser. The class should not 
+	 * store anything, so the main method is empty and does nothing.
 	 */
 	public InputParser() {};
 	
 	/**
-	 * Gets the ints.
+	 * Gets the ints. Takes a String and returns all the ints from the line. This will only work if the line is split by whitespace and filled with only numbers of type integer.
 	 *
-	 * @param line the line
+	 * @param line The String that will be parsed for its ints. Cannot be null. Has to only contain numbers of type integer.
 	 * @return the ints
 	 */
 	public int[] getInts(String line) {
