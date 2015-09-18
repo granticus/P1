@@ -98,7 +98,7 @@ public class Driver {
 			
 			currentTime = 0;
 			
-			System.out.println(currentTime + "\t" + populations[0] + populations[1]);
+			System.out.println(currentTime + "\t" + populations[0] + "\t" populations[1]);
 			
 			while(currentTime < finalSimTime){
 				
