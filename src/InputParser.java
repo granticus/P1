@@ -48,7 +48,7 @@ public class InputParser {
 	 * @param totalSpecies
 	 *            This will determine how long to build the array.
 	 * @return the double[] returns an updated equation table with the net
-	 *         loss or gain from the equation.
+	 *         loss or gain from the equation with the k at the end.
 	 */
 	public double[] parseReaction(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
