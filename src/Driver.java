@@ -41,7 +41,7 @@ public class Driver {
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
 			
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
-					parse.parseReaction(lines[reactionNum+3], numSpecies));
+					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
 		/*
 		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});

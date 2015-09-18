@@ -50,19 +50,19 @@ public class InputParserTest {
 		
 		int [] expected4 = {1, 0, 0};
 		String line4 = "->100 S1";
-		Assert.assertArrayEquals(expected4, parse.parseReaction(line4, totalSpecies));
+		Assert.assertArrayEquals(expected4, parse.getEquation(line4, totalSpecies));
 		
 		int [] expected5 = {-2, 1, 0};
 		String line5 = "2S1 ->0.001 S2";
-		Assert.assertArrayEquals(expected5, parse.parseReaction(line5, totalSpecies));
+		Assert.assertArrayEquals(expected5, parse.getEquation(line5, totalSpecies));
 		
 		int [] expected6 = {2, -1, 0};
 		String line6 = "S2 ->0.5 2S1";
-		Assert.assertArrayEquals(expected6, parse.parseReaction(line6, totalSpecies));
+		Assert.assertArrayEquals(expected6, parse.getEquation(line6, totalSpecies));
 		
 		int [] expected7 = {0, -1, 1};
 		String line7 = "S2 ->0.04 S3";
-		Assert.assertArrayEquals(expected7, parse.parseReaction(line7, totalSpecies));
+		Assert.assertArrayEquals(expected7, parse.getEquation(line7, totalSpecies));
 	}
 	
 	@Test
