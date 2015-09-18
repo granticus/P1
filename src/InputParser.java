@@ -54,10 +54,10 @@ public class InputParser {
 	 * @return the double[][] returns an updated equation table with the net
 	 *         loss or gain from the equation.
 	 */
-	public double[] parseReaction(String line, int totSpecies) {
+	public double[] parseReaction(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
 		int side = 0;
-		double[] netReaction = new double[numOfSpecies + 1];
+		double[] netReaction = new double[totalSpecies + 1];
 
 		for (int i = 0; i < elements.length; i++) {
 
@@ -67,8 +67,10 @@ public class InputParser {
 
 			if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
-				netReaction[numOfSpecies] = Integer.valueOf(elements[i]
+				netReaction[totalSpecies] = Integer.valueOf(elements[i]
 						.substring(3));
+				// k constant will be store at the end since the arrays starts
+				// at 0
 			} else if (!elements[i].substring(0, 1).equals("+")) {
 
 				if (elements[i].matches("\\d+S\\d+")) {
@@ -96,14 +98,14 @@ public class InputParser {
 	 *            The String that will have the chemical equation.
 	 * @param equationNumber
 	 *            The equation number that will dictate the row.
-	 * @param numOfSpecies
+	 * @param totalSpecies
 	 *            The will decide how long the array is.
 	 * @return the reactants returns an array that has width of all the species
 	 *         and whether those species are present in the reaction.
 	 */
-	public int[] getReactants(String line, int totSpecies) {
+	public int[] getReactants(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
-		int[] reactants = new int[numOfSpecies];
+		int[] reactants = new int[totalSpecies];
 
 		for (int i = 0; i < elements.length; i++) {
 
