@@ -82,13 +82,51 @@ public class InputParser {
 			10	0	-1	1
 
 		 */
-	
 	private static double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
 		
 		/*
 		 * The [fline[0]] is the #of species, so s0, s1, s2, respectively
 		 * The [fline[1]] is the # of chemical reactions, 
-		 */
+		 *
+		*/
+			
+		String [] elements = line.split(" ");
+		int [] reactants= new int[2];
+		int [] products= new int[2];
+		int [] temp = reactants;
+		int counter =0;
+		for (int i = 0; i < elements.length; i++) {
+			
+			if (elements[i].substring(0, 2).equals("->")) {
+				temp = products;
+			}
+			else if (elements[i].substring(0, 1).equals("+")) {
+				
+			}
+			else if (elements[i].matches("\\d+S\\d+")) {
+				int sIndex = elements[i].indexOf('S');
+				temp[counter] = Integer.valueOf(elements[i].substring(sIndex+1));
+				int numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+				rTable [temp[counter]][equationNumber] -= numSpecies;
+			}
+			else if (elements[i].matches("S\\d+")) {
+				
+			}
+				
+		}
+		
+		
+		
+		
+		return null;
+	}
+/*	
+	private static double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
+		
+		/*
+		 * The [fline[0]] is the #of species, so s0, s1, s2, respectively
+		 * The [fline[1]] is the # of chemical reactions, 
+		 *
 		
 		String [] sepEqua = line.split("->");
 		
@@ -122,7 +160,7 @@ public class InputParser {
 		return null;
 		
 	}
-	
+	*/
 	/*
 	private static void getReactions(String line) {
 		String [] equation = line.split("->");
