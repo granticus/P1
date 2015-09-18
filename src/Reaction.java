@@ -12,7 +12,7 @@ public class Reaction {
 		this.k = k;
 	}
 	
-	public void calculatePropensity(int[] populations){
+	public double calculatePropensity(int[] populations){
 		propensity = k;
 		
 		for(int i = 0; i < reactants.length; i++){
@@ -22,5 +22,7 @@ public class Reaction {
 				}
 			}
 		}
+		
+		return propensity;
 	}
 }
