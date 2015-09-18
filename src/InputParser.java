@@ -33,7 +33,7 @@ public class InputParser {
 		for (int k = 0; k < strInts.length; k++) {
 			num[k] = Integer.parseInt(strInts[k]);
 		}
-		return null;
+		return num;
 	}
 
 	/**
