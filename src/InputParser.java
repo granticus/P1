@@ -69,7 +69,8 @@ public class InputParser {
 				side = 1;
 				rTable[kIndex][equationNumber] = Integer.valueOf(elements[i]
 						.substring(3));
-			} else if (!elements[i].substring(0, 1).equals("+")) {
+			} 
+			else if (!elements[i].substring(0, 1).equals("+")) {
 
 			} else if (elements[i + 1].substring(0, 1).equals("+")) {
 
@@ -84,7 +85,7 @@ public class InputParser {
 			} else if (side == 1) {
 				rTable[species][equationNumber] += numSpecies;
 			}
-
+		}
 		}
 
 		return rTable;
