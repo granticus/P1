@@ -1,10 +1,21 @@
-import java.io.*;
 
-
+/**
+ * The Class InputParser. This class has methods to take a String and return the necessary data from the string. It can return an array
+ * 	of ints if the String needs each of those elements. It can also update the reactionary table.
+ */
 public class InputParser {
 	
+	/**
+	 * Instantiates a new input parser.
+	 */
 	public InputParser() {};
 	
+	/**
+	 * Gets the ints.
+	 *
+	 * @param line the line
+	 * @return the ints
+	 */
 	public int[] getInts(String line) {
 		int[] num = new int[4];
 		String[] strInts = line.split(" ");
@@ -34,6 +45,14 @@ public class InputParser {
 
 		 */
 	
+	/**
+	 * Reac and prod.
+	 *
+	 * @param line the line
+	 * @param equationNumber the equation number
+	 * @param rTable the r table
+	 * @return the double[][]
+	 */
 	public double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
 		String [] elements = line.split(" ");
 		int side = 0;
