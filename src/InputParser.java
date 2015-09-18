@@ -68,7 +68,7 @@ public class InputParser {
 
 			if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
-				netReaction[numOfSpecies+1] = Integer.valueOf(elements[i]
+				netReaction[numOfSpecies] = Integer.valueOf(elements[i]
 						.substring(3));
 			} else if (!elements[i].substring(0, 1).equals("+")) {
 
