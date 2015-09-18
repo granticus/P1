@@ -45,12 +45,8 @@ public class InputParser {
 	 * @param line
 	 *            The String that will be parsed. Cannot be null. Must follow
 	 *            the specified format and rules.
-	 * @param equationNumber
-	 *            What number reaction (and row) the equation will go under in
-	 *            the equation table.
-	 * @param rTable
-	 *            The equation table that will be updated everytime a reaction
-	 *            fires.
+	 * @param totalSpecies
+	 *            This will determine how long to build the array.
 	 * @return the double[][] returns an updated equation table with the net
 	 *         loss or gain from the equation.
 	 */
@@ -99,7 +95,7 @@ public class InputParser {
 	 * @param equationNumber
 	 *            The equation number that will dictate the row.
 	 * @param totalSpecies
-	 *            The will decide how long the array is.
+	 *            This will decide how long the array is.
 	 * @return the reactants returns an array that has width of all the species
 	 *         and whether those species are present in the reaction.
 	 */
