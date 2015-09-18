@@ -56,9 +56,6 @@ public class InputParser {
 				rTable[kIndex][equationNumber] = Integer.valueOf(elements[i].substring(3));
 				
 			}
-			else if (elements[i+1].substring(0, 1).equals("+")) {
-				
-			}
 			else if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
