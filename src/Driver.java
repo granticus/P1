@@ -40,16 +40,17 @@ public class Driver {
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
 			
-			reactions[reactionNum] = new Reaction(parse.getK(), parse.getReactants(lines[reactionNum+3], numSpecies),
+			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.parseReaction(lines[reactionNum+3], numSpecies));
 		}
-		
+		/*
 		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
 		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
 		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1}); // FOR NOW, manually set
 		reactions[0] = reac1;
 		reactions[1] = reac2;
 		reactions[2] = reac3;
+		*/
 		
 		//SETUP UP INITIAL PROPENSITIES
 		for(int i = 0; i < totalReactions; i++){
@@ -63,6 +64,9 @@ public class Driver {
 			currentTime = 0;
 			
 			while(currentTime < finalSimTime){
+				for(int j = 0; j < reactions.length; j++){
+					
+				}
 				//calculate fire times
 				//choose lowest fire time
 				//update populations using the netChange of the chosen reaction

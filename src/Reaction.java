@@ -5,6 +5,8 @@ public class Reaction {
 	
 	private int numFired;
 	
+	private double currentTau;
+	
 	private int[]reactants;
 	private int[]netChanges;
 	
@@ -26,5 +28,9 @@ public class Reaction {
 		}
 		
 		return propensity;
+	}
+	
+	public void setCurrentTau(double t){
+		currentTau = t;
 	}
 }
