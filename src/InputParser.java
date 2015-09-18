@@ -1,6 +1,10 @@
 
 /**
  * The Class InputParser. This class has methods to take a String and return the necessary data from the string. It can return an array	of ints if the String needs each of those elements. It can also update the reactionary table.
+ * 
+ * @author Alex Hsu
+ * @author Grant Golden
+ * 
  */
 public class InputParser {
 	
