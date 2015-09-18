@@ -34,7 +34,7 @@ public class InputParser {
 	 * @param rTable The equation table that will be updated everytime a reaction fires.
 	 * @return the double[][] returns an updated equation table with the net loss or gain from the equation.
 	 */
-	public double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
+	public double [][] parseReaction(String line, int equationNumber, double[][] rTable) {
 		String [] elements = line.split(" ");
 		int side = 0;
 		int kIndex = rTable.length;
