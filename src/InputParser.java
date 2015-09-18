@@ -54,7 +54,7 @@ public class InputParser {
 	 * @return the double[][] returns an updated equation table with the net
 	 *         loss or gain from the equation.
 	 */
-	public double[] parseReaction(String line, int numOfSpecies) {
+	public double[] parseReaction(String line, int totSpecies) {
 		String[] elements = line.split(" ");
 		int side = 0;
 		double[] netReaction = new double[numOfSpecies + 1];
@@ -101,7 +101,7 @@ public class InputParser {
 	 * @return the reactants returns an array that has width of all the species
 	 *         and whether those species are present in the reaction.
 	 */
-	public int[] getReactants(String line, int numOfSpecies) {
+	public int[] getReactants(String line, int totSpecies) {
 		String[] elements = line.split(" ");
 		int[] reactants = new int[numOfSpecies];
 
