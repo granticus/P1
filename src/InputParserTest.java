@@ -43,7 +43,7 @@ public class InputParserTest {
 	}
 	
 	@Test
-	public void testParseReaction() {
+	public void testGetEquation() {
 
 		//Total Species is 3
 		int totalSpecies = 3;
