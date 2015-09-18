@@ -49,7 +49,7 @@ public class InputParser {
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
 			
-			if (elements[i+1].substring(0, 1).equals("+") || elements[i+1].substring(0, 2).equals("->")) {
+			if ((i+1) < elements.length && (elements[i+1].substring(0, 1).equals("+") || elements[i+1].substring(0, 2).equals("->"))) {
 				i++;
 			}
 			
