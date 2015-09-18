@@ -19,25 +19,26 @@ public class InputParser {
 		 * fline[2] specifies # of chemical species that will be displayed in the output
 		 * fline[3] final time when simulation time should end.
 		 * 
+		 * ei. :
+		  
+		  	3 3 2 10
+			1000 1000 0
+			1 2
+			S1 ->10 2S1
+			S1 + S2 ->0.01 2S2
+			S2 ->10 S3
+			2S2
+			
+
 		 */
-		
-		int[] initProp;
-		int[] pop = getInts(lines[1]);
-		//int[] output = new int[fline[2]]; 
-		int[] dPop = getInts(lines[2]); //subtract the individual elements by 1 in order the index of array
-		//We will need this later, but not currently important.
+		double [][] reacTable = new double[fline[0]][fline[1]]; // row vs column, the first is vertical the second is horizontal
 		/*
-		for (int j = 0; j < output.length; j++) {
-			output[j] = initNPop[dPop[j]-1];
-		}*/
-		//unless we keep dPop
-		
-		double time = 0;
-		
-		
-		//while (time < numSimulations)
-		// double tau = nTau(/*propensity*/0);
-		// time += tau;
+		 * The [fline[0]] is the #of species, so s0, s1, s2, respectively
+		 * The [fline[1]] is the # of chemical reactions, 
+		 */
+		int[] initProp;
+		int[] pop = getInts(lines[1]); 
+		int[] dPop = getInts(lines[2]); 
 		
 		for (int i = 4; i < 4 + fline[1]; i++) {
 			//Parses line by line
@@ -61,7 +62,68 @@ public class InputParser {
 		}
 		return null;
 	}
+/*
+  		 * ei. :
+		  
+		  	3 3 2 10
+			1000 1000 0
+			1 2
+			
+			
+			
+			S1 ->10 2S1
+			S1 + S2 ->0.01 2S2
+			S2 ->10 S3
+			2S2
+			
+			k	S1	S2	S3
+			10	1	0	0
+			.01	-1	1	0
+			10	0	-1	1
+
+		 */
 	
+	private static double [][] reacAndProd(String line, int equationNumber, double[][] rTable) {
+		
+		/*
+		 * The [fline[0]] is the #of species, so s0, s1, s2, respectively
+		 * The [fline[1]] is the # of chemical reactions, 
+		 */
+		
+		String [] sepEqua = line.split("->");
+		
+		//sepEqua[0] should have the reactants **assuming there exists reactants.
+		//sepEqua[1] should have the products
+		
+		String [] reac = sepEqua[0].split(" + ");
+		String [] prod = sepEqua[1].split(" + ");
+		
+		for (int j = 0; j < prod.length; j++) {
+			int sIndex = prod[j].indexOf('S');
+		}
+		
+		for (int i = 0; i < reac.length; i++) {
+			int sIndex =reac[i].indexOf('S');
+			
+			if (reac[i].matches("\\d+S\\d+")) {
+				//multiple reactants of the same species
+				int reaction = Integer.valueOf(reac[i].substring(sIndex+1, sIndex+2));
+				int numReac = Integer.valueOf(reac[i].substring(sIndex-2, sIndex));
+				// This does not account for numbers greater than 9.
+				rTable[reaction][equationNumber] = rTable[reaction][equationNumber] - numReac;
+				// reaction gets what #species the matching is
+			}
+			else if (reac[i].matches("S\\d+")) {
+				int reaction = Integer.valueOf(reac[i].substring(sIndex+1, sIndex+2));
+				rTable[reaction][equationNumber]--;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	/*
 	private static void getReactions(String line) {
 		String [] equation = line.split("->");
 		//products will be equation.length - 1;
@@ -76,5 +138,5 @@ public class InputParser {
 		//Find index of "s" and try to get an int b4 and after
 		//TODO Not finished.
 	}
-	
+	*/
 }
