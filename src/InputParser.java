@@ -79,12 +79,8 @@ public class InputParser {
 					numSpecies = Integer.valueOf(elements[i].substring(0,
 							sIndex));
 				}
-				species = Integer.valueOf(elements[i].substring(sIndex + 1)); // careful,sometimes
-																				// the
-																				// reaction
-																				// starts
-																				// at
-																				// zero.
+				species = Integer.valueOf(elements[i].substring(sIndex + 1));
+				// careful,sometimes the reaction starts at zero.
 
 				if (side == 0) {
 					rTable[species][equationNumber] -= numSpecies;
@@ -128,12 +124,8 @@ public class InputParser {
 			} else if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)); // careful,sometimes
-																			// the
-																			// reaction
-																			// starts
-																			// at
-																			// zero.
+			species = Integer.valueOf(elements[i].substring(sIndex + 1));
+			// careful,sometimes the reaction starts at zero.
 
 			reactants[species][equationNumber] += numSpecies;
 		}
