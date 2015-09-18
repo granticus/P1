@@ -94,11 +94,12 @@ public class Driver {
 				
 				//update populations using the netChange of the chosen reaction
 				int[] currNetChange = reactions[lowestFireTimeIndex].getNetChanges();
-				for(int j = 0; j < totalReactions; j++){
-					
+				for(int j = 0; j < numSpecies; j++){
+					populations[j] += currNetChange[j];
 				}
 				
 				//add chosen time to currentTime
+				currentTime += reactions[j].getCurrentTau();
 			}
 		}
 	}
