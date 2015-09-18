@@ -1,7 +1,5 @@
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -95,11 +93,17 @@ public class InputParserTest {
 	@Test
 	public void testGetConstant() {
 
-
 		String line4 = "->100 S1";
+		assertTrue(100.0 == parse.getKConstant(line4));
+
 		String line5 = "2S1 ->0.001 S2";
+		assertTrue(0.001 == parse.getKConstant(line5));
+		
 		String line6 = "S2 ->0.5 2S1";
+		assertTrue(0.5 == parse.getKConstant(line6));
+		
 		String line7 = "S2 ->0.04 S3";
+		assertTrue(0.04 == parse.getKConstant(line7));
 	}
 
 }

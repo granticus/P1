@@ -134,7 +134,7 @@ public class InputParser {
 		int kIndex = line.indexOf("->") + 2;
 		int endKIndex = line.substring(kIndex).indexOf(' ');
 		if (kIndex != 1)
-			return Double.parseDouble(line.substring(kIndex, endKIndex));
+			return Double.parseDouble(line.substring(kIndex, kIndex + endKIndex));
 		return 0;
 	}
 }
