@@ -14,7 +14,7 @@ public class InputParser {
 	 * Gets the ints. Takes a String and returns all the ints from the line. This will only work if the line is split by whitespace and filled with only numbers of type integer.
 	 *
 	 * @param line The String that will be parsed for its ints. Cannot be null. Has to only contain numbers of type integer.
-	 * @return the ints
+	 * @return the ints An array of the integers in the line.
 	 */
 	public int[] getInts(String line) {
 		int[] num = new int[4];
