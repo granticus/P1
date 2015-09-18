@@ -54,7 +54,7 @@ public class InputParser {
 	 * @return the double[][] returns an updated equation table with the net
 	 *         loss or gain from the equation.
 	 */
-	public double[][] parseReaction(String line, int equationNumber,
+	public double[] parseReaction(String line, int equationNumber,
 			double[][] rTable) {
 		String[] elements = line.split(" ");
 		int side = 0;
