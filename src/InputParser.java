@@ -48,6 +48,7 @@ public class InputParser {
 			int numSpecies = 1;
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
+			
 			if (elements[i+1].substring(0, 1).equals("+"))
 				i++;
 			
