@@ -46,7 +46,7 @@ public class InputParser {
 		 */
 	
 	/**
-	 * Reactions and products. This will take a chemical equation and will update the equation table that the equation corresponds too.
+	 * Reactions and products. This will take a chemical equation and will update the equation table that the equation corresponds too. This will also get the k value of a reaction.
 	 *
 	 * @param line the line
 	 * @param equationNumber the equation number
