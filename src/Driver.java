@@ -17,7 +17,9 @@ import java.io.PrintWriter;
 public class Driver {
 
 	public static void main(String[] args) throws IOException {
-	
+		
+		int numSimulations = 1;
+		
 		//FIRST LINE
 		int numSpecies = 3;
 		int numReactions = 3;
@@ -44,38 +46,30 @@ public class Driver {
 		trackedIndices[1] = 2;
 		
 		//REST OF LINES
-		double [][] reactions = new double[numReactions][numSpecies+1]; //+1 because of k
+		Reaction [] reactions = new Reaction[numReactions];
 		for(int reactionNum = 0; reactionNum < numReactions; reactionNum++){
-			for(int i = 0; i < numSpecies; i++){
-				reactions[reactionNum][i] = 10; //READ IN SPECIES VALUES (+1, -2, 0, etc..)
-			}
-			reactions[reactionNum][numSpecies] = .1; //READ IN K
+			double k = .1; //READ IN K, DELETE THIS LINE
+			//reactions[reactionNum] = new Reaction(k, REACTANTS_ARRAY, NET_CHANGES);
 		}
-		reactions[0][0] = 1;
-		reactions[0][1] = 0;
-		reactions[0][2] = 0;
-		reactions[0][3] = 10;
 		
-		reactions[1][0] = -1;
-		reactions[1][1] = 1;
-		reactions[1][2] = 0;
-		reactions[1][3] = .01;
-		
-		reactions[0][0] = 0;
-		reactions[0][1] = -1;
-		reactions[0][2] = 1;
-		reactions[0][3] = 10; //FOR NOW, manually set
+		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
+		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
+		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1}); // FOR NOW, manually set
+		reactions[0] = reac1;
+		reactions[1] = reac2;
+		reactions[2] = reac3;
 		
 		//SETUP UP INITIAL PROPENSITIES
-		double[] propensities = new double[numReactions];
 		for(int i = 0; i < numReactions; i++){
-			propensities[i] = 
+			reactions[i].calculatePropensity(populations);
 		}
 		
 		int currentTime = 0;
 		
-		while(currentTime < finalSimTime){
-			
+		for(int i = 0; i < numSimulations; i++){
+			while(currentTime < finalSimTime){
+				
+			}
 		}
 	}
 
