@@ -18,8 +18,11 @@ public class Driver {
 		
 		int numSimulations = Integer.parseInt(args[0]);
 		//This pretty much generates nS # of output files
+		File oFile = new File(args[2]);
+		oFile.createNewFile();
+		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
+		
 		File iFile = new File(args[1]);
-		PrintWriter oFile = new PrintWriter (args[2]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
 		
@@ -76,7 +79,10 @@ public class Driver {
 		/**
 		 * Do line that outputs a string line to a file.
 		 */
-		oFile.close();
+		bw.write("Write whatever you want into this String.");
+		
+		
+		bw.close();
 		read.close();
 	}
 	
