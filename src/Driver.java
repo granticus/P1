@@ -98,9 +98,11 @@ public class Driver {
 			
 			currentTime = 0;
 			
-			System.out.println(currentTime + "\t" + populations[0] + "\t" populations[1]);
+			
 			
 			while(currentTime < finalSimTime){
+				
+				System.out.println(currentTime + "\t" + populations[0] + "\t" + populations[1]);
 				
 				//calculate fire times
 				for(int j = 0; j < totalReactions; j++){
