@@ -32,7 +32,7 @@ import java.io.*;
 public class Driver {
 
 	public static void main(String[] args) throws IOException {
-
+/*
 		//SAMPLE HARDCODED DATA
 		int numSimulations = 1;
 		
@@ -57,9 +57,10 @@ public class Driver {
 		reactions[0] = reac1;
 		reactions[1] = reac2;
 		reactions[2] = reac3;
+		*/
 		
 		
-		/*
+		
 		//INPUTTED DATA
 		InputParser parse = new InputParser();
 		
@@ -93,7 +94,7 @@ public class Driver {
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
-		*/
+		
 		
 		double currentTime;
 		
@@ -101,11 +102,9 @@ public class Driver {
 			
 			currentTime = 0;
 			
-			
-			
 			while(currentTime < finalSimTime){
 				
-				System.out.println(currentTime + "\t" + populations[0] + "\t" + populations[1]);
+				bw.write(currentTime + "\t" + populations[0] + "\t" + populations[1]);
 				
 				//calculate fire times
 				for(int j = 0; j < totalReactions; j++){
@@ -130,14 +129,10 @@ public class Driver {
 				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
 		}
-		/**
-		 * Do line that outputs a string line to a file.
-		 */
-		bw.write("Write whatever you want into this String.");
-		
 		
 		bw.close();
 		read.close();
+		
 	}
 	
 	private static double nTau(double propensity) {
