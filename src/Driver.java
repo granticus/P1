@@ -76,7 +76,6 @@ public class Driver {
 		oFile.createNewFile();
 		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
 		
-		System.out.println(args[1]);
 		/*
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
@@ -112,7 +111,6 @@ public class Driver {
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
-			System.out.println((reactionNum + 3) + "");
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
