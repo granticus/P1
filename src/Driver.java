@@ -80,7 +80,6 @@ public class Driver {
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
-		BufferedReader x = new BufferedReader(new FileReader(args[0]));
 		
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
