@@ -8,7 +8,9 @@ public class DriverTest {
 	@Test
 	public void testMain() {
 		
-		String testFile = "3 4 3 10\n1000 200 0\n"
+		String testFile = ""
+				+ "3 4 3 10\n"
+				+ "1000 200 0\n"
 				+ "1 2 3\n"
 				+ "->100 S1\n"
 				+ "2S1 ->0.001 S2\n"
