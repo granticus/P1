@@ -65,8 +65,7 @@ public class Driver {
 		
 		*/
 		
-		
-		
+	
 		
 		//INPUTTED DATA
 		InputParser parse = new InputParser();
@@ -77,9 +76,24 @@ public class Driver {
 		oFile.createNewFile();
 		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
 		
+		/*
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
+<<<<<<< HEAD
+=======
+	*/
+		
+		FileReader freader = new FileReader(args[1]);
+		BufferedReader bReader = new BufferedReader(freader);
+		//String[] lines = bReader.toString().split("\n");
+		String file = "";
+		String line = "";
+		while((line=bReader.readLine()) != null) {
+			file += line + "\n";
+		}
+		String [] lines = file.split("\n");
+>>>>>>> branch 'master' of https://github.com/granticus/P1.git
 		
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
@@ -97,12 +111,9 @@ public class Driver {
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
-			
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
-		
-		
 		
 		
 		double currentTime;
@@ -140,7 +151,7 @@ public class Driver {
 		}
 		
 		bw.close();
-		read.close();
+		bReader.close();
 		
 	}
 	
