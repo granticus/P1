@@ -106,6 +106,7 @@ public class InputParser {
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
 
+			System.out.println(elements[i]);
 			if (elements[i].substring(0, 2).equals("->")) {
 				break;
 			} else if (!elements[i].substring(0, 1).equals("+")) {
