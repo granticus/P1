@@ -65,8 +65,7 @@ public class Driver {
 		
 		*/
 		
-		
-		
+	
 		
 		//INPUTTED DATA
 		InputParser parse = new InputParser();
@@ -77,10 +76,26 @@ public class Driver {
 		oFile.createNewFile();
 		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
 		
+		System.out.println(args[1]);
+		/*
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
+		*/
 		
+		FileReader freader = new FileReader(args[1]);
+		BufferedReader bReader = new BufferedReader(freader);
+		//String[] lines = bReader.toString().split("\n");
+		String file = "";
+		String line = "";
+		while((line=bReader.readLine()) != null) {
+			file += line + "\n";
+		}
+		String [] lines = file.split("\n");
+		
+		for(int i = 0; i < lines.length; i++){
+			System.out.println(lines[i]);
+		}
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
 		int numSpecies = fline[0];
@@ -97,12 +112,10 @@ public class Driver {
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
-			
+			System.out.println(reactionNum + 3 + "");
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
-		
-		
 		
 		
 		double currentTime;
@@ -140,7 +153,7 @@ public class Driver {
 		}
 		
 		bw.close();
-		read.close();
+		bReader.close();
 		
 	}
 	
