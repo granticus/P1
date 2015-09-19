@@ -62,23 +62,22 @@ public class InputParser {
 			int sIndex = elements[i].indexOf('S');
 
 			if (elements[i].substring(0, 1).equals("+"))
-					continue;
-			
+				continue;
+
 			if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
-			} 
-				if (elements[i].matches("\\d+S\\d+")) {
-					numSpecies = Integer.valueOf(elements[i].substring(0,
-							sIndex));
-				}
-				species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
-				// careful,sometimes the reaction starts at zero.
+			}
+			if (elements[i].matches("\\d+S\\d+")) {
+				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+			}
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
+			// careful,sometimes the reaction starts at zero.
 
-				if (side == 0) {
-					netReaction[species] -= numSpecies;
-				} else if (side == 1) {
-					netReaction[species] += numSpecies;
-				}
+			if (side == 0) {
+				netReaction[species] -= numSpecies;
+			} else if (side == 1) {
+				netReaction[species] += numSpecies;
+			}
 		}
 
 		return netReaction;
@@ -106,20 +105,19 @@ public class InputParser {
 			int numSpecies = 1;
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
-			 if (elements[i].substring(0, 1).equals("+")) 
-				 continue;
+			if (elements[i].substring(0, 1).equals("+"))
+				continue;
 			if (elements[i].substring(0, 2).equals("->")) {
 				break;
-			} 
-				if (elements[i].matches("\\d+S\\d+")) {
-					numSpecies = Integer.valueOf(elements[i].substring(0,
-							sIndex));
-				}
-				species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
-				// careful,sometimes the reaction starts at zero.
+			}
+			if (elements[i].matches("\\d+S\\d+")) {
+				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+			}
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
+			// careful,sometimes the reaction starts at zero.
 
-				reactants[species] += numSpecies;
-			
+			reactants[species] += numSpecies;
+
 		}
 		return reactants;
 	}
@@ -136,7 +134,8 @@ public class InputParser {
 		int kIndex = line.indexOf("->") + 2;
 		int endKIndex = line.substring(kIndex).indexOf(' ');
 		if (kIndex != 1)
-			return Double.parseDouble(line.substring(kIndex, kIndex + endKIndex));
+			return Double.parseDouble(line
+					.substring(kIndex, kIndex + endKIndex));
 		return 0;
 	}
 }
