@@ -89,6 +89,7 @@ public class InputParserTest {
 
 		int [] expected8 = {0, 1, 0};
 		String line8 = "S2 ->10 S3";
+		Assert.assertArrayEquals(expected8, parse.getReactants(line8, totalSpecies);
 		
 	}
 	
