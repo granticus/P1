@@ -104,7 +104,7 @@ public class Driver {
 			
 			while(currentTime < finalSimTime){
 				
-				bw.write(currentTime + "\t" + populations[0] + "\t" + populations[1]);
+				bw.write(currentTime + "\t" + populations[0] + "\t" + populations[1] + "\n");
 				
 				//calculate fire times
 				for(int j = 0; j < totalReactions; j++){
