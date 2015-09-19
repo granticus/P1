@@ -92,9 +92,6 @@ public class Driver {
 		}
 		String [] lines = file.split("\n");
 		
-		for(int i = 0; i < lines.length; i++){
-			System.out.println(lines[i]);
-		}
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
 		int numSpecies = fline[0];
