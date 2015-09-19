@@ -80,8 +80,7 @@ public class Driver {
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
-<<<<<<< HEAD
-=======
+
 	*/
 		
 		FileReader freader = new FileReader(args[1]);
@@ -93,7 +92,6 @@ public class Driver {
 			file += line + "\n";
 		}
 		String [] lines = file.split("\n");
->>>>>>> branch 'master' of https://github.com/granticus/P1.git
 		
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
@@ -114,7 +112,6 @@ public class Driver {
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
-		
 		
 		double currentTime;
 		
