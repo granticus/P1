@@ -107,6 +107,7 @@ public class InputParser {
 			int sIndex = elements[i].indexOf('S');
 			if (elements[i].substring(0, 1).equals("+"))
 				continue;
+			
 			if (elements[i].substring(0, 2).equals("->")) {
 				break;
 			}
