@@ -66,6 +66,7 @@ public class InputParser {
 
 			else if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
+				continue;
 			}
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
