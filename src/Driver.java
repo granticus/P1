@@ -80,11 +80,7 @@ public class Driver {
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
-<<<<<<< HEAD
-		*/
-=======
-		BufferedReader x = new BufferedReader(new FileReader(args[0]));
->>>>>>> branch 'master' of https://github.com/granticus/P1.git
+	*/
 		
 		FileReader freader = new FileReader(args[1]);
 		BufferedReader bReader = new BufferedReader(freader);
