@@ -61,10 +61,12 @@ public class InputParser {
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
 
+			if (elements[i].substring(0, 1).equals("+"))
+					continue;
+			
 			if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
-			} else if (!elements[i].substring(0, 1).equals("+")) {
-
+			} 
 				if (elements[i].matches("\\d+S\\d+")) {
 					numSpecies = Integer.valueOf(elements[i].substring(0,
 							sIndex));
@@ -77,7 +79,6 @@ public class InputParser {
 				} else if (side == 1) {
 					netReaction[species] += numSpecies;
 				}
-			}
 		}
 
 		return netReaction;
