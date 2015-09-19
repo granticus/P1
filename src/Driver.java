@@ -112,7 +112,7 @@ public class Driver {
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
-			System.out.println(reactionNum + 3 + "");
+			System.out.println((reactionNum + 3) + "");
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
