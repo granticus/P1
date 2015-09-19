@@ -57,7 +57,14 @@ public class Driver {
 		reactions[0] = reac1;
 		reactions[1] = reac2;
 		reactions[2] = reac3;
+		
+		File oFile = new File("output.output");
+		oFile.createNewFile();
+		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
+		System.out.println(oFile.getAbsolutePath());
+		
 		*/
+		
 		
 		
 		
@@ -94,6 +101,8 @@ public class Driver {
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
+		
+		
 		
 		
 		double currentTime;
