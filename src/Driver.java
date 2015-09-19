@@ -65,8 +65,11 @@ public class Driver {
 		
 		int numSimulations = Integer.parseInt(args[0]);
 		//This pretty much generates nS # of output files
+		File oFile = new File(args[2]);
+		oFile.createNewFile();
+		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
+		
 		File iFile = new File(args[1]);
-		PrintWriter oFile = new PrintWriter (args[2]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
 		
@@ -88,7 +91,7 @@ public class Driver {
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
 			
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
-					parse.parseReaction(lines[reactionNum+3], numSpecies));
+					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
 		*/
 		
@@ -127,6 +130,14 @@ public class Driver {
 				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
 		}
+		/**
+		 * Do line that outputs a string line to a file.
+		 */
+		bw.write("Write whatever you want into this String.");
+		
+		
+		bw.close();
+		read.close();
 	}
 	
 	private static double nTau(double propensity) {

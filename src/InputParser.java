@@ -27,13 +27,13 @@ public class InputParser {
 	 * @return the ints An array of the integers in the line.
 	 */
 	public int[] getInts(String line) {
-		int[] num = new int[4];
 		String[] strInts = line.split(" ");
+		int[] num = new int[strInts.length];
 
 		for (int k = 0; k < strInts.length; k++) {
 			num[k] = Integer.parseInt(strInts[k]);
 		}
-		return null;
+		return num;
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class InputParser {
 	 * @return the double[] returns an updated equation table with the net loss
 	 *         or gain from the equation with the k at the end.
 	 */
-	public int[] parseReaction(String line, int totalSpecies) {
+	public int[] getEquation(String line, int totalSpecies) {
 		String[] elements = line.split(" ");
 		int side = 0;
 		int[] netReaction = new int[totalSpecies];
@@ -69,7 +69,7 @@ public class InputParser {
 					numSpecies = Integer.valueOf(elements[i].substring(0,
 							sIndex));
 				}
-				species = Integer.valueOf(elements[i].substring(sIndex + 1));
+				species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
 				// careful,sometimes the reaction starts at zero.
 
 				if (side == 0) {
@@ -113,7 +113,7 @@ public class InputParser {
 					numSpecies = Integer.valueOf(elements[i].substring(0,
 							sIndex));
 				}
-				species = Integer.valueOf(elements[i].substring(sIndex + 1));
+				species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
 				// careful,sometimes the reaction starts at zero.
 
 				reactants[species] += numSpecies;
@@ -134,7 +134,7 @@ public class InputParser {
 		int kIndex = line.indexOf("->") + 2;
 		int endKIndex = line.substring(kIndex).indexOf(' ');
 		if (kIndex != 1)
-			return Double.parseDouble(line.substring(kIndex, endKIndex));
+			return Double.parseDouble(line.substring(kIndex, kIndex + endKIndex));
 		return 0;
 	}
 }
