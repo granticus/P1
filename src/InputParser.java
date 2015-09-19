@@ -64,7 +64,7 @@ public class InputParser {
 			if (elements[i].substring(0, 1).equals("+"))
 				continue;
 
-			if (elements[i].substring(0, 2).equals("->")) {
+			else if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
 			}
 			if (elements[i].matches("\\d+S\\d+")) {
@@ -107,8 +107,8 @@ public class InputParser {
 			int sIndex = elements[i].indexOf('S');
 			if (elements[i].substring(0, 1).equals("+"))
 				continue;
-			
-			if (elements[i].substring(0, 2).equals("->")) {
+
+			else if (elements[i].substring(0, 2).equals("->")) {
 				break;
 			}
 			if (elements[i].matches("\\d+S\\d+")) {
