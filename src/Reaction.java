@@ -33,7 +33,7 @@ public class Reaction {
 	 * @param reactants
 	 *            the reactants that will be changing.
 	 * @param netChanges
-	 *            the net changes
+	 *            the net changes The net population that will decreased or increased in the whole reaction.
 	 */
 	public Reaction(double k, int[] reactants, int[] netChanges) {
 		this.reactants = reactants;
@@ -42,11 +42,12 @@ public class Reaction {
 	}
 
 	/**
-	 * Calculate propensity.
+	 * Calculates propensity. This depends on the populations of the reactants, as the population will be decreasing if multiple reactants are used. 
 	 *
 	 * @param populations
-	 *            the populations
-	 * @return the double
+	 *            the current populations of all the species 
+	 * @return propensity
+	 * 			  Affects the next tau time
 	 */
 	public double calculatePropensity(int[] populations) {
 		propensity = k;
