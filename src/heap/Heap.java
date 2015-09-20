@@ -1,104 +1,107 @@
 package heap;
 
-public class Heap {
-	private int[] heapArray;
-	private int currentSize;
-	private int maxSize;
-	
-	public Heap (int max){
-		maxSize = max;
-		currentSize = 0;
-		heapArray = new int[maxSize];
-	}
-	
-	public int heapSize() { return currentSize; }
-	
-	public boolean isLeaf (int pos){
-		return (pos >= currentSize/2) && (pos < currentSize); 
-	}
-	
-	public int leftChild (int pos){
-		if (pos >= currentSize/2) return -1;
-		return 2*pos + 1;
-	}
-	
-	public int rightChild (int pos){
-		if (pos >= (currentSize-1)/2) return -1;
-		return 2*pos + 2;
-	}
-	
-	public int parent (int pos){
-		if (pos <= 0) return -1;
-		return (pos - 1)/2;
-	}
-	
-	private void swap(int fpos, int spos){
-		int tmp;
-		tmp = heapArray[fpos];
-		heapArray[fpos] = heapArray[spos];
-		heapArray[spos] = tmp;
-	}
-	
-	public void insert (int key){
-		if(currentSize >= maxSize){
-			System.out.println("Heap full");
-			return;
-		}
-		int curr = currentSize++;
-		heapArray[curr] = key;
-		
-		while((curr != 0) && (heapArray[curr] < heapArray[parent(curr)])){
-			swap(curr, parent(curr));
-			curr = parent(curr);
-		}
-	}
-	
-	public void buildHeap() {
-		for (int i = currentSize/2-1; i >= 0; i--) {
-			siftDown(i);
-		}
-	}
-	
-	public void siftDown(int pos) {
-		if((pos < 0) || (pos >= currentSize)) return;
-		
-		while(!isLeaf(pos)){
-			int j = leftChild(pos);
-			if((j < currentSize-1) && heapArray[j] > heapArray[j+1]){
-				j++;
-			}
-			if(heapArray[pos] <= heapArray[j]){ return; }
-			swap(pos, j);
-			pos = j;
-		}
-	}
-	
-	public int removeMin() {
-		if (currentSize == 0) return -1;
-		swap(0, --currentSize);
-		if(currentSize != 0){
-			siftDown(0);
-		}
-		return heapArray[currentSize];
-	}
-	
-	public int remove(int pos){
-		if((pos < 0) || (pos >= currentSize)) return -1;
-		if (pos == (currentSize -1)) currentSize--;
-		else {
-			swap(pos, --currentSize);
-			while((pos > 0) && heapArray[pos] < heapArray[parent(pos)]){
-				swap(pos, parent(pos));
-				pos = parent(pos);
-			}
-			if (currentSize != 0) siftDown(pos);
-		}
-		return heapArray[currentSize];
-	}
-	
-	public void printArray(){
-		for(int i = 0; i < currentSize; i++){
-			System.out.print(heapArray[currentSize] + ", ");
-		}
-	}
+public class Heap
+{
+    private int[] Heap;
+    private int size;
+    private int maxsize;
+ 
+    private static final int FRONT = 1;
+ 
+    public Heap(int maxsize)
+    {
+        this.maxsize = maxsize;
+        this.size = 0;
+        Heap = new int[this.maxsize + 1];
+        Heap[0] = Integer.MIN_VALUE;
+    }
+ 
+    private int parent(int pos)
+    {
+        return pos / 2;
+    }
+ 
+    private int leftChild(int pos)
+    {
+        return (2 * pos);
+    }
+ 
+    private int rightChild(int pos)
+    {
+        return (2 * pos) + 1;
+    }
+ 
+    private boolean isLeaf(int pos)
+    {
+        if (pos >=  (size / 2)  &&  pos <= size)
+        { 
+            return true;
+        }
+        return false;
+    }
+ 
+    private void swap(int fpos, int spos)
+    {
+        int tmp;
+        tmp = Heap[fpos];
+        Heap[fpos] = Heap[spos];
+        Heap[spos] = tmp;
+    }
+ 
+    private void minHeapify(int pos)
+    {
+        if (!isLeaf(pos))
+        { 
+            if ( Heap[pos] > Heap[leftChild(pos)]  || Heap[pos] > Heap[rightChild(pos)])
+            {
+                if (Heap[leftChild(pos)] < Heap[rightChild(pos)])
+                {
+                    swap(pos, leftChild(pos));
+                    minHeapify(leftChild(pos));
+                }else
+                {
+                    swap(pos, rightChild(pos));
+                    minHeapify(rightChild(pos));
+                }
+            }
+        }
+    }
+ 
+    public void insert(int element)
+    {
+        Heap[++size] = element;
+        int current = size;
+ 
+        while (Heap[current] < Heap[parent(current)])
+        {
+            swap(current,parent(current));
+            current = parent(current);
+        }	
+    }
+ 
+    public void print()
+    {
+        for (int i = 1; i <= size / 2; i++ )
+        {
+            System.out.print(" PARENT : " + Heap[i] + " LEFT CHILD : " + Heap[2*i] 
+                + " RIGHT CHILD :" + Heap[2 * i  + 1]);
+            System.out.println();
+        } 
+    }
+ 
+    public void minHeap()
+    {
+        for (int pos = (size / 2); pos >= 1 ; pos--)
+        {
+            minHeapify(pos);
+        }
+    }
+ 
+    public int remove()
+    {
+        int popped = Heap[FRONT];
+        Heap[FRONT] = Heap[size--]; 
+        minHeapify(FRONT);
+        return popped;
+    }
 }

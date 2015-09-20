@@ -80,6 +80,7 @@ public class Driver {
 		File iFile = new File(args[1]);
 		InputStream read = new FileInputStream(iFile);
 		String[] lines = read.toString().split("\n");
+
 	*/
 		
 		FileReader freader = new FileReader(args[1]);
@@ -111,7 +112,6 @@ public class Driver {
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
-		
 		
 		double currentTime;
 		

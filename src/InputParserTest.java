@@ -9,8 +9,8 @@ import org.junit.Test;
  */
 
 /**
- * @author Alex
- * @author Grant
+ * @author Alex Hsu
+ * @author Grant Golden
  *
  */
 public class InputParserTest {
