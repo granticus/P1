@@ -1,5 +1,6 @@
 
-package heap;
+
+
 
 /**
  * The Class Heap that will store the minimum value at the top and every child will be a larger value than the parent
@@ -8,7 +9,7 @@ public class Heap
 {
     
     /** The Heap. An array that will store all the values. */
-    private Comparable[] Heap;
+    private Comparable<Reaction>[] Heap;
     
     /** The size. */
     private int size;
@@ -88,7 +89,7 @@ public class Heap
      */
     private void swap(int fpos, int spos)
     {
-        Comparable tmp;
+        Comparable<Reaction> tmp;
         tmp = Heap[fpos];
         Heap[fpos] = Heap[spos];
         Heap[spos] = tmp;
@@ -103,10 +104,11 @@ public class Heap
     {
         if (!isLeaf(pos))
         { 
-            if ( Heap[pos].compareTo(Heap[leftChild(pos)] > 0 || Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
+            if ( Heap[pos].compareTo(Heap[leftChild(pos)]) > 0 || Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
             		//Heap[pos] > Heap[leftChild(pos)]  || Heap[pos] > Heap[rightChild(pos)])
             {
-                if (Heap[leftChild(pos)] < Heap[rightChild(pos)])
+                if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0)
+                		//Heap[leftChild(pos)] < Heap[rightChild(pos)])
                 {
                     swap(pos, leftChild(pos));
                     minHeapify(leftChild(pos));
@@ -124,12 +126,13 @@ public class Heap
      *
      * @param element the element that will be inserted inside the heap.
      */
-    public void insert(int element)
+    public void insert(Comparable<Reaction> element)
     {
         Heap[++size] = element;
         int current = size;
  
-        while (Heap[current] < Heap[parent(current)])
+        while (Heap[current].compareTo(Heap[parent(current)])<0)
+        		//Heap[current] < Heap[parent(current)])
         {
             swap(current,parent(current));
             current = parent(current);
@@ -170,9 +173,9 @@ public class Heap
      *
      * @return the int
      */
-    public int remove()
+    public Comparable<Reaction> remove()
     {
-        int popped = Heap[FRONT];
+        Comparable<Reaction> popped = Heap[FRONT];
         Heap[FRONT] = Heap[size--]; 
         minHeapify(FRONT);
         return popped;
