@@ -31,7 +31,7 @@ public class HeapTest {
  
         System.out.print(testHeap.print());
         
-        System.out.println("The Min val is " + testHeap.remove());
+        //System.out.println("The Min val is " + testHeap.remove());
         
         assertTrue(true);
         
