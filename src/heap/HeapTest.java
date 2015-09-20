@@ -7,8 +7,10 @@ import org.junit.Test;
 
 public class HeapTest {
 
+	Heap testHeap;
 	@Before
 	public void setUp() throws Exception {
+		testHeap = new Heap();
 	}
 
 	@Test
