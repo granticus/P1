@@ -88,7 +88,7 @@ public class Heap
      */
     private void swap(int fpos, int spos)
     {
-        int tmp;
+        Comparable tmp;
         tmp = Heap[fpos];
         Heap[fpos] = Heap[spos];
         Heap[spos] = tmp;
@@ -103,7 +103,8 @@ public class Heap
     {
         if (!isLeaf(pos))
         { 
-            if ( Heap[pos] > Heap[leftChild(pos)]  || Heap[pos] > Heap[rightChild(pos)])
+            if ( Heap[pos].compareTo(Heap[leftChild(pos)] > 0 || Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
+            		//Heap[pos] > Heap[leftChild(pos)]  || Heap[pos] > Heap[rightChild(pos)])
             {
                 if (Heap[leftChild(pos)] < Heap[rightChild(pos)])
                 {
