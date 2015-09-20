@@ -15,38 +15,38 @@ public class Heap {
 	}
 
 	// Return current size of the heap
-	int heapsize() {
+	public int heapsize() {
 		return n;
 	}
 
 	// Return true if pos a leaf position, false otherwise
-	boolean isLeaf(int pos) {
+	public boolean isLeaf(int pos) {
 		return (pos >= n / 2) && (pos < n);
 	}
 
 	// Return position for left child of pos
-	int leftchild(int pos) {
+	public int leftchild(int pos) {
 		if (pos >= n / 2)
 			return -1;
 		return 2 * pos + 1;
 	}
 
 	// Return position for right child of pos
-	int rightchild(int pos) {
+	public int rightchild(int pos) {
 		if (pos >= (n - 1) / 2)
 			return -1;
 		return 2 * pos + 2;
 	}
 
 	// Return position for parent
-	int parent(int pos) {
+	public int parent(int pos) {
 		if (pos <= 0)
 			return -1;
 		return (pos - 1) / 2;
 	}
 
 	// Insert val into heap
-	void insert(int key) {
+	public void insert(int key) {
 		if (n >= size) {
 			System.out.println("Heap is full");
 			return;
@@ -61,7 +61,7 @@ public class Heap {
 		}
 	}
 
-	private void swap(int curr, int parent) {
+	public void swap(int curr, int parent) {
 		int tmpVal = Heap[curr];
 		Heap[curr] = Heap[parent];
 		Heap[parent] = tmpVal;
@@ -69,13 +69,13 @@ public class Heap {
 	}
 
 	// Heapify contents of Heap
-	void buildheap() {
+	public void buildheap() {
 		for (int i = n / 2 - 1; i >= 0; i--)
 			siftdown(i);
 	}
 
 	// Put element in its correct place
-	void siftdown(int pos) {
+	public void siftdown(int pos) {
 		if ((pos < 0) || (pos >= n))
 			return; // Illegal position
 		while (!isLeaf(pos)) {
@@ -90,7 +90,7 @@ public class Heap {
 	}
 
 	// Remove and return maximum value
-	int removemax() {
+	public int removemax() {
 		if (n == 0)
 			return -1; // Removing from empty heap
 		swap(0, --n); // Swap maximum with last value
@@ -100,7 +100,7 @@ public class Heap {
 	}
 
 	// Remove and return element at specified position
-	int remove(int pos) {
+	public int remove(int pos) {
 		if ((pos < 0) || (pos >= n))
 			return -1; // Illegal heap position
 		if (pos == (n - 1))
