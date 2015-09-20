@@ -10,7 +10,9 @@ public class HeapTest {
 	Heap testHeap;
 	@Before
 	public void setUp() throws Exception {
+		
 		testHeap = new Heap(10);
+	
 	}
 
 	@Test
