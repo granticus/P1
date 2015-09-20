@@ -72,6 +72,11 @@ public class Heap
         }
     }
  
+    /**
+     * Insert.
+     *
+     * @param element the element
+     */
     public void insert(int element)
     {
         Heap[++size] = element;
