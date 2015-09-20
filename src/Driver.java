@@ -154,8 +154,15 @@ public class Driver {
 				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
 		}
-		
-		
+
+		if (numSimulations == 1){
+			for(int i = 0; i < totalReactions; i++){
+				bw.write(reactions[i].getNumFired() + "\n");
+			}
+			bw.write();
+		}else {
+			
+		}
 		
 		bw.close();
 		bReader.close();
