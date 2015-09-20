@@ -14,6 +14,7 @@ public class InputParser {
 	 * the main method is empty and does nothing.
 	 */
 	public InputParser() {
+		//Nothing needs to be initialized, so the body is empty.
 	};
 
 	/**
