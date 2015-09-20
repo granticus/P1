@@ -74,7 +74,7 @@ public class Reaction {
 	}
 
 	/**
-	 * Increment fired.
+	 * Increment that the reaction has fired once..
 	 */
 	public void incrementFired() {
 		numFired++;
