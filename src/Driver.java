@@ -166,7 +166,7 @@ public class Driver {
 			for(int i = 0; i < totalReactions; i++){
 				bw.write(reactions[i].getNumFired() + "\n");
 			}
-		}else {
+		}else { // more than 1 sim
 			double[] sum = new double[numSpecies];
 			double[] mean = new double[numSpecies];
 			
