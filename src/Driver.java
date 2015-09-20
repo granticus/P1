@@ -113,7 +113,7 @@ public class Driver {
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
 		
-		
+		int [][] finalPops = new int[numSimulations][numSpecies];
 		
 		double currentTime;
 		
@@ -157,6 +157,9 @@ public class Driver {
 				//add chosen time to currentTime
 				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
+			for(int j = 0; j < numSpecies; j++){
+				finalPops[i][j] = populations[j];
+			}
 		}
 
 		if (numSimulations == 1){
@@ -164,7 +167,55 @@ public class Driver {
 				bw.write(reactions[i].getNumFired() + "\n");
 			}
 		}else {
+			double[] sum = new double[numSpecies];
+			double[] mean = new double[numSpecies];
 			
+			for(int i = 0; i < numSimulations; i++){
+				for(int j = 0; j < numSpecies; j++){
+					sum[j] += finalPops[i][j];
+				}
+			}
+			
+			for(int i = 0; i < numSpecies; i++){
+				mean[i] = sum[i]/numSimulations;
+			}
+			
+			double[] variances = new double[numSpecies];
+			
+			for(int i = 0; i < numSimulations; i++){
+				for(int j = 0; j < numSpecies; j++){
+					variances[j] += (finalPops[i][j] - mean[j])*(finalPops[i][j] - mean[j]);
+				}
+			}
+			
+			for(int i = 0; i < numSpecies; i++){
+				variances[i] /= (numSimulations - 1);
+			}
+			
+			//STANDARD DEVIATION
+			double []stdPops = new double[numSpecies];
+			for(int i = 0; i < numSpecies; i++){
+				stdPops[i] = Math.sqrt(variances[i]);
+			}
+			
+			//OUTPUT THIS STUFF
+			String meanString = "Means: ";
+			for(int i = 0; i < numOutputted; i++){
+				int index = trackedIndices[i] - 1;
+				meanString += mean[index] + "\t";
+			}
+			meanString += "\n";
+			System.out.println(meanString);
+			bw.write(meanString);
+			
+			String varString = "Variances: ";
+			for(int i = 0; i < numOutputted; i++){
+				int index = trackedIndices[i] - 1;
+				varString += variances[index] + "\t";
+			}
+			varString += "\n";
+			System.out.println(varString);
+			bw.write(varString);
 		}
 		
 		bw.close();
