@@ -101,7 +101,7 @@ public class Driver {
 		int finalSimTime = fline[3];
 		
 		//SECOND LINE
-		int[] populations = parse.getInts(lines[1]);
+		int[] populations;
 			
 		//THIRD LINE
 		int[] trackedIndices = parse.getInts(lines[2]); // SUBTRACT 1 MAYBE LATER
@@ -113,11 +113,14 @@ public class Driver {
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
 		
+		int [][] finalPops = new int[numSimulations][numSpecies];
+		
 		double currentTime;
 		
 		for(int i = 0; i < numSimulations; i++){
 			
 			currentTime = 0;
+			populations = parse.getInts(lines[1]);
 			
 			while(currentTime < finalSimTime){
 				
@@ -139,13 +142,14 @@ public class Driver {
 				int lowestFireTimeIndex = 0;
 				for(int j = 1; j < totalReactions; j++){
 					if(reactions[j].getCurrentTau() < reactions[lowestFireTimeIndex].getCurrentTau()){
-						lowestFireTimeIndex = j;
-						reactions[j].incrementFired();
+						lowestFireTimeIndex = j;		
 					}
 				}
 				
 				//update populations using the netChange of the chosen reaction
 				int[] currNetChange = reactions[lowestFireTimeIndex].getNetChanges();
+				reactions[lowestFireTimeIndex].incrementFired();
+				
 				for(int j = 0; j < numSpecies; j++){
 					populations[j] += currNetChange[j];
 				}
@@ -153,14 +157,65 @@ public class Driver {
 				//add chosen time to currentTime
 				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
+			for(int j = 0; j < numSpecies; j++){
+				finalPops[i][j] = populations[j];
+			}
 		}
 
 		if (numSimulations == 1){
 			for(int i = 0; i < totalReactions; i++){
 				bw.write(reactions[i].getNumFired() + "\n");
 			}
-		}else {
+		}else { // more than 1 sim
+			double[] sum = new double[numSpecies];
+			double[] mean = new double[numSpecies];
 			
+			for(int i = 0; i < numSimulations; i++){
+				for(int j = 0; j < numSpecies; j++){
+					sum[j] += finalPops[i][j];
+				}
+			}
+			
+			for(int i = 0; i < numSpecies; i++){
+				mean[i] = sum[i]/numSimulations;
+			}
+			
+			double[] variances = new double[numSpecies];
+			
+			for(int i = 0; i < numSimulations; i++){
+				for(int j = 0; j < numSpecies; j++){
+					variances[j] += (finalPops[i][j] - mean[j])*(finalPops[i][j] - mean[j]);
+				}
+			}
+			
+			for(int i = 0; i < numSpecies; i++){
+				variances[i] /= (numSimulations - 1);
+			}
+			
+			//STANDARD DEVIATION
+			double []stdPops = new double[numSpecies];
+			for(int i = 0; i < numSpecies; i++){
+				stdPops[i] = Math.sqrt(variances[i]);
+			}
+			
+			//OUTPUT THIS STUFF
+			String meanString = "Means: ";
+			for(int i = 0; i < numOutputted; i++){
+				int index = trackedIndices[i] - 1;
+				meanString += mean[index] + "\t";
+			}
+			meanString += "\n";
+			System.out.print(meanString);
+			bw.write(meanString);
+			
+			String varString = "Variances: ";
+			for(int i = 0; i < numOutputted; i++){
+				int index = trackedIndices[i] - 1;
+				varString += variances[index] + "\t";
+			}
+			varString += "\n";
+			System.out.print(varString);
+			bw.write(varString);
 		}
 		
 		bw.close();
