@@ -17,7 +17,6 @@ public class HeapTest {
 
 	@Test
 	public void test() {
-		System.out.println("The Min Heap is ");
 		
         testHeap.insert(5);
         testHeap.insert(3);
