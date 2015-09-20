@@ -159,7 +159,6 @@ public class Driver {
 			for(int i = 0; i < totalReactions; i++){
 				bw.write(reactions[i].getNumFired() + "\n");
 			}
-			bw.write();
 		}else {
 			
 		}
