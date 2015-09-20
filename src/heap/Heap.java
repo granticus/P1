@@ -40,7 +40,7 @@ public class Heap
      */
     private int parent(int pos)
     {
-        return pos / 2 - 1;
+        return pos / 2;
     }
  
     /**
