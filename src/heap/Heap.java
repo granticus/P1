@@ -33,14 +33,14 @@ public class Heap
     }
  
     /**
-     * Parent.
+     * The index of the Parent.
      *
      * @param pos the pos
      * @return the int
      */
     private int parent(int pos)
     {
-        return pos / 2;
+        return pos / 2 - 1;
     }
  
     /**
