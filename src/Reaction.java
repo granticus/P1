@@ -100,9 +100,9 @@ public class Reaction {
 	}
 
 	/**
-	 * Gets the net changes.
+	 * Gets the net changes between the reactants and the products.
 	 *
-	 * @return the net changes
+	 * @return the net changes The changes of population in an equation.
 	 */
 	public int[] getNetChanges() {
 		return netChanges;
