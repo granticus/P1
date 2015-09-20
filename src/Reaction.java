@@ -30,6 +30,10 @@ public class Reaction {
 		return propensity;
 	}
 	
+	public void incrementFired(){
+		numFired++;
+	}
+	
 	public void setCurrentTau(double t){
 		currentTau = t;
 	}
