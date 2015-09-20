@@ -1,13 +1,13 @@
 
 public class NullReaction extends Reaction {
-
+	
 	public NullReaction() {
-		super(0, {0, 0, 0}, {0, 0, 0});
+		super (0, null, null);
 	}
 	
 	public NullReaction(double k, int[] reactants, int[] netChanges) {
 		super(k, reactants, netChanges);
-		// TODO Auto-generated constructor stub
+		this.setCurrentTau(Integer.MIN_VALUE);
 	}
 
 }
