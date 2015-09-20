@@ -1,120 +1,104 @@
-package heap;
-
-//Max-heap implementation
-public class Heap {
-	private int[] Heap; // Pointer to the heap array
-	private int size; // Maximum size of the heap
-	private int n; // Number of things now in heap
-
-	// Constructor supporting preloading of heap contents
-	public Heap(int[] h, int num, int max) {
-		Heap = h;
-		n = num;
-		size = max;
-		buildheap();
-	}
-
-	// Return current size of the heap
-	public int heapsize() {
-		return n;
-	}
-
-	// Return true if pos a leaf position, false otherwise
-	public boolean isLeaf(int pos) {
-		return (pos >= n / 2) && (pos < n);
-	}
-
-	// Return position for left child of pos
-	public int leftchild(int pos) {
-		if (pos >= n / 2)
-			return -1;
-		return 2 * pos + 1;
-	}
-
-	// Return position for right child of pos
-	public int rightchild(int pos) {
-		if (pos >= (n - 1) / 2)
-			return -1;
-		return 2 * pos + 2;
-	}
-
-	// Return position for parent
-	public int parent(int pos) {
-		if (pos <= 0)
-			return -1;
-		return (pos - 1) / 2;
-	}
-
-	// Insert val into heap
-	public void insert(int key) {
-		if (n >= size) {
-			System.out.println("Heap is full");
-			return;
-		}
-		int curr = n++;
-		Heap[curr] = key; // Start at end of heap
-		// Now sift up until curr's parent's key > curr's key
-		while ((curr != 0) && (Heap[curr] < Heap[parent(curr)])) {
-			swap(curr, parent(curr));
-			
-			curr = parent(curr);
-		}
-	}
-
-	public void swap(int curr, int parent) {
-		int tmpVal = Heap[curr];
-		Heap[curr] = Heap[parent];
-		Heap[parent] = tmpVal;
-		
-	}
-
-	// Heapify contents of Heap
-	public void buildheap() {
-		for (int i = n / 2 - 1; i >= 0; i--)
-			siftdown(i);
-	}
-
-	// Put element in its correct place
-	public void siftdown(int pos) {
-		if ((pos < 0) || (pos >= n))
-			return; // Illegal position
-		while (!isLeaf(pos)) {
-			int j = leftchild(pos);
-			if ((j < (n - 1)) && (Heap[j] < Heap[j + 1]))
-				j++; // j is now index of child with greater value
-			if (Heap[pos]>=Heap[j])
-				return;
-			swap(pos, j);
-			pos = j; // Move down
-		}
-	}
-
-	// Remove and return maximum value
-	public int removemax() {
-		if (n == 0)
-			return -1; // Removing from empty heap
-		swap(0, --n); // Swap maximum with last value
-		if (n != 0) // Not on last element
-			siftdown(0); // Put new heap root val in correct place
-		return Heap[n];
-	}
-
-	// Remove and return element at specified position
-	public int remove(int pos) {
-		if ((pos < 0) || (pos >= n))
-			return -1; // Illegal heap position
-		if (pos == (n - 1))
-			n--; // Last element, no work to be done
-		else {
-			swap(pos, --n); // Swap with last value
-			// If we just swapped in a big value, push it up
-			while ((pos > 0) && (Heap[pos] > Heap[parent(pos)])) {
-				swap(pos, parent(pos));
-				pos = parent(pos);
-			}
-			if (n != 0)
-				siftdown(pos); // If it is little, push down
-		}
-		return Heap[n];
-	}
-}
+public class MinHeap
+{
+    private int[] Heap;
+    private int size;
+    private int maxsize;
+ 
+    private static final int FRONT = 1;
+ 
+    public MinHeap(int maxsize)
+    {
+        this.maxsize = maxsize;
+        this.size = 0;
+        Heap = new int[this.maxsize + 1];
+        Heap[0] = Integer.MIN_VALUE;
+    }
+ 
+    private int parent(int pos)
+    {
+        return pos / 2;
+    }
+ 
+    private int leftChild(int pos)
+    {
+        return (2 * pos);
+    }
+ 
+    private int rightChild(int pos)
+    {
+        return (2 * pos) + 1;
+    }
+ 
+    private boolean isLeaf(int pos)
+    {
+        if (pos >=  (size / 2)  &&  pos <= size)
+        { 
+            return true;
+        }
+        return false;
+    }
+ 
+    private void swap(int fpos, int spos)
+    {
+        int tmp;
+        tmp = Heap[fpos];
+        Heap[fpos] = Heap[spos];
+        Heap[spos] = tmp;
+    }
+ 
+    private void minHeapify(int pos)
+    {
+        if (!isLeaf(pos))
+        { 
+            if ( Heap[pos] > Heap[leftChild(pos)]  || Heap[pos] > Heap[rightChild(pos)])
+            {
+                if (Heap[leftChild(pos)] < Heap[rightChild(pos)])
+                {
+                    swap(pos, leftChild(pos));
+                    minHeapify(leftChild(pos));
+                }else
+                {
+                    swap(pos, rightChild(pos));
+                    minHeapify(rightChild(pos));
+                }
+            }
+        }
+    }
+ 
+    public void insert(int element)
+    {
+        Heap[++size] = element;
+        int current = size;
+ 
+        while (Heap[current] < Heap[parent(current)])
+        {
+            swap(current,parent(current));
+            current = parent(current);
+        }	
+    }
+ 
+    public void print()
+    {
+        for (int i = 1; i <= size / 2; i++ )
+        {
+            System.out.print(" PARENT : " + Heap[i] + " LEFT CHILD : " + Heap[2*i] 
+                + " RIGHT CHILD :" + Heap[2 * i  + 1]);
+            System.out.println();
+        } 
+    }
+ 
+    public void minHeap()
+    {
+        for (int pos = (size / 2); pos >= 1 ; pos--)
+        {
+            minHeapify(pos);
+        }
+    }
+ 
+    public int remove()
+    {
+        int popped = Heap[FRONT];
+        Heap[FRONT] = Heap[size--]; 
+        minHeapify(FRONT);
+        return popped;
+    }
