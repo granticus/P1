@@ -1,11 +1,22 @@
+
 package heap;
 
+/**
+ * The Class Heap that will store the minimum value at the top and every child will be a larger value than the parent
+ */
 public class Heap
 {
+    
+    /** The Heap. An array that will store all the values. */
     private int[] Heap;
+    
+    /** The size. */
     private int size;
+    
+    /** The maxsize. */
     private int maxsize;
  
+    /** The Constant FRONT. */
     private static final int FRONT = 1;
  
     /**
@@ -21,21 +32,45 @@ public class Heap
         Heap[0] = Integer.MIN_VALUE;
     }
  
+    /**
+     * Parent.
+     *
+     * @param pos the pos
+     * @return the int
+     */
     private int parent(int pos)
     {
         return pos / 2;
     }
  
+    /**
+     * Left child.
+     *
+     * @param pos the pos
+     * @return the int
+     */
     private int leftChild(int pos)
     {
         return (2 * pos);
     }
  
+    /**
+     * Right child.
+     *
+     * @param pos the pos
+     * @return the int
+     */
     private int rightChild(int pos)
     {
         return (2 * pos) + 1;
     }
  
+    /**
+     * Checks if is leaf.
+     *
+     * @param pos the pos
+     * @return true, if is leaf
+     */
     private boolean isLeaf(int pos)
     {
         if (pos >=  (size / 2)  &&  pos <= size)
@@ -45,6 +80,12 @@ public class Heap
         return false;
     }
  
+    /**
+     * Swap.
+     *
+     * @param fpos the fpos
+     * @param spos the spos
+     */
     private void swap(int fpos, int spos)
     {
         int tmp;
@@ -53,6 +94,11 @@ public class Heap
         Heap[spos] = tmp;
     }
  
+    /**
+     * Min heapify.
+     *
+     * @param pos the pos
+     */
     private void minHeapify(int pos)
     {
         if (!isLeaf(pos))
@@ -89,6 +135,9 @@ public class Heap
         }	
     }
  
+    /**
+     * Prints the.
+     */
     public void print()
     {
         for (int i = 1; i <= size / 2; i++ )
@@ -99,6 +148,9 @@ public class Heap
         } 
     }
  
+    /**
+     * Min heap.
+     */
     public void minHeap()
     {
         for (int pos = (size / 2); pos >= 1 ; pos--)
@@ -107,6 +159,11 @@ public class Heap
         }
     }
  
+    /**
+     * Removes the.
+     *
+     * @return the int
+     */
     public int remove()
     {
         int popped = Heap[FRONT];
