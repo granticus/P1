@@ -67,7 +67,7 @@ public class Reaction {
 	/**
 	 * Gets the number that this reaction has fired.
 	 *
-	 * @return the num fired
+	 * @return the number of reactions fired
 	 */
 	public int getNumFired() {
 		return numFired;
