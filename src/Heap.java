@@ -30,7 +30,7 @@ public class Heap
         this.maxsize = maxsize;
         this.size = 0;
         Heap = new Comparable[this.maxsize + 1];
-        Heap[0] = Integer.MIN_VALUE;
+        Heap[0] = new NullReaction();
     }
  
     /**
