@@ -75,7 +75,7 @@ public class Heap
     /**
      * Inserts and elements into a valid position inside the heap.
      *
-     * @param element the element
+     * @param element the element that will be inserted inside the heap.
      */
     public void insert(int element)
     {
