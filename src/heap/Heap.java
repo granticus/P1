@@ -136,7 +136,7 @@ public class Heap
     }
  
     /**
-     * Prints the.
+     * Prints the Heap.
      */
     public void print()
     {
