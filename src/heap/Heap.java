@@ -35,8 +35,8 @@ public class Heap
     /**
      * The index of the Parent.
      *
-     * @param pos the pos
-     * @return the int
+     * @param pos the pos that is currently the child
+     * @return the int the index of the parent
      */
     private int parent(int pos)
     {
