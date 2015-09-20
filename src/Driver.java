@@ -205,7 +205,7 @@ public class Driver {
 				meanString += mean[index] + "\t";
 			}
 			meanString += "\n";
-			System.out.println(meanString);
+			System.out.print(meanString);
 			bw.write(meanString);
 			
 			String varString = "Variances: ";
@@ -214,7 +214,7 @@ public class Driver {
 				varString += variances[index] + "\t";
 			}
 			varString += "\n";
-			System.out.println(varString);
+			System.out.print(varString);
 			bw.write(varString);
 		}
 		
