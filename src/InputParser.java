@@ -62,8 +62,9 @@ public class InputParser {
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
 
-			if (elements[i].substring(0, 1).equals("+"))
+			if (elements[i].substring(0, 1).equals("+")) {
 				continue;
+			}
 
 			else if (elements[i].substring(0, 2).equals("->")) {
 				side = 1;
@@ -107,8 +108,9 @@ public class InputParser {
 			int numSpecies = 1;
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
-			if (elements[i].substring(0, 1).equals("+"))
+			if (elements[i].substring(0, 1).equals("+")) {
 				continue;
+			}
 
 			else if (elements[i].substring(0, 2).equals("->")) {
 				break;
@@ -137,8 +139,10 @@ public class InputParser {
 		int kIndex = line.indexOf("->") + 2;
 		int endKIndex = line.substring(kIndex).indexOf(' ');
 		if (kIndex != 1)
+		{
 			return Double.parseDouble(line
 					.substring(kIndex, kIndex + endKIndex));
+		}
 		return 0;
 	}
 }
