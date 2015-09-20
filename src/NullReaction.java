@@ -3,10 +3,10 @@ public class NullReaction extends Reaction {
 	
 	public NullReaction() {
 		super (0, null, null);
+		nullSetUp();
 	}
 	
-	public NullReaction(double k, int[] reactants, int[] netChanges) {
-		super(k, reactants, netChanges);
+	private void nullSetUp() {
 		this.setCurrentTau(Integer.MIN_VALUE);
 	}
 
