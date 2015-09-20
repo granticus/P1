@@ -1,5 +1,6 @@
 package heap;
-public class MinHeap
+
+public class Heap
 {
     private int[] Heap;
     private int size;
@@ -7,7 +8,7 @@ public class MinHeap
  
     private static final int FRONT = 1;
  
-    public MinHeap(int maxsize)
+    public Heap(int maxsize)
     {
         this.maxsize = maxsize;
         this.size = 0;
