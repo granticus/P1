@@ -17,7 +17,7 @@ public class HeapTest {
 
 	@Test
 	public void test() {
-		AssertTrue(true);
+		assertTrue(true);
 	}
 
 }

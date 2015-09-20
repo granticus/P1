@@ -8,6 +8,11 @@ public class Heap
  
     private static final int FRONT = 1;
  
+    /**
+     * Instantiates a new heap.
+     *
+     * @param maxsize the maxsize
+     */
     public Heap(int maxsize)
     {
         this.maxsize = maxsize;
