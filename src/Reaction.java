@@ -22,7 +22,7 @@ public class Reaction {
 	/** The reactants. */
 	private int[] reactants;
 
-	/** The net changes. */
+	/** The net changes. A net sum of the equation to see which pops change. */
 	private int[] netChanges;
 
 	/**
