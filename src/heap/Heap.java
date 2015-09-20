@@ -138,14 +138,15 @@ public class Heap
     /**
      * Prints the Heap.
      */
-    public void print()
+    public String print()
     {
-        for (int i = 1; i <= size / 2; i++ )
+        String heap = "";
+    	for (int i = 1; i <= size / 2; i++ )
         {
-            System.out.print(" PARENT : " + Heap[i] + " LEFT CHILD : " + Heap[2*i] 
-                + " RIGHT CHILD :" + Heap[2 * i  + 1]);
-            System.out.println();
-        } 
+            heap = " PARENT : " + Heap[i] + " LEFT CHILD : " + Heap[2*i] 
+                + " RIGHT CHILD :" + Heap[2 * i  + 1] + "\n";
+        }
+    	return heap;
     }
  
     /**
