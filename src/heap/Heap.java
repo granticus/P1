@@ -73,7 +73,7 @@ public class Heap
     }
  
     /**
-     * Insert.
+     * Inserts and elements into a valid position inside the heap.
      *
      * @param element the element
      */
