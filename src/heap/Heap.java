@@ -1,3 +1,4 @@
+package heap;
 public class MinHeap
 {
     private int[] Heap;
@@ -102,3 +103,4 @@ public class MinHeap
         minHeapify(FRONT);
         return popped;
     }
+}
