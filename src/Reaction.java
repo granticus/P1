@@ -1,5 +1,5 @@
 
-public class Reaction {
+public class Reaction implements Comparable<Reaction>{
 	private double k;
 	private double propensity;
 	
@@ -46,5 +46,11 @@ public class Reaction {
 	}
 	public int[] getNetChanges(){
 		return netChanges;
+	}
+
+	@Override
+	public int compareTo(Reaction other) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
