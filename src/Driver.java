@@ -121,7 +121,14 @@ public class Driver {
 			
 			while(currentTime < finalSimTime){
 				
-				bw.write(currentTime + "\t" + populations[0] + "\t" + populations[1] + "\n");
+				String newLine = currentTime + "\t";
+				for(int j = 0; j < numOutputted; j++){
+					newLine += populations[trackedIndices[j] - 1];
+					if(j != numOutputted - 1){ newLine += "\t"; }
+					else { newLine += "\n"; }
+				}
+				
+				bw.write(newLine);
 				
 				//calculate fire times
 				for(int j = 0; j < totalReactions; j++){
@@ -133,6 +140,7 @@ public class Driver {
 				for(int j = 1; j < totalReactions; j++){
 					if(reactions[j].getCurrentTau() < reactions[lowestFireTimeIndex].getCurrentTau()){
 						lowestFireTimeIndex = j;
+						reactions[j].incrementFired();
 					}
 				}
 				
@@ -146,6 +154,8 @@ public class Driver {
 				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
 			}
 		}
+		
+		
 		
 		bw.close();
 		bReader.close();
