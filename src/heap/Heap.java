@@ -8,7 +8,7 @@ public class Heap
 {
     
     /** The Heap. An array that will store all the values. */
-    private int[] Heap;
+    private Comparable[] Heap;
     
     /** The size. */
     private int size;
@@ -28,7 +28,7 @@ public class Heap
     {
         this.maxsize = maxsize;
         this.size = 0;
-        Heap = new int[this.maxsize + 1];
+        Heap = new Comparable[this.maxsize + 1];
         Heap[0] = Integer.MIN_VALUE;
     }
  
