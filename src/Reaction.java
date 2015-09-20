@@ -30,6 +30,10 @@ public class Reaction {
 		return propensity;
 	}
 	
+	public int getNumFired(){
+		return numFired;
+	}
+	
 	public void incrementFired(){
 		numFired++;
 	}
