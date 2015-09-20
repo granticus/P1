@@ -65,7 +65,7 @@ public class Reaction {
 	}
 
 	/**
-	 * Gets the num fired.
+	 * Gets the number that this reaction has fired.
 	 *
 	 * @return the num fired
 	 */
