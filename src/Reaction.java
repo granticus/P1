@@ -81,7 +81,7 @@ public class Reaction {
 	}
 
 	/**
-	 * Sets the current tau.
+	 * Sets the current tau. This determines which reaction will be fired next.
 	 *
 	 * @param t
 	 *            the new current tau
