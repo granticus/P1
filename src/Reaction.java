@@ -26,12 +26,12 @@ public class Reaction {
 	private int[] netChanges;
 
 	/**
-	 * Instantiates a new reaction.
+	 * Instantiates a new reaction. This requires the data to already be parsed and inserts it in the class.
 	 *
 	 * @param k
-	 *            the k
+	 *            the k constant that affects the propensity.
 	 * @param reactants
-	 *            the reactants
+	 *            the reactants that will be changing.
 	 * @param netChanges
 	 *            the net changes
 	 */
