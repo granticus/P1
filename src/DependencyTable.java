@@ -23,7 +23,7 @@ public class DependencyTable {
 		return table;
 	}
 
-	public void setUpTable() {
+	private void setUpTable() {
 		for (int i = 0; i < table.length; i++) {
 			int index = 0;
 
