@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Reaction. This will store the information about each separate

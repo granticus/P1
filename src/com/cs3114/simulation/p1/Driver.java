@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 /**
  * Operating System: Windows 8.1
  * Compiler: Eclipse 
@@ -29,7 +30,7 @@
 //   letter of this restriction.
 import java.io.*;
 
-public class P1 {
+public class Driver {
 
 	public static void main(String[] args) throws IOException {
 /*

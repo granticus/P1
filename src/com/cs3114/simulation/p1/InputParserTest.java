@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 import static org.junit.Assert.*;
 
 import org.junit.Assert;

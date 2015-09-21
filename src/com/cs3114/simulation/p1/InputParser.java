@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 /**
  * The Class InputParser. This class has methods to take a String and return the
  * necessary data from the string. It can return an array of ints if the String
