@@ -21,6 +21,7 @@ public class DependencyTable {
 
 			indexReaction [spec] = table[spec].getReactants();
 			for (int i = 0; i < table.length; i++) {
+				
 			}
 
 		}
