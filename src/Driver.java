@@ -124,14 +124,18 @@ public class Driver {
 			
 			while(currentTime < finalSimTime){
 				
-				String newLine = currentTime + "\t";
-				for(int j = 0; j < numOutputted; j++){
-					newLine += populations[trackedIndices[j] - 1];
-					if(j != numOutputted - 1){ newLine += "\t"; }
-					else { newLine += "\n"; }
+				if(numSimulations == 1){
+					String newLine = currentTime + "\t";
+					for(int j = 0; j < numOutputted; j++){
+						newLine += populations[trackedIndices[j] - 1];
+						if(j != numOutputted - 1){ newLine += "\t"; }
+						else { newLine += "\n"; }
+					}
+					
+					bw.write(newLine);
 				}
 				
-				bw.write(newLine);
+				
 				
 				//calculate fire times
 				for(int j = 0; j < totalReactions; j++){
@@ -199,6 +203,18 @@ public class Driver {
 			}
 			
 			//OUTPUT THIS STUFF
+			
+			for(int i = 0; i < numSimulations; i++){
+				for(int j = 0; j < numOutputted; j++){
+					bw.write(finalPops[i][j]);
+					if(j != numOutputted - 1){
+						bw.write("\t");
+					}else{
+						bw.write("\n");
+					}
+				}
+			}
+			
 			String meanString = "Means: ";
 			for(int i = 0; i < numOutputted; i++){
 				int index = trackedIndices[i] - 1;
