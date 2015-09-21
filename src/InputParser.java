@@ -150,6 +150,12 @@ public class InputParser {
 		return 0;
 	}
 	
+	/**
+	 * Gets the first index, which will be either 0 or 1.
+	 *
+	 * @param line4 the line4
+	 * @return the first index
+	 */
 	public void getFirstIndex(String line4) {
 
 		int sIndex = line4.indexOf("S");
@@ -161,7 +167,5 @@ public class InputParser {
 		if (Integer.valueOf(line4.substring(sIndex+1, endIndex)) != 0) {
 			firstIndex = 1;
 		}
-		
-		return firstIndex;
 	}
 }
