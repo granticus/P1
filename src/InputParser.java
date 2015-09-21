@@ -153,7 +153,7 @@ public class InputParser {
 	/**
 	 * Gets the first index, which will be either 0 or 1.
 	 *
-	 * @param line4 the line4
+	 * @param line4 the line4, which will contain the first index.
 	 * @return the first index
 	 */
 	public void getFirstIndex(String line4) {
