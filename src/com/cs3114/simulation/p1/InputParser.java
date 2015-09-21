@@ -149,6 +149,23 @@ public class InputParser {
 	}
 	
 	public int getFirstIndex(String line4) {
+		String [] lines = line4.split("->");
+		int sIndex = 0;
+		int i;
+		for (i = 0; i < lines.length; i++) {
+			if (lines[i].indexOf('S') != -1) {
+				sIndex = lines[i].indexOf('S');
+				break;
+			}
+		}
+		int endIndex = lines[i].substring(sIndex).indexOf(' ');
+		if (endIndex == -1) {
+			endIndex = lines[i].length();
+		}
+		if (Integer.valueOf(lines[i].substring(sIndex +1, endIndex)) != 0) {
+			firstIndex = 1;
+		}
+		/*
 		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
 		int endIndex = line4.substring(sIndex).indexOf(' ');
@@ -157,7 +174,7 @@ public class InputParser {
 		}
 		if (Integer.valueOf(line4.substring(sIndex + 1, endIndex)) != 0) {
 			firstIndex = 1;
-		}
+		}*/
 		
 		return firstIndex;
 	}

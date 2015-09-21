@@ -13,12 +13,15 @@ public class DependencyTable {
 		setUpTable();
 	}
 
-	public Reaction[] updatePropensity(int curReactionIndex) {
+	public Reaction[] updatePropensity(int curReactionIndex, int[] populations) {
 		
 		//table[curReactionIndex];
 		
 		for (int i= 0; i < table.length;i++) {
 			//Update propensity for these reactions.
+			if (indexReaction[curReactionIndex][i] != 0) {
+				table[i].calculatePropensity(populations);
+			}
 		}
 		
 		return table;
