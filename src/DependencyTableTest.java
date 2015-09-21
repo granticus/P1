@@ -16,7 +16,7 @@ public class DependencyTableTest {
 		reactions[0] = reac1;
 		reactions[1] = reac2;
 		reactions[2] = reac3;
-		tTable = new DependencyTable(reactions, 5);
+		tTable = new DependencyTable(reactions, 3);
 	}
 
 	@Test
