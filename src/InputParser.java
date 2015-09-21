@@ -10,6 +10,9 @@
  */
 public class InputParser {
 
+	private int firstIndex = 0;
+	
+	
 	/**
 	 * Instantiates a new input parser. The class should not store anything, so
 	 * the main method is empty and does nothing.
@@ -150,6 +153,8 @@ public class InputParser {
 	public int getFirstIndex(String line4) {
 
 		String[] elements = line4.split(" ");
+		int sIndex = elements[0].indexOf("S");
+		if ()
 		
 		
 		return 0;
