@@ -7,7 +7,7 @@ public class NullReaction extends Reaction {
 	}
 	
 	private void nullSetUp() {
-		this.setCurrentTau(Integer.MIN_VALUE);
+		this.setCurrentTau(Double.MIN_VALUE);
 	}
 
 }
