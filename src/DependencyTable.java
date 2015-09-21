@@ -11,7 +11,10 @@ public class DependencyTable {
 	}
 
 	public Reaction[] updatePropensity(int[] reactants) {
-
+		for (int i = 0; i < reactants.length; i++) {
+			
+		}
+		
 		return table;
 	}
 
