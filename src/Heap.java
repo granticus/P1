@@ -7,7 +7,7 @@ public class Heap {
 	/** The Heap. An array that will store all the values. */
 	private Reaction[] Heap;
 
-	/** The size. */
+	/** The current size of the heap. */
 	private int size;
 
 	/** The maxsize of the heap. */
