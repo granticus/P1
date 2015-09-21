@@ -150,16 +150,13 @@ public class InputParser {
 		return 0;
 	}
 	
-	public int getFirstIndex(String line4) {
+	public void getFirstIndex(String line4) {
 
-		firstIndex = 0;
 		int sIndex = line4.indexOf("S");
 		int endIndex = line4.substring(sIndex).indexOf(" ");
 		if (endIndex == -1) {
 			endIndex = line4.length();
 		}
-		String testLine = line4.substring(sIndex+1, endIndex);
-		int testInt = Integer.valueOf(testLine);
 		
 		if (Integer.valueOf(line4.substring(sIndex+1, endIndex)) != 0) {
 			firstIndex = 1;
