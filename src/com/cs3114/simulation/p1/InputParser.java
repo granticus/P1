@@ -149,12 +149,15 @@ public class InputParser {
 	}
 	
 	public void getFirstIndex(String line4) {
+		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
 		int endIndex = line4.substring(sIndex).indexOf(' ');
 		if (endIndex == -1) {
 			endIndex = line4.length();
 		}
-		
+		if (Integer.valueOf(line4.substring(sIndex, endIndex)) != 0) {
+			firstIndex = 1;
+		}
 	}
 	
 }
