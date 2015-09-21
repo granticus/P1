@@ -23,6 +23,7 @@ public class InputParserTest {
 	@Before
 	public void setUp() throws Exception {
 		parse = new InputParser();
+		parse.getFirstIndex("->100 S1");
 	}
 
 	@Test
