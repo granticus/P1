@@ -113,21 +113,4 @@ public class InputParserTest {
 		String line7 = "S2 ->0.04 S3";
 		assertTrue(0.04 == parse.getKConstant(line7));
 	}
-	
-	@Test
-	public void testGetFirstIndex() {
-		String line1 = "->100 S1";
-		assertEquals(1, parse.getFirstIndex(line1));
-		
-		String line2 = "S0 ->50 S2";
-		assertEquals(0, parse.getFirstIndex(line2));
-		
-		String line3 = "S1 ->25 S6";
-		assertEquals(1, parse.getFirstIndex(line3));
-
-		String line4 = "->50 S0";
-		assertEquals(0, parse.getFirstIndex(line4));
-		
-	}
-
 }

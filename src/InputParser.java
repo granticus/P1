@@ -152,6 +152,7 @@ public class InputParser {
 	
 	public int getFirstIndex(String line4) {
 
+		firstIndex = 0;
 		int sIndex = line4.indexOf("S");
 		int endIndex = line4.substring(sIndex).indexOf(" ");
 		if (endIndex == -1) {
