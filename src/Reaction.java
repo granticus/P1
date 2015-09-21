@@ -7,10 +7,10 @@
  */
 public class Reaction implements Comparable<Reaction>{
 
-	/** The k. */
+	/** The k constant for a reaction. */
 	private double k;
 
-	/** The propensity. */
+	/** The propensity of the reaction. Changes with population. */
 	private double propensity;
 
 	/** The number of reactions that this reaction fired. */
