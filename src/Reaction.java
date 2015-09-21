@@ -1,50 +1,117 @@
+<<<<<<< HEAD
 
 public class Reaction implements Comparable<Reaction>{
+=======
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Reaction. This will store the information about each separate
+ * reaction. The information stored is the propensity, the reactants, and the
+ * whole equation. This class will keep track of the number of reactions fired
+ * and the current tau of the reaction.
+ */
+public class Reaction {
+
+	/** The k. */
+>>>>>>> branch 'master' of https://github.com/granticus/P1.git
 	private double k;
+
+	/** The propensity. */
 	private double propensity;
-	
+
+	/** The number of reactions that this reaction fired. */
 	private int numFired;
-	
+
+	/** The current tau. */
 	private double currentTau;
-	
-	private int[]reactants;
-	private int[]netChanges;
-	
-	public Reaction(double k, int[]reactants, int[]netChanges){
+
+	/** The reactants. */
+	private int[] reactants;
+
+	/** The net changes. A net sum of the equation to see which pops change. */
+	private int[] netChanges;
+
+	/**
+	 * Instantiates a new reaction. This requires the data to already be parsed
+	 * and inserts it in the class.
+	 *
+	 * @param k
+	 *            the k constant that affects the propensity.
+	 * @param reactants
+	 *            the reactants that will be changing.
+	 * @param netChanges
+	 *            the net changes The net population that will decreased or
+	 *            increased in the whole reaction.
+	 */
+	public Reaction(double k, int[] reactants, int[] netChanges) {
 		this.reactants = reactants;
 		this.netChanges = netChanges;
 		this.k = k;
 	}
-	
-	public double calculatePropensity(int[] populations){
+
+	/**
+	 * Calculates propensity. This depends on the populations of the reactants,
+	 * as the population will be decreasing if multiple reactants are used.
+	 *
+	 * @param populations
+	 *            the current populations of all the species
+	 * @return propensity Affects the next tau time
+	 */
+	public double calculatePropensity(int[] populations) {
 		propensity = k;
-		
-		for(int i = 0; i < reactants.length; i++){
-			if(reactants[i] > 0){ //we have a reactant at i, and the value is the amount
-				for(int count = 0; count < reactants[i]; count++){
+
+		for (int i = 0; i < reactants.length; i++) {
+			if (reactants[i] > 0) { // we have a reactant at i, and the value is
+									// the amount
+				for (int count = 0; count < reactants[i]; count++) {
 					propensity *= populations[i] - count;
 				}
 			}
 		}
-		
+
 		return propensity;
 	}
-	
-	public int getNumFired(){
+
+	/**
+	 * Gets the number that this reaction has fired.
+	 *
+	 * @return the number of reactions fired
+	 */
+	public int getNumFired() {
 		return numFired;
 	}
-	
-	public void incrementFired(){
+
+	/**
+	 * Increment that the reaction has fired once..
+	 */
+	public void incrementFired() {
 		numFired++;
 	}
-	
-	public void setCurrentTau(double t){
+
+	/**
+	 * Sets the current tau. This determines which reaction will be fired next.
+	 *
+	 * @param t
+	 *            the new current tau
+	 */
+	public void setCurrentTau(double t) {
 		currentTau = t;
 	}
-	public double getCurrentTau(){
+
+	/**
+	 * Gets the current tau.
+	 *
+	 * @return the current tau
+	 */
+	public double getCurrentTau() {
 		return currentTau;
 	}
-	public int[] getNetChanges(){
+
+	/**
+	 * Gets the net changes between the reactants and the products.
+	 *
+	 * @return the net changes The changes of population in an equation.
+	 */
+	public int[] getNetChanges() {
 		return netChanges;
 	}
 	
