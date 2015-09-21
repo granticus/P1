@@ -1,4 +1,3 @@
-
 /**
  * The Class Heap that will store the minimum value at the top and every child
  * will be a larger value than the parent
@@ -165,7 +164,8 @@ public class Heap {
 	}
 
 	/**
-	 * Removes the.
+	 * Removes the Reaction element at the top of the array, and sorts the heap
+	 * tree again..
 	 *
 	 * @return the int
 	 */
