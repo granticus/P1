@@ -114,5 +114,10 @@ public class InputParserTest {
 		String line7 = "S2 ->0.04 S3";
 		assertTrue(0.04 == parse.getKConstant(line7));
 	}
+	
+	@Test
+	public void testGetFirstIndex() {
+		
+	}
 
 }
