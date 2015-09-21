@@ -101,7 +101,7 @@ public class Heap
      * @param pos the pos
      */
     private void minHeapify(int pos)
-    {
+    {/*
         if (!isLeaf(pos))
         { 
             if ( Heap[pos].compareTo(Heap[leftChild(pos)]) > 0 || Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
@@ -118,7 +118,7 @@ public class Heap
                     minHeapify(rightChild(pos));
                 }
             }
-        }
+        }*/
     }
  
     /**
@@ -130,13 +130,13 @@ public class Heap
     {
         Heap[++size] = element;
         int current = size;
- 
+ /*
         while (Heap[current].compareTo(Heap[parent(current)])<0)
         		//Heap[current] < Heap[parent(current)])
         {
             swap(current,parent(current));
             current = parent(current);
-        }	
+        }	*/
     }
  
     /**

@@ -206,7 +206,7 @@ public class Driver {
 			
 			for(int i = 0; i < numSimulations; i++){
 				for(int j = 0; j < numOutputted; j++){
-					bw.write(finalPops[i][j]);
+					bw.write("" + finalPops[i][j]);
 					if(j != numOutputted - 1){
 						bw.write("\t");
 					}else{
