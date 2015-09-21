@@ -3,6 +3,7 @@
 public class DependencyTable {
 	
 	private Reaction [] table;
+	private int[][] indexReaction;
 	
 	public DependencyTable(Reaction[] reactionArray) {
 		//TODO later
@@ -16,6 +17,8 @@ public class DependencyTable {
 		
 		return table;
 	}
+	
+	public 
 	
 	
 
