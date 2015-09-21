@@ -3,16 +3,19 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class DependencyTableTest {
 
 	private DependencyTable tTable;
+
 	@Before
 	public void setUp() throws Exception {
-		Reaction [] reactions = new Reaction[3];
-		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
-		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
-		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1}); // FOR NOW, manually set
+		Reaction[] reactions = new Reaction[3];
+		Reaction reac1 = new Reaction(10, new int[] { 1, 0, 0 }, new int[] { 1,
+				0, 0 });
+		Reaction reac2 = new Reaction(.01, new int[] { 1, 1, 0 }, new int[] {
+				-1, 1, 0 });
+		Reaction reac3 = new Reaction(10, new int[] { 0, 1, 0 }, new int[] { 0,
+				-1, 1 }); // FOR NOW, manually set
 		reactions[0] = reac1;
 		reactions[1] = reac2;
 		reactions[2] = reac3;
@@ -21,8 +24,12 @@ public class DependencyTableTest {
 
 	@Test
 	public void test() {
-		
-		System.out.println(tTable.getIR());
+		int[][] table = tTable.getIR();
+		for (int i = 0; i < table.length; i++) {
+			for (int j = 0; j < table[0].length; j++) {
+				System.out.print(table[i][j]);
+			}
+		}
 		assertTrue(true);
 	}
 
