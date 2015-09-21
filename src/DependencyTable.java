@@ -13,7 +13,7 @@ public class DependencyTable {
 	public Reaction[] updatePropensity() {
 		
 		
-		
+		return table;
 	}
 	
 	
