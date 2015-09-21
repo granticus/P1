@@ -149,6 +149,8 @@ public class InputParser {
 	}
 	
 	public int getFirstIndex(String line4) {
+		String [] lines = line4.split("->");
+		
 		
 		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
