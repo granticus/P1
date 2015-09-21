@@ -157,6 +157,8 @@ public class InputParser {
 		if (endIndex == -1) {
 			endIndex = line4.length();
 		}
+		String testLine = line4.substring(sIndex+1, endIndex);
+		int testInt = Integer.valueOf(testLine);
 		
 		if (Integer.valueOf(line4.substring(sIndex+1, endIndex)) != 0) {
 			firstIndex = 1;

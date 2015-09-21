@@ -117,16 +117,16 @@ public class InputParserTest {
 	@Test
 	public void testGetFirstIndex() {
 		String line1 = "->100 S1";
-		parse.getFirstIndex(line1);
+		assertEquals(1, parse.getFirstIndex(line1));
 		
 		String line2 = "S0 ->50 S2";
-		parse.getFirstIndex(line2);
+		assertEquals(0, parse.getFirstIndex(line2));
 		
 		String line3 = "S1 ->25 S6";
-		parse.getFirstIndex(line3);
+		assertEquals(1, parse.getFirstIndex(line3));
 
 		String line4 = "->50 S0";
-		parse.getFirstIndex(line4);
+		assertEquals(0, parse.getFirstIndex(line4));
 		
 	}
 
