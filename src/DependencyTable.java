@@ -18,10 +18,13 @@ public class DependencyTable {
 
 	public void setUpTable() {
 		for (int spec = 0; spec < indexReaction.length; spec++) {
-
+			int index = 0;
+			
 			int[] reactants = table[spec].getReactants();
 			for (int i = 0; i < reactants.length; i++) {
-				
+				if (reactants[i] != 0) {
+					indexReaction[spec][index++] = i;
+				}
 			}
 
 		}
