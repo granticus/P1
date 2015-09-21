@@ -167,7 +167,7 @@ public class Heap {
 	 * Removes the Reaction element at the top of the array, and sorts the heap
 	 * tree again. Sets the last element to the first element.
 	 *
-	 * @return the int
+	 * @return the Reaction that was removed, which was the minimum value of the tree
 	 */
 	public Reaction remove() {
 		Reaction popped = Heap[FRONT];
