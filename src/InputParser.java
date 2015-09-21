@@ -154,7 +154,7 @@ public class InputParser {
 
 		int sIndex = line4.indexOf("S");
 		int endIndex = line4.substring(sIndex).indexOf(" ");
-		System.out.println(sIndex +" " + endIndex+ " " +line4.substring(sIndex+1, endIndex));
+		System.out.println(sIndex +" " + endIndex+ " ");// +line4.substring(sIndex+1, endIndex));
 		
 		if (Integer.valueOf(line4.substring(sIndex+1, endIndex)) != 0) {
 			firstIndex = 1;
