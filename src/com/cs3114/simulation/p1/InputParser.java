@@ -120,7 +120,8 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			String newString = elements[i].substring(1.replaceAll("[\\D]", " ");
+			String newString = elements[i].replaceAll("[\\D]", " ");
+			newString = newString.substring(1);
 			int endIndex = newString.indexOf(' ');
 			if (endIndex == -1) {
 				endIndex = newString.length();
