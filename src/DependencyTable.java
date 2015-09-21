@@ -17,11 +17,11 @@ public class DependencyTable {
 	}
 
 	public void setUpTable() {
-		for (int spec = 0; spec < indexReaction.length; spec++) {
+		for (int i = 0; i < reactants.length; i++) {
 			int index = 0;
 			
 			int[] reactants = table[spec].getReactants();
-			for (int i = 0; i < reactants.length; i++) {
+			for (int spec = 0; spec < indexReaction.length; spec++) {
 				if (reactants[i] != 0) {
 					indexReaction[spec][index++] = i;
 				}
