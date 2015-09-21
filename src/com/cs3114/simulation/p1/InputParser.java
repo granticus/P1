@@ -150,8 +150,13 @@ public class InputParser {
 	
 	public int getFirstIndex(String line4) {
 		String [] lines = line4.split("->");
-		
-		
+		int sIndex;
+		for (int i = 0; i < lines.length; i++) {
+			if (lines[i].indexOf('S') != -1) {
+				sIndex = lines[i].indexOf('S');
+			}
+		}
+		/*
 		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
 		int endIndex = line4.substring(sIndex).indexOf(' ');
@@ -160,7 +165,7 @@ public class InputParser {
 		}
 		if (Integer.valueOf(line4.substring(sIndex + 1, endIndex)) != 0) {
 			firstIndex = 1;
-		}
+		}*/
 		
 		return firstIndex;
 	}
