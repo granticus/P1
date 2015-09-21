@@ -10,6 +10,7 @@ package com.cs3114.simulation.p1;
  */
 public class InputParser {
 
+	private int firstIndex = 0; 
 	/**
 	 * Instantiates a new input parser. The class should not store anything, so
 	 * the main method is empty and does nothing.
@@ -146,4 +147,14 @@ public class InputParser {
 		}
 		return 0;
 	}
+	
+	public void getFirstIndex(String line4) {
+		int sIndex = line4.indexOf('S');
+		int endIndex = line4.substring(sIndex).indexOf(' ');
+		if (endIndex == -1) {
+			endIndex = line4.length();
+		}
+		
+	}
+	
 }
