@@ -4,11 +4,13 @@ public class DependencyTable {
 	
 	private Reaction [] table;
 	
-	public DependencyTable(int totSpecies) {
+	public DependencyTable(Reaction[] reactionArray) {
 		//TODO later
 		
-		table = new Reaction[totSpecies];
+		table = reactionArray;
 	}
+	
+	
 	
 	
 
