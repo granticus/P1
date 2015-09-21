@@ -122,7 +122,7 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			// careful,sometimes the reaction starts at zero.
 
 			reactants[species] += numSpecies;
