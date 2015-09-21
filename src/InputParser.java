@@ -150,7 +150,7 @@ public class InputParser {
 		return 0;
 	}
 	
-	public void getFirstIndex(String line4) {
+	public int getFirstIndex(String line4) {
 
 		int sIndex = line4.indexOf("S");
 		int endIndex = line4.substring(sIndex).indexOf(" ");
