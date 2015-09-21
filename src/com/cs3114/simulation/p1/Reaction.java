@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Reaction. This will store the information about each separate
@@ -7,19 +8,19 @@
  */
 public class Reaction implements Comparable<Reaction>{
 
-	/** The k constant for a reaction. */
+	/** The k. */
 	private double k;
 
-	/** The propensity of the reaction. Changes with population. */
+	/** The propensity. */
 	private double propensity;
 
 	/** The number of reactions that this reaction fired. */
 	private int numFired;
 
-	/** The current tau that will be compared to get the minimum. */
+	/** The current tau. */
 	private double currentTau;
 
-	/** The reactants of the chemical reation. */
+	/** The reactants. */
 	private int[] reactants;
 
 	/** The net changes. A net sum of the equation to see which pops change. */
@@ -114,9 +115,6 @@ public class Reaction implements Comparable<Reaction>{
 		return propensity;
 	}
 
-	public int[] getReactants() {
-		return reactants;
-	}
 	@Override
 	public int compareTo(Reaction other) {
 		if(currentTau > other.getCurrentTau()){

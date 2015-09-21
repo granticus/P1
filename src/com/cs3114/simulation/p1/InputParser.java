@@ -1,4 +1,4 @@
-
+package com.cs3114.simulation.p1;
 /**
  * The Class InputParser. This class has methods to take a String and return the
  * necessary data from the string. It can return an array of ints if the String
@@ -10,9 +10,6 @@
  */
 public class InputParser {
 
-	private int firstIndex = 0;
-	
-	
 	/**
 	 * Instantiates a new input parser. The class should not store anything, so
 	 * the main method is empty and does nothing.
@@ -77,7 +74,7 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
 			// careful,sometimes the reaction starts at zero.
 
 			if (side == 0) {
@@ -122,7 +119,7 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
 			// careful,sometimes the reaction starts at zero.
 
 			reactants[species] += numSpecies;
@@ -148,23 +145,5 @@ public class InputParser {
 					.substring(kIndex, kIndex + endKIndex));
 		}
 		return 0;
-	}
-	
-	/**
-	 * Gets the first index, which will be either 0 or 1.
-	 *
-	 * @param line4 the line4, which will contain the first index.
-	 */
-	public void getFirstIndex(String line4) {
-
-		int sIndex = line4.indexOf("S");
-		int endIndex = line4.substring(sIndex).indexOf(" ");
-		if (endIndex == -1) {
-			endIndex = line4.length();
-		}
-		
-		if (Integer.valueOf(line4.substring(sIndex+1, endIndex)) != 0) {
-			firstIndex = 1;
-		}
 	}
 }

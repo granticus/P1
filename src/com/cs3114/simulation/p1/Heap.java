@@ -1,19 +1,17 @@
-/**
- * The Class Heap that will store the minimum value at the top and every child
- * will be a larger value than the parent
- */
+package com.cs3114.simulation.p1;
+
 public class Heap {
 
 	/** The Heap. An array that will store all the values. */
 	private Reaction[] Heap;
 
-	/** The current size of the heap. */
+	/** The size. */
 	private int size;
 
-	/** The maxsize of the heap. */
+	/** The maxsize. */
 	private int maxsize;
 
-	/** The Constant FRONT of the heap. */
+	/** The Constant FRONT. */
 	private static final int FRONT = 1;
 
 	/**

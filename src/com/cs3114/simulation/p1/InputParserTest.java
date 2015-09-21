@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
@@ -22,7 +23,6 @@ public class InputParserTest {
 	@Before
 	public void setUp() throws Exception {
 		parse = new InputParser();
-		parse.getFirstIndex("->100 S1");
 	}
 
 	@Test
@@ -113,4 +113,5 @@ public class InputParserTest {
 		String line7 = "S2 ->0.04 S3";
 		assertTrue(0.04 == parse.getKConstant(line7));
 	}
+
 }

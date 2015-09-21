@@ -1,3 +1,4 @@
+package com.cs3114.simulation.p1;
 
 public class NullReaction extends Reaction {
 	
