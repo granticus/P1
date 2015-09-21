@@ -10,7 +10,8 @@ public class DependencyTable {
 		table = reactionArray;
 	}
 	
-	public Reaction[] updatePropensity() {
+	public Reaction[] updatePropensity(int [] reactants) {
+		
 		
 		
 		return table;
