@@ -156,6 +156,7 @@ public class InputParser {
 				sIndex = lines[i].indexOf('S');
 			}
 		}
+		int endIndex = line4.substring(sIndex).indexOf(' ');
 		/*
 		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
