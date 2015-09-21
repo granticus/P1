@@ -14,6 +14,10 @@ public class DependencyTable {
 		
 		int [] changePropensity= indexReaction[reactant];
 		
+		for (int i= 0; i < changePropensity.length;i++) {
+			//Update propensity for these reactions.
+		}
+		
 		return table;
 	}
 
