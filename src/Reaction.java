@@ -19,7 +19,7 @@ public class Reaction implements Comparable<Reaction>{
 	/** The current tau that will be compared to get the minimum. */
 	private double currentTau;
 
-	/** The reactants. */
+	/** The reactants of the chemical reation. */
 	private int[] reactants;
 
 	/** The net changes. A net sum of the equation to see which pops change. */
