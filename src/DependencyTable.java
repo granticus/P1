@@ -19,7 +19,9 @@ public class DependencyTable {
 	}
 	
 	public void setUpTable() {
-		
+		for (Reaction reac: table) {
+			
+		}
 		
 	}
 	
