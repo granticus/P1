@@ -9,7 +9,7 @@ public class Heap
 {
     
     /** The Heap. An array that will store all the values. */
-    private Comparable<Reaction>[] Heap;
+    private Reaction[] Heap;
     
     /** The size. */
     private int size;
@@ -29,7 +29,7 @@ public class Heap
     {
         this.maxsize = maxsize;
         this.size = 0;
-        Heap = new Comparable[this.maxsize + 1];
+        Heap = new Reaction[this.maxsize + 1];
         Heap[0] = new NullReaction();
     }
  
@@ -89,7 +89,7 @@ public class Heap
      */
     private void swap(int fpos, int spos)
     {
-        Comparable<Reaction> tmp;
+        Reaction tmp;
         tmp = Heap[fpos];
         Heap[fpos] = Heap[spos];
         Heap[spos] = tmp;
@@ -126,7 +126,7 @@ public class Heap
      *
      * @param element the element that will be inserted inside the heap.
      */
-    public void insert(Comparable<Reaction> element)
+    public void insert(Reaction element)
     {
         Heap[++size] = element;
         int current = size;
@@ -173,9 +173,9 @@ public class Heap
      *
      * @return the int
      */
-    public Comparable<Reaction> remove()
+    public Reaction remove()
     {
-        Comparable<Reaction> popped = Heap[FRONT];
+        Reaction popped = Heap[FRONT];
         Heap[FRONT] = Heap[size--]; 
         minHeapify(FRONT);
         return popped;
