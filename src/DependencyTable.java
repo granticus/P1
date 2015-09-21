@@ -7,8 +7,8 @@ public class DependencyTable {
 
 	public DependencyTable(Reaction[] reactionArray, int totSpecies) {
 		// TODO later
-		indexReaction = new int[totSpecies][table.length];
 		table = reactionArray;
+		indexReaction = new int[totSpecies][table.length];
 		setUpTable();
 	}
 
