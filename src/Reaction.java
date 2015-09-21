@@ -16,7 +16,7 @@ public class Reaction implements Comparable<Reaction>{
 	/** The number of reactions that this reaction fired. */
 	private int numFired;
 
-	/** The current tau. */
+	/** The current tau that will be compared to get the minimum. */
 	private double currentTau;
 
 	/** The reactants. */
