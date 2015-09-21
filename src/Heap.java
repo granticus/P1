@@ -82,7 +82,7 @@ public class Heap
     }
  
     /**
-     * Swap.
+     * Swap the position of the 2 taken elements in the array.
      *
      * @param fpos the fpos
      * @param spos the spos
