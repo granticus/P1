@@ -75,7 +75,7 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			// careful,sometimes the reaction starts at zero.
 
 			if (side == 0) {
@@ -120,7 +120,7 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - 1;
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			// careful,sometimes the reaction starts at zero.
 
 			reactants[species] += numSpecies;
@@ -148,7 +148,7 @@ public class InputParser {
 		return 0;
 	}
 	
-	public void getFirstIndex(String line4) {
+	public int getFirstIndex(String line4) {
 		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
 		int endIndex = line4.substring(sIndex).indexOf(' ');
@@ -158,6 +158,8 @@ public class InputParser {
 		if (Integer.valueOf(line4.substring(sIndex, endIndex)) != 0) {
 			firstIndex = 1;
 		}
+		
+		return firstIndex;
 	}
 	
 }

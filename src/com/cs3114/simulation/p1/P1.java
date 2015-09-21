@@ -94,6 +94,8 @@ public class P1 {
 		}
 		String [] lines = file.split("\n");
 		
+		int offset = parse.getFirstIndex(lines[3]);
+		
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
 		int numSpecies = fline[0];
@@ -103,9 +105,12 @@ public class P1 {
 		
 		//SECOND LINE
 		int[] populations;
-			
+
 		//THIRD LINE
 		int[] trackedIndices = parse.getInts(lines[2]); // SUBTRACT 1 MAYBE LATER
+		for(int i = 0; i < numOutputted; i++){
+			trackedIndices[i] = trackedIndices[i] - offset;
+		}
 		
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
@@ -128,7 +133,7 @@ public class P1 {
 				if(numSimulations == 1){
 					String newLine = currentTime + "\t";
 					for(int j = 0; j < numOutputted; j++){
-						newLine += populations[trackedIndices[j] - 1];
+						newLine += populations[trackedIndices[j]];
 						if(j != numOutputted - 1){ newLine += "\t"; }
 						else { newLine += "\n"; }
 					}
@@ -218,7 +223,7 @@ public class P1 {
 			
 			String meanString = "Means: ";
 			for(int i = 0; i < numOutputted; i++){
-				int index = trackedIndices[i] - 1;
+				int index = trackedIndices[i];
 				meanString += mean[index] + "\t";
 			}
 			meanString += "\n";
@@ -227,7 +232,7 @@ public class P1 {
 			
 			String varString = "Variances: ";
 			for(int i = 0; i < numOutputted; i++){
-				int index = trackedIndices[i] - 1;
+				int index = trackedIndices[i];
 				varString += variances[index] + "\t";
 			}
 			varString += "\n";
