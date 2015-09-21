@@ -19,7 +19,7 @@ public class DependencyTable {
 		for (int spec = 0; spec < indexReaction.length; spec++) {
 
 			for (int i = 0; i < table.length; i++) {
-				indexReaction [spec][i] = table[];
+				indexReaction [spec][i] = table[i].getReactants();
 			}
 
 		}
