@@ -117,6 +117,7 @@ public class InputParserTest {
 	
 	@Test
 	public void testGetFirstIndex() {
+		InputParser testParse = new InputParser();
 		
 	}
 
