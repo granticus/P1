@@ -165,7 +165,7 @@ public class Heap {
 
 	/**
 	 * Removes the Reaction element at the top of the array, and sorts the heap
-	 * tree again..
+	 * tree again. Sets the last digit to the first element.
 	 *
 	 * @return the int
 	 */
