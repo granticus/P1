@@ -147,5 +147,9 @@ public class InputParser {
 		return 0;
 	}
 	
-	
+	public int getFirstIndex() {
+
+		int[] reactants = new int[totalSpecies];
+		
+	}
 }
