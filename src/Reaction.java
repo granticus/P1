@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-public class Reaction implements Comparable<Reaction>{
-=======
 // TODO: Auto-generated Javadoc
 /**
  * The Class Reaction. This will store the information about each separate
@@ -9,10 +5,9 @@ public class Reaction implements Comparable<Reaction>{
  * whole equation. This class will keep track of the number of reactions fired
  * and the current tau of the reaction.
  */
-public class Reaction {
+public class Reaction implements Comparable<Reaction>{
 
 	/** The k. */
->>>>>>> branch 'master' of https://github.com/granticus/P1.git
 	private double k;
 
 	/** The propensity. */
