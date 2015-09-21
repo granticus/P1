@@ -21,7 +21,8 @@ public class DependencyTableTest {
 
 	@Test
 	public void test() {
-
+		
+		System.out.println(tTable.getIR());
 		assertTrue(true);
 	}
 
