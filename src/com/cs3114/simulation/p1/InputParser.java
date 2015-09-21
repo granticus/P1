@@ -10,7 +10,7 @@ package com.cs3114.simulation.p1;
  */
 public class InputParser {
 
-	private int firstIndex = 0; 
+	private int firstIndex; 
 	/**
 	 * Instantiates a new input parser. The class should not store anything, so
 	 * the main method is empty and does nothing.
