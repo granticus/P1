@@ -8,6 +8,7 @@ public class DependencyTable {
 		// TODO later
 		indexReaction = new int[totSpecies][table.length];
 		table = reactionArray;
+		setUpTable();
 	}
 
 	public Reaction[] updatePropensity(int[] reactants) {
@@ -18,8 +19,8 @@ public class DependencyTable {
 	public void setUpTable() {
 		for (int spec = 0; spec < indexReaction.length; spec++) {
 
+			indexReaction [spec] = table[spec].getReactants();
 			for (int i = 0; i < table.length; i++) {
-				indexReaction [spec][i] = table[i].getReactants();
 			}
 
 		}
