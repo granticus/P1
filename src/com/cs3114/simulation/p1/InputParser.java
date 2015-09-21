@@ -158,7 +158,7 @@ public class InputParser {
 				break;
 			}
 		}
-		int endIndex = line4.substring(sIndex).indexOf(' ');
+		int endIndex = lines[i].substring(sIndex).indexOf(' ');
 		if (endIndex == -1) {
 			endIndex = lines[i].length();
 		}
