@@ -10,10 +10,9 @@ public class DependencyTable {
 		setUpTable();
 	}
 
-	public Reaction[] updatePropensity(int[] reactants) {
-		for (int i = 0; i < reactants.length; i++) {
-			
-		}
+	public Reaction[] updatePropensity(int reactant) {
+		
+		int [] changePropensity= indexReaction[reactant];
 		
 		return table;
 	}
