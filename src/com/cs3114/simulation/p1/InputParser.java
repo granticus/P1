@@ -120,6 +120,7 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
+			String newString = elements[i].replaceAll("\\D", " ");
 			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			// careful,sometimes the reaction starts at zero.
 
