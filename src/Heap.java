@@ -98,7 +98,7 @@ public class Heap {
 	 * Also, calls itself recursively to sort the whole tree.
 	 *
 	 * @param pos
-	 *            the pos
+	 *            the pos of the parent node.
 	 */
 	private void minHeapify(int pos) {
 		if (!isLeaf(pos)) {
