@@ -114,6 +114,9 @@ public class Reaction implements Comparable<Reaction>{
 		return propensity;
 	}
 
+	public int[] getReactants() {
+		return reactants;
+	}
 	@Override
 	public int compareTo(Reaction other) {
 		if(currentTau > other.getCurrentTau()){
