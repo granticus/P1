@@ -126,7 +126,7 @@ public class InputParser {
 				endIndex = newString.length();
 			}
 			//species = Integer.valueOf(elements[i].substring(sIndex + 1, endIndex)) - firstIndex;
-			species = Integer.valueOf(elements[i].substring(sIndex + 1, endIndex)) - firstIndex;
+			species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
 			
 			// careful,sometimes the reaction starts at zero.
 
