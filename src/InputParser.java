@@ -162,5 +162,6 @@ public class InputParser {
 			firstIndex = 1;
 		}
 		
+		return firstIndex;
 	}
 }
