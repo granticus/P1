@@ -47,10 +47,19 @@ public class Reaction implements Comparable<Reaction>{
 	public int[] getNetChanges(){
 		return netChanges;
 	}
+	
+	public double getPropensity(){
+		return propensity;
+	}
 
 	@Override
 	public int compareTo(Reaction other) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(propensity > other.getPropensity()){
+			return 1;
+		}else if(propensity < other.getPropensity()){
+			return -1;
+		}else{
+			return 0;
+		}
 	}
 }
