@@ -118,10 +118,11 @@ public class InputParserTest {
 	@Test
 	public void testGetFirstIndex() {
 		InputParser testParse = new InputParser();
-		testParse.getFirstIndex("S0->24 S1");
+		assertEquals (0, testParse.getFirstIndex("S0->24 S1"));
 		
-		testParse.getFirstIndex("->15 S0)
+		assertEquals(0, testParse.getFirstIndex("->15 S0"));
 		
+		assertEquals (0, testParse.getFirstIndex("S1->24 S2"));
 	}
 
 }
