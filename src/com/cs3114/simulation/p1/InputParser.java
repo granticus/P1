@@ -162,6 +162,9 @@ public class InputParser {
 		if (endIndex == -1) {
 			endIndex = lines[i].length();
 		}
+		if (Integer.valueOf(lines[i].substring(sIndex, endIndex)) != 0) {
+			firstIndex = 1;
+		}
 		/*
 		firstIndex = 0;
 		int sIndex = line4.indexOf('S');
