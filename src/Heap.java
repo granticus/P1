@@ -10,7 +10,7 @@ public class Heap {
 	/** The size. */
 	private int size;
 
-	/** The maxsize. */
+	/** The maxsize of the heap. */
 	private int maxsize;
 
 	/** The Constant FRONT. */
