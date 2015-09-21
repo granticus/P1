@@ -147,9 +147,11 @@ public class InputParser {
 		return 0;
 	}
 	
-	public int getFirstIndex() {
+	public int getFirstIndex(String line4) {
 
-		int[] reactants = new int[totalSpecies];
+		String[] elements = line4.split(" ");
 		
+		
+		return 0;
 	}
 }
