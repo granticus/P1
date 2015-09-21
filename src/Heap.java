@@ -13,7 +13,7 @@ public class Heap {
 	/** The maxsize of the heap. */
 	private int maxsize;
 
-	/** The Constant FRONT. */
+	/** The Constant FRONT of the heap. */
 	private static final int FRONT = 1;
 
 	/**
