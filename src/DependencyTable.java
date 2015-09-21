@@ -35,5 +35,9 @@ public class DependencyTable {
 			}
 		}
 	}
+	
+	public int[][] getIR() {
+		return indexReaction;
+	}
 
 }
