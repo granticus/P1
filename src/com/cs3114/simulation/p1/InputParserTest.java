@@ -119,14 +119,9 @@ public class InputParserTest {
 	public void testGetFirstIndex() {
 		InputParser testParse = new InputParser();
 		assertEquals (0, testParse.getFirstIndex("S0->24 S1"));
-		
 		assertEquals(0, testParse.getFirstIndex("->15 S0"));
-		
 		assertEquals (1, testParse.getFirstIndex("S1->24 S2"));
-		
 		assertEquals (1, testParse.getFirstIndex("S1 + S2->24 S1"));
-		
-		//assertEquals (0, testParse.getFirstIndex(line4));
 	}
 
 }
