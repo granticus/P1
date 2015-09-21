@@ -9,7 +9,7 @@ public class DependencyTableTest {
 	private DependencyTable tTable;
 	@Before
 	public void setUp() throws Exception {
-		tTable = new DependencyTable;
+		tTable = new DependencyTable(null, 5);
 	}
 
 	@Test
