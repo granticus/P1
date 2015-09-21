@@ -2,8 +2,12 @@
 
 public class DependencyTable {
 	
-	public DependencyTable() {
+	private Reaction [] table;
+	
+	public DependencyTable(int totSpecies) {
 		//TODO later
+		
+		table = new Reaction[totSpecies];
 	}
 	
 	
