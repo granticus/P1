@@ -1,4 +1,3 @@
-
 public class DependencyTable {
 
 	private Reaction[] table;
@@ -17,16 +16,15 @@ public class DependencyTable {
 	}
 
 	public void setUpTable() {
-		for (int i = 0; i < reactants.length; i++) {
+		for (int i = 0; i < table.length; i++) {
 			int index = 0;
-			
-			int[] reactants = table[spec].getReactants();
+
+			int[] reactants = table[i].getReactants();
 			for (int spec = 0; spec < indexReaction.length; spec++) {
 				if (reactants[i] != 0) {
 					indexReaction[spec][index++] = i;
 				}
 			}
-
 		}
 	}
 
