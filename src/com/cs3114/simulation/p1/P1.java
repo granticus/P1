@@ -141,8 +141,6 @@ public class P1 {
 					bw.write(newLine);
 				}
 				
-				
-				
 				//calculate fire times
 				for(int j = 0; j < totalReactions; j++){
 					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));

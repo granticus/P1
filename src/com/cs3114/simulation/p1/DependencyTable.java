@@ -12,8 +12,16 @@ public class DependencyTable {
 		setUpTable();
 	}
 
-	public Reaction[] updatePropensity(int curReactionIndex, int[] populations) {
-
+	public Reaction[] updatePropensity(Reaction current, int[] populations) {
+		
+		int curReactionIndex = 0;
+		
+		for (int indexTable = 0; indexTable < table.length; indexTable++) {
+			//2 reactions are equal if their propensity, tau, and k values are the same.
+			if (table[indexTable].equals(current)) {
+				curReactionIndex = indexTable;
+			}
+		}
 		
 		for (int i= 0; i < table.length;i++) {
 			//Update propensity for these reactions.
