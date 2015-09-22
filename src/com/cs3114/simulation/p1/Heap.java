@@ -65,7 +65,7 @@ public class Heap {
 	}
 
 	/**
-	 * Checks if is leaf.
+	 * Checks if the position in the heap is leaf, it has no children.
 	 *
 	 * @param pos
 	 *            the pos
