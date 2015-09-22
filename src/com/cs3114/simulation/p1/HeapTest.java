@@ -23,6 +23,8 @@ public class HeapTest {
 		reactions[2] = reac3;
 		reactions[3] = reac4;
 		
+		testHeap = new Heap(reactions);
+		
 	
 	}
 
