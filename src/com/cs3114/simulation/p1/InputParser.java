@@ -117,17 +117,9 @@ public class InputParser {
 			else if (elements[i].substring(0, 2).equals("->")) {
 				break;
 			}
-			if (elements[i].matches("\\d+S\\d+")) {
-				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
-			}
-			String newString = elements[i].replaceAll("[\\D]", " ");
-			newString = newString.substring(1);
-			int endIndex = newString.indexOf(' ');
-			if (endIndex == -1) {
-				endIndex = newString.length();
-			}
-			//species = Integer.valueOf(elements[i].substring(sIndex + 1, endIndex)) - firstIndex;
-			species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
+			
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+			//species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
 			
 			// careful,sometimes the reaction starts at zero.
 
