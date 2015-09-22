@@ -153,6 +153,7 @@ public class InputParser {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
 			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+
 			reactants[species] += numSpecies;
 		}
 		
