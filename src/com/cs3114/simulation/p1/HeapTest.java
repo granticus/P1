@@ -12,7 +12,17 @@ public class HeapTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		testHeap = new Heap(15);
+		//testHeap = new Heap(15);
+		Reaction [] reactions = new Reaction[4];
+		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
+		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
+		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1});
+		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{0, 1, -1});
+		reactions[0] = reac1;
+		reactions[1] = reac2;
+		reactions[2] = reac3;
+		reactions[3] = reac4;
+		
 	
 	}
 
