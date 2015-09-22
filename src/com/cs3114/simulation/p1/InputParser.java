@@ -138,7 +138,7 @@ public class InputParser {
 		if (line.substring(0, 2).equals("->")) {
 			return reactants;
 		}
-		String[] elements = line.split(" ");
+		String[] elements = line.split("->");
 		
 		
 		
