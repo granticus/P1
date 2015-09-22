@@ -1,6 +1,7 @@
 package com.cs3114.simulation.p1;
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,7 +45,8 @@ public class DependencyTableTest {
 	
 	@Test
 	public void testGetSpeciesChange() {
-		
+		boolean [] expected1 = {};
+		Assert.assertArrayEquals(expected1, tTable.getSpeciesChange(0));
 	}
 
 }
