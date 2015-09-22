@@ -126,7 +126,7 @@ public class Heap {
 		if (!isLeaf(pos)) {
 			if (rightChild(pos) == -1) {
 				if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0) {
-					
+					swap(pos, leftChild(pos));
 				}
 			}
 			else if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
