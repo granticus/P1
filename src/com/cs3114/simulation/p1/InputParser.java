@@ -86,7 +86,6 @@ public class InputParser {
 					numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 				}
 				species = Integer.valueOf(elements[j].substring(sIndex + 1)) - firstIndex;
-				// careful,sometimes the reaction starts at zero.
 
 				if (i == 0) {
 					netReaction[species] -= numSpecies;
