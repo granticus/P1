@@ -50,8 +50,7 @@ public class DependencyTable {
 					reactionIndex[i] = getDependencies(k);
 				}
 			}
-		}
-		
+		}	
 	}
 	
 	public boolean[] getDependencies(int species) {
