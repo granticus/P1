@@ -12,8 +12,8 @@ public class DependencyTable {
 		setUpTable();
 	}
 
-	public Reaction[] updatePropensity(Reaction current, int[] populations) {
-		
+	public int[] updatePropensity(Heap minHeap, int[] populations) {
+		/*
 		int curReactionIndex = 0;
 		
 		for (int indexTable = 0; indexTable < table.length; indexTable++) {
@@ -29,8 +29,20 @@ public class DependencyTable {
 				table[i].calculatePropensity(populations);
 			}
 		}
+		*/
+		Reaction curFired = minHeap.remove();
+		int[] net = curFired.getNetChanges();
+		for (int i = 0; i < net.length; i++) {
+			if (net[i] != 0) {
+				table[i].calculatePropensity(populations);
+			}
+		}
 		
-		return table;
+		for (int k = 0; k < net.length; k++) {
+			populations[k] += net[k];
+		}
+		
+		return populations;
 	}
 
 	private void setUpTable() {

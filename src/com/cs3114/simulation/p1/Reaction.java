@@ -111,6 +111,10 @@ public class Reaction implements Comparable<Reaction>{
 		return netChanges;
 	}
 	
+	public int[] getReactants() {
+		return reactants;
+	}
+	
 	public double getPropensity(){
 		return propensity;
 	}
