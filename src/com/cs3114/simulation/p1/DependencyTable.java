@@ -22,7 +22,8 @@ public class DependencyTable {
 				break;
 			}
 		}
-
+		curFired.calculatePropensity(populations);
+		
 		for (int c = 0; c < reactionIndex[0].length; c++) {
 			if (reactionIndex[currIndex][c] == true) {
 				table[c].calculatePropensity(populations);
