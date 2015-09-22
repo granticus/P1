@@ -43,20 +43,15 @@ public class DependencyTable {
 			specReactions[i] = table[i].getReactants();
 		}
 		
-		
-/*		for (int r = 0; r < reactionIndex.length; r++) {
-			int[] netChange = table[r].getNetChanges();
-			for (int iNet = 0; iNet < netChange.length; iNet++) {
-				if (netChange[iNet] != 0) {
-					int[] reactants = table[iNet].getReactants();
-					for (int iReactants = 0; iReactants < reactants.length; iReactants++) {
-						if (reactants[iReactants] != 0) {
-							reactionIndex[r][iReactants] = true;
-						}
-					}
+		for (int i = 0; i < table.length; i++) {
+			int [] net = table[i].getNetChanges();
+			for (int k = 0; k < table.length; k++) {
+				if (net[k] != 0) {
+					reactionIndex[i] = getSpeciesChange(k);
 				}
 			}
-		}*/
+		}
+		
 	}
 	
 	public boolean[] getSpeciesChange(int species) {
