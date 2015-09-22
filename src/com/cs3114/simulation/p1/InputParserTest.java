@@ -67,8 +67,12 @@ public class InputParserTest {
 		Assert.assertArrayEquals(expected7, parse.getEquation(line7, totalSpecies));
 
 		int [] expected8 = {0, -1, 1};
-		String line8 = "S2 ->0.04 S3";
+		String line8 = "S2->0.04 S3";
 		Assert.assertArrayEquals(expected8, parse.getEquation(line8, totalSpecies));
+
+		int [] expected9 = {1, 1, 0};
+		String line9 = "S1+S2->0.01 2S2";
+		Assert.assertArrayEquals(expected9, parse.getReactants(line9, totalSpecies));
 
 		int [] expected10 = {0, -1, 1};
 		String line10 ="S2->0.04 S3";
