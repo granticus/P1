@@ -36,13 +36,15 @@ public class DependencyTableTest {
 		boolean[][] table = tTable.getIR();
 		for (int i = 0; i < table.length; i++) {
 			for (int j = 0; j < table[0].length; j++) {
-				System.out.print(table[i][j] + " ");
+				//System.out.print(table[i][j] + " ");
 			}
-			System.out.println();
+			//System.out.println();
 		}
+		
+		
 		assertTrue(true);
 	}
-	
+	/*
 	@Test
 	public void testGetSpeciesChange() {
 		boolean [] expected1 = {false, true, false, false};
@@ -62,5 +64,5 @@ public class DependencyTableTest {
 		for (int i = 0; i < expected3.length; i++) {
 			assertEquals(expected3[i],actual3[i]);
 		}
-	}
+	}*/
 }
