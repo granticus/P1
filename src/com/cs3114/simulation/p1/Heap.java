@@ -167,7 +167,7 @@ public class Heap {
 	}
 
 	/**
-	 * Minimize the heap to push the lowest one to the top.
+	 * Minimize the heap to push the lowest one to the top. Starts at the parent of the last element
 	 */
 	public void minHeap() {
 		for (int pos = (size / 2) - 1; pos >= 0; pos--) {
