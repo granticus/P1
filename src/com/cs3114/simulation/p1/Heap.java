@@ -20,13 +20,17 @@ public class Heap {
 	 * @param maxsize
 	 *            the maxsize
 	 */
-	public Heap(Reaction [] mainReaction) {
-		this.maxsize = mainReaction.length +1;
-		this.size = mainReaction.length;
+	public Heap(Reaction[] reactions) { //int maxsize) {
+		/*this.maxsize = maxsize;
+		this.size = 0;
+		Heap = new Reaction[this.maxsize + 1];
+		Heap[0] = new NullReaction(); */
+		this.maxsize = reactions.length +1;
+		this.size = reactions.length;
 		Heap = new Reaction[maxsize];
 		Heap[0] = new NullReaction();
-		for (int i = 0; i < mainReaction.length; i++) {
-			Heap[i+1] = mainReaction[i]; 
+		for (int i = 0; i < reactions.length; i++) {
+			Heap[i+1] = reactions[i]; 
 		}
 	}
 
