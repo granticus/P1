@@ -8,8 +8,8 @@ public class Heap {
 	/** The size. */
 	private int size;
 
-	/** The maxsize. */
-	private int maxsize;
+	/** The maxsize. 
+	private int maxsize;*/
 
 	/** The Constant FRONT. */
 	private static final int FRONT = 1;
@@ -25,9 +25,8 @@ public class Heap {
 		this.size = 0;
 		Heap = new Reaction[this.maxsize + 1];
 		Heap[0] = new NullReaction(); */
-		this.maxsize = reactions.length;
 		this.size = reactions.length;
-		Heap = new Reaction[maxsize + 1];
+		Heap = new Reaction[size + 1];
 		Heap[0] = new NullReaction();
 		for (int i = 0; i < reactions.length; i++) {
 			Heap[i+1] = reactions[i]; 
