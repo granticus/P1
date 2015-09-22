@@ -144,12 +144,11 @@ public class InputParser {
 		for (int i = 0; i < elements.length; i++) {
 			int numSpecies = 1;
 			int species = 0;
+			
+			
+			
+			reactants[species] += numSpecies;
 		}
-		
-		
-		
-		
-		
 		
 		return reactants;
 	}
