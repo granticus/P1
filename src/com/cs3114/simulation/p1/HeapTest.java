@@ -36,9 +36,7 @@ public class HeapTest {
 	@Test
 	public void testHeap() {
 
-        System.out.println(testHeap.print());
         testHeap.minHeap();
-        System.out.println(testHeap.print());
         Reaction testReaction = testHeap.remove();
         assertTrue(.3 == testReaction.getCurrentTau());
         testReaction.setCurrentTau(1.2);
@@ -49,17 +47,20 @@ public class HeapTest {
         assertTrue(.5 == testReaction.getCurrentTau());
         testReaction.setCurrentTau(1.5);
         testHeap.insert(testReaction);
-        
+        System.out.println(testHeap.print());
+
         testReaction = testHeap.remove();
         assertTrue(.6 == testReaction.getCurrentTau());
         testReaction.setCurrentTau(1.8);
         testHeap.insert(testReaction);
-        
+        System.out.println(testHeap.print());
+
         testReaction = testHeap.remove();
         assertTrue(.9 == testReaction.getCurrentTau());
         testReaction.setCurrentTau(2.0);
         testHeap.insert(testReaction);
-        
+        System.out.println(testHeap.print());
+
         
 	}
 
