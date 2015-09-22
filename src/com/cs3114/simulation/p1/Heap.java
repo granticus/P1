@@ -31,6 +31,10 @@ public class Heap {
 		Heap = reactions;
 	}
 
+	public Reaction getReaction(int pos) {
+		return Heap[pos];
+	}
+	
 	/**
 	 * The index of the Parent.
 	 *
