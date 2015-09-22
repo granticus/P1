@@ -48,7 +48,6 @@ public class DependencyTableTest {
 		boolean [] expected1 = {false, true, false, false};
 		boolean [] actual1 = tTable.getSpeciesChange(0);
 		for (int i = 0; i < expected1.length; i++) {
-			System.out.println(actual1[i] + " ");
 			assertEquals( expected1[i],actual1[i]);
 		}
 		
