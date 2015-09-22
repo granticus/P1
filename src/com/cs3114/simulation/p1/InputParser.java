@@ -139,7 +139,7 @@ public class InputParser {
 			return reactants;
 		}
 		String[] reac = line.split("->");
-		String[] elements = reac[0].split("+");
+		String[] elements = reac[0].split(" ");
 		
 		for (int i = 0; i < elements.length; i++) {
 			int numSpecies = 1;
