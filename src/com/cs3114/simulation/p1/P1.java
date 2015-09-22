@@ -221,7 +221,7 @@ public class P1 {
 				}
 			}
 			
-			String meanString = "Means: ";
+			String meanString = "";
 			for(int i = 0; i < numOutputted; i++){
 				int index = trackedIndices[i];
 				meanString += mean[index] + "\t";
@@ -230,7 +230,7 @@ public class P1 {
 			System.out.print(meanString);
 			bw.write(meanString);
 			
-			String varString = "Variances: ";
+			String varString = "";
 			for(int i = 0; i < numOutputted; i++){
 				int index = trackedIndices[i];
 				varString += variances[index] + "\t";
