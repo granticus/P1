@@ -92,6 +92,19 @@ public class Heap {
 		Heap[fpos] = Heap[spos];
 		Heap[spos] = tmp;
 	}
+	/*
+	 
+	public int compareTo(Reaction other) {
+		if(currentTau > other.getCurrentTau()){
+			return 1;
+		}else if(currentTau > other.getCurrentTau()){
+			return -1;
+		}else{
+			return 0;
+		}
+	}
+	
+	 */
 
 	/**
 	 * Takes the parent index, and first makes sure the element is not a leaf,
