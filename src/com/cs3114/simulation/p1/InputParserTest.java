@@ -99,8 +99,8 @@ public class InputParserTest {
 		Assert.assertArrayEquals(expected9, parse.getReactants(line9, totalSpecies));
 
 		InputParser test = new InputParser();
-		int [] expected9 = {0, -1, 1};
-		String line9 ="S2->0.04 S3"
+		int [] expected10 = {0, -1, 1};
+		String line10 ="S2->0.04 S3";
 				
 	}
 	
