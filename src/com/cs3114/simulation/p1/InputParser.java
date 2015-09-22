@@ -91,29 +91,55 @@ public class InputParser {
 		
 
 		int[] reactants = new int[totalSpecies];
+		String[] equation = new String[2];
 		int splitIndex = line.indexOf("->");
-		String[] reac = line.split("->");
-		String[] elements = reac[0].split(" ");
-		
-		for (int i = 0; i < elements.length; i++) {
-			int numSpecies = 1;
-			int species = 0;
-			int sIndex = elements[i].indexOf('S');
-			
-			if (elements[i].substring(0, 1).equals("+")) {
-				continue;
-			}
-
-			if (elements[i].matches("\\d+S\\d+")) {
-				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
-			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
-
-			reactants[species] += numSpecies;
+		if (splitIndex == 0) {
+			equation[0] = "";
+			equation[1] = line.substring(2);
+		}
+		else {
+			equation = line.split("->");
 		}
 		
-		return reactants;
-	}
+		for (int i = 0; i < equation.length; i++) {
+			if (equation[i].equals(""))
+				break;
+			
+			String[] elements = line.split(" ");
+			int side = 0;
+			int[] netReaction = new int[totalSpecies];
+
+			for (int j = 0; j < elements.length; j++) {
+
+				int numSpecies = 1;
+				int species = 0;
+				int sIndex = elements[i].indexOf('S');
+
+				if (elements[i].substring(0, 1).equals("+")) {
+					continue;
+				}
+
+				else if (elements[i].substring(0, 2).equals("->")) {
+					side = 1;
+					continue;
+				}
+				if (elements[i].matches("\\d+S\\d+")) {
+					numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+				}
+				species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+				// careful,sometimes the reaction starts at zero.
+
+				if (side == 0) {
+					netReaction[species] -= numSpecies;
+				} else if (side == 1) {
+					netReaction[species] += numSpecies;
+				}
+			}
+
+		}
+
+		return netReaction;
+}
 
 	/**
 	 * Gets the reactants and outputs them onto a table.
