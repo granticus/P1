@@ -26,6 +26,12 @@ public class DependencyTable {
 			}
 		}
 		
+		for (int c = 0; c < reactionIndex[0].length; c++) {
+			if (reactionIndex[currIndex][c] == true) {
+				table[c].calculatePropensity(populations);
+			}
+		}
+		
 		for (int k = 0; k < net.length; k++) {
 			populations[k] += net[k];
 		}
