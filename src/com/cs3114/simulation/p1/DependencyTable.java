@@ -59,20 +59,6 @@ public class DependencyTable {
 		}*/
 	}
 	
-	private boolean[] getDepReactions(Reaction reaction) {
-		boolean [] depReac = new boolean[reactionIndex[0].length];
-		
-		int[] net = reaction.getNetChanges();
-		int [] reactants;
-		for (int i = 0; i < net.length; i++) {
-			if (net[i] != 0) {
-				reactants = table[i].getReactants();
-			}
-		}
-		
-		return depReac;
-	}
-	
 	public boolean[] getSpeciesChange(int species) {
 		boolean[] depen = new boolean[table.length];
 		for (int r = 0; r < specReactions.length; r++) {
