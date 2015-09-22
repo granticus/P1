@@ -66,7 +66,7 @@ public class Heap {
 	 */
 	private int rightChild(int pos) {
 		// The position is out of bounds.
-		if (pos >= (n-1)/2) {
+		if (pos >= (size-1)/2) {
 			return -1; 
 		}
 		return (2 * pos) + 2;
@@ -124,7 +124,12 @@ public class Heap {
 	 */
 	private void minHeapify(int pos) {
 		if (!isLeaf(pos)) {
-			if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
+			if (rightChild(pos) == -1) {
+				if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0) {
+					
+				}
+			}
+			else if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
 					|| Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
 			{
 				if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0)
