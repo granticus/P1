@@ -65,6 +65,10 @@ public class Heap {
 	 * @return the int
 	 */
 	private int rightChild(int pos) {
+		// The position is out of bounds.
+		if (pos >= (n-1)/2) {
+			return -1; 
+		}
 		return (2 * pos) + 2;
 	}
 
