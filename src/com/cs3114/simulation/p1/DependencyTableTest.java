@@ -10,7 +10,7 @@ public class DependencyTableTest {
 
 	@Before
 	public void setUp() throws Exception {
-		Reaction[] reactions = new Reaction[3];
+		Reaction[] reactions = new Reaction[4];
 		Reaction reac1 = new Reaction(10, new int[] { 0, 0, 0 }, new int[] { 1,
 				0, 0 });
 		Reaction reac2 = new Reaction(.01, new int[] { 1, 1, 0 }, new int[] {
