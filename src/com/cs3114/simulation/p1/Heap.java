@@ -173,7 +173,7 @@ public class Heap {
 		 */
 
 		for (int i = 0; i < Heap.length; i++) {
-			heap += Heap[i] + " ";
+			heap += Heap[i].getCurrentTau() + " ";
 		}
 		return heap;
 	}
