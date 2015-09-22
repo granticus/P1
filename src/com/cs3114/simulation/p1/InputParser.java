@@ -119,7 +119,7 @@ public class InputParser {
 			}
 			//String [] newStr = elements[i].split("->");
 			//int sIndex = newStr[0].indexOf('S');
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+			species = Integer.valueOf(elements[i].substring(sIndex)) - firstIndex;
 			//species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
 			
 			// careful,sometimes the reaction starts at zero.
