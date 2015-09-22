@@ -186,6 +186,10 @@ public class Heap {
 			minHeapify(pos);
 		}
 	}
+	
+	public Reaction minElement(){
+		return Heap[FRONT];
+	}
 
 	/**
 	 * Removes the Reaction element at the top of the array, and sorts the heap
