@@ -155,7 +155,6 @@ public class Heap {
 		int current = size;
 
 		while (Heap[current].compareTo(Heap[parent(current)]) < 0)
-		// Heap[current] < Heap[parent(current)])
 		{
 			swap(current, parent(current));
 			current = parent(current);
