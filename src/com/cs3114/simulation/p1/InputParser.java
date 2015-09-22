@@ -69,7 +69,7 @@ public class InputParser {
 		
 		for (int i = 0; i < equation.length; i++) {
 			if (equation[i].equals(""))
-				break;
+				continue;
 			
 			String[] elements = line.split(" ");
 
