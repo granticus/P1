@@ -155,8 +155,11 @@ public class InputParser {
 		if (kIndex != 1)
 		{
 			int endKIndex = line.substring(kIndex).indexOf(' ');
-			return Double.parseDouble(line
-					.substring(kIndex, kIndex + endKIndex));
+			if (endKIndex == -1) {
+				return Double.parseDouble(line.substring(kIndex, line.length()));
+			}
+			return Double.parseDouble(line.substring(kIndex, kIndex + endKIndex));
+			
 		}
 		return 0;
 	}

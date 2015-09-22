@@ -129,6 +129,9 @@ public class InputParserTest {
 		
 		String line7 = "S2 ->0.04 S3";
 		assertTrue(0.04 == parse.getKConstant(line7));
+		
+		String line8 = "S2 ->0.04";
+		assertTrue(0.04 == parse.getKConstant(line7));
 	}
 	
 	@Test
