@@ -14,13 +14,13 @@ public class DependencyTableTest {
 		Reaction reac1 = new Reaction(10, new int[]{0, 0, 0}, new int[] {1, 0, 0});
 		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[] {-1, 1, 0});
 		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[] {0, -1, 1});
-		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{1, 1, -1});
+		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{0, 1, -1});
 		/**
 		
 		->10 S1
 		S1 + S2 ->.01 2S1
 		S2 ->10 S3
-		S3 ->25 S1 + S2
+		S3 ->25 2S2
 		
 		 */
 		reactions[0] = reac1;
