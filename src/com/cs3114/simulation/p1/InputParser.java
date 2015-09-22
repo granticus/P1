@@ -128,7 +128,6 @@ public class InputParser {
 					netReaction[species] += numSpecies;
 				}
 			}
-
 		}
 
 		return netReaction;
