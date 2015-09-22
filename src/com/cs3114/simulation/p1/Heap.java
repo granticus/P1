@@ -61,7 +61,7 @@ public class Heap {
 	 * @return the int
 	 */
 	private int rightChild(int pos) {
-		return (2 * pos) + 1;
+		return (2 * pos) + 2;
 	}
 
 	/**
