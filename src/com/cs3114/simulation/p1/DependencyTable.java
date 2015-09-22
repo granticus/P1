@@ -49,8 +49,9 @@ public class DependencyTable {
 				if (net[k] != 0) {
 					boolean[] dep = getDependencies(k);
 					for (int j = 0; j < dep.length; j++) {
-						if (dep[j] == true)
+						if (dep[j] == true) {
 							reactionIndex[i][j] = true;
+						}
 					}
 				}
 			}
