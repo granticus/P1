@@ -34,7 +34,7 @@ public class HeapTest {
 	}
 
 	@Test
-	public void test() {
+	public void testHeap() {
 		
         testHeap.minHeap();
         Reaction testReaction = testHeap.remove();
