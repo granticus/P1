@@ -14,9 +14,7 @@ public class DependencyTable {
 		setUpTable();
 	}
 
-	public int[] updatePropensity(Heap minHeap, int[] populations) {
-	
-		Reaction curFired = minHeap.remove();
+	public int[] updatePropensity(Reaction curFired, int[] populations) {
 		int[] net = curFired.getNetChanges();
 		
 		int currIndex;
@@ -37,7 +35,6 @@ public class DependencyTable {
 		}
 		
 		curFired.incrementFired();
-		minHeap.insert(curFired);
 		return populations;
 	}
 
