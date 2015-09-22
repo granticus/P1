@@ -47,7 +47,10 @@ public class DependencyTable {
 			int [] net = table[i].getNetChanges();
 			for (int k = 0; k < net.length; k++) {
 				if (net[k] != 0) {
-					reactionIndex[i] = getDependencies(k);
+					boolean[] dep = getDependencies(k);
+					for (int j = 0; j < dep.length; j++) {
+						reactionIndex[i][j] = dep[j];
+					}
 				}
 			}
 		}	
