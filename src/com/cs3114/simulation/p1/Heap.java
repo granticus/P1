@@ -39,7 +39,7 @@ public class Heap {
 	 * @return the int the index of the parent
 	 */
 	private int parent(int pos) {
-		return pos / 2;
+		return (pos-1) / 2;
 	}
 
 	/**
