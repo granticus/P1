@@ -36,9 +36,9 @@ public class DependencyTableTest {
 		boolean[][] table = tTable.getIR();
 		for (int i = 0; i < table.length; i++) {
 			for (int j = 0; j < table[0].length; j++) {
-				//System.out.print(table[i][j] + " ");
+				System.out.print(table[i][j] + " ");
 			}
-			//System.out.println();
+			System.out.println();
 		}
 		assertTrue(true);
 	}
