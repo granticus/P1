@@ -109,7 +109,7 @@ public class InputParser {
 
 			int numSpecies = 1;
 			int species = 0;
-			int sIndex = elements[i].indexOf('S');
+			//int sIndex = elements[i].indexOf('S');
 			if (elements[i].substring(0, 1).equals("+")) {
 				continue;
 			}
@@ -117,7 +117,8 @@ public class InputParser {
 			else if (elements[i].substring(0, 2).equals("->")) {
 				break;
 			}
-			String newStr = elements[i].split("->");
+			String [] newStr = elements[i].split("->");
+			int sIndex = newStr[0].indexOf('S');
 			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			//species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
 			
