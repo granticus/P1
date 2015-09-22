@@ -39,7 +39,9 @@ public class HeapTest {
         testHeap.minHeap();
         Reaction testReaction = testHeap.remove();
         
-        assertTrue(.3 == testReaction.getCurrentTau());     
+        assertTrue(.3 == testReaction.getCurrentTau());
+        testReaction.setCurrentTau(1.2);
+        testHeap.insert(testReaction);
         
         
         
