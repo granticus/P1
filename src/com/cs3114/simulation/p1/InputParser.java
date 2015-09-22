@@ -111,25 +111,20 @@ public class InputParser {
 
 				int numSpecies = 1;
 				int species = 0;
-				int sIndex = elements[i].indexOf('S');
+				int sIndex = elements[j].indexOf('S');
 
-				if (elements[i].substring(0, 1).equals("+")) {
+				if (elements[j].substring(0, 1).equals("+") || elements[j].substring(0, 2).equals("->")) {
 					continue;
 				}
-
-				else if (elements[i].substring(0, 2).equals("->")) {
-					side = 1;
-					continue;
-				}
-				if (elements[i].matches("\\d+S\\d+")) {
+				if (elements[j].matches("\\d+S\\d+")) {
 					numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 				}
-				species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+				species = Integer.valueOf(elements[j].substring(sIndex + 1)) - firstIndex;
 				// careful,sometimes the reaction starts at zero.
 
-				if (side == 0) {
+				if (i == 0) {
 					netReaction[species] -= numSpecies;
-				} else if (side == 1) {
+				} else if (i == 1) {
 					netReaction[species] += numSpecies;
 				}
 			}
