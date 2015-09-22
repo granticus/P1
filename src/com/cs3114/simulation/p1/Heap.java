@@ -196,7 +196,7 @@ public class Heap {
 	 */
 	public Reaction remove() {
 		Reaction popped = Heap[FRONT];
-		Heap[FRONT] = Heap[size--];
+		Heap[FRONT] = Heap[size -1];
 		minHeapify(FRONT);
 		return popped;
 	}
