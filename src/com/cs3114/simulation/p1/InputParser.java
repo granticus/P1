@@ -152,9 +152,9 @@ public class InputParser {
 	 */
 	public double getKConstant(String line) {
 		int kIndex = line.indexOf("->") + 2;
-		int endKIndex = line.substring(kIndex).indexOf(' ');
 		if (kIndex != 1)
 		{
+			int endKIndex = line.substring(kIndex).indexOf(' ');
 			return Double.parseDouble(line
 					.substring(kIndex, kIndex + endKIndex));
 		}
