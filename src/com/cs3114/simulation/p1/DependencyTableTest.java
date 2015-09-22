@@ -45,8 +45,11 @@ public class DependencyTableTest {
 	
 	@Test
 	public void testGetSpeciesChange() {
-		boolean [] expected1 = {};
-		Assert.assertArrayEquals(expected1, tTable.getSpeciesChange(0));
+		boolean [] expected1 = {false, true, false false};
+		boolean [] actual = tTable.getSpeciesChange(0);
+		for (int i = 0; i < expected1.length; i++) {
+			assertEquals( expected1[i],actual[i]);
+		}
 	}
 
 }
