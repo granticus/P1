@@ -117,7 +117,7 @@ public class InputParser {
 			else if (elements[i].substring(0, 2).equals("->")) {
 				break;
 			}
-			
+			String newStr = elements[i].split("->");
 			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			//species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
 			
