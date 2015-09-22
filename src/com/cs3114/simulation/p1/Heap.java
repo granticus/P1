@@ -50,7 +50,7 @@ public class Heap {
 	 * @return the int
 	 */
 	private int leftChild(int pos) {
-		return (2 * pos);
+		return (2 * pos) + 1;
 	}
 
 	/**
