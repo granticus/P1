@@ -49,7 +49,7 @@ public class DependencyTableTest {
 		curFired = new Reaction(.01, new int[]{1, 1, 0}, new int[] {-1, 1, 0});
 		pops = tTable.updatePropensity(curFired, pops);
 		assertEquals(1000, pops[0]);
-		//assertEquals(101, pops[1]);
+		assertEquals(101, pops[1]);
 		
 		assertTrue(true);
 	}
