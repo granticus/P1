@@ -152,7 +152,7 @@ public class Heap {
 	 */
 	public void insert(Reaction element) {
 		Heap[size-1] = element;
-		int current = size;
+		int current = size -1;
 
 		while (Heap[current].compareTo(Heap[parent(current)]) < 0)
 		{
