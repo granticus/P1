@@ -32,8 +32,7 @@ public class DependencyTable {
 		for (int k = 0; k < net.length; k++) {
 			populations[k] += net[k];
 		}
-
-		curFired.incrementFired();
+		
 		return populations;
 	}
 
