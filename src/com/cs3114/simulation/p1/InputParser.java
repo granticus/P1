@@ -88,6 +88,33 @@ public class InputParser {
 		}
 
 		return netReaction;*/
+		
+
+		int[] reactants = new int[totalSpecies];
+		if (line.substring(0, 2).equals("->")) {
+			return reactants;
+		}
+		String[] reac = line.split("->");
+		String[] elements = reac[0].split(" ");
+		
+		for (int i = 0; i < elements.length; i++) {
+			int numSpecies = 1;
+			int species = 0;
+			int sIndex = elements[i].indexOf('S');
+			
+			if (elements[i].substring(0, 1).equals("+")) {
+				continue;
+			}
+
+			if (elements[i].matches("\\d+S\\d+")) {
+				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+			}
+			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+
+			reactants[species] += numSpecies;
+		}
+		
+		return reactants;
 	}
 
 	/**
