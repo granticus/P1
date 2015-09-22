@@ -58,7 +58,7 @@ public class DependencyTable {
 		}	
 	}
 	
-	public boolean[] getDependencies(int species) {
+	private boolean[] getDependencies(int species) {
 		boolean[] depen = new boolean[table.length];
 		for (int r = 0; r < specReactions.length; r++) {
 			if (specReactions[r][species] != 0) {
