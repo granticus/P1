@@ -105,11 +105,8 @@ public class Heap {
 		if (!isLeaf(pos)) {
 			if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
 					|| Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
-			// Heap[pos] > Heap[leftChild(pos)] || Heap[pos] >
-			// Heap[rightChild(pos)])
 			{
 				if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0)
-				// Heap[leftChild(pos)] < Heap[rightChild(pos)])
 				{
 					swap(pos, leftChild(pos));
 					minHeapify(leftChild(pos));
