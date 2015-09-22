@@ -65,6 +65,11 @@ public class InputParserTest {
 		int [] expected7 = {0, -1, 1};
 		String line7 = "S2 ->0.04 S3";
 		Assert.assertArrayEquals(expected7, parse.getEquation(line7, totalSpecies));
+
+		InputParser test = new InputParser();
+		int [] expected10 = {0, -1, 1};
+		String line10 ="S2->0.04 S3";
+		//Assert.assertArrayEquals(expected10, parse.getEquation(line10, totalSpecies));
 	}
 	
 	@Test
@@ -96,7 +101,12 @@ public class InputParserTest {
 		int [] expected9 = {1, 1, 0};
 		String line9 = "S1 + S2 ->0.01 2S2";
 		Assert.assertArrayEquals(expected9, parse.getReactants(line9, totalSpecies));
-		
+
+		InputParser test = new InputParser();
+		int [] expected10 = {0, 1, 0};
+		String line10 ="S2->0.04 S3";
+		Assert.assertArrayEquals(expected10, parse.getReactants(line10, totalSpecies));
+				
 	}
 	
 	@Test
@@ -113,6 +123,15 @@ public class InputParserTest {
 		
 		String line7 = "S2 ->0.04 S3";
 		assertTrue(0.04 == parse.getKConstant(line7));
+	}
+	
+	@Test
+	public void testGetFirstIndex() {
+		InputParser testParse = new InputParser();
+		assertEquals (0, testParse.getFirstIndex("S0->24 S1"));
+		assertEquals(0, testParse.getFirstIndex("->15 S0"));
+		assertEquals (1, testParse.getFirstIndex("S1->24 S2"));
+		assertEquals (1, testParse.getFirstIndex("S1 + S2->24 S1"));
 	}
 
 }
