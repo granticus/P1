@@ -46,6 +46,7 @@ public class DependencyTableTest {
 		pops = tTable.updatePropensity(curFired, pops);
 		assertEquals(1001, pops[0]);
 		
+		
 		assertTrue(true);
 	}
 	/*
