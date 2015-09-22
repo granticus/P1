@@ -16,8 +16,8 @@ public class InputParser {
 	 * the main method is empty and does nothing.
 	 */
 	public InputParser() {
-		//Nothing needs to be initialized, so the body is empty.
-	};
+		firstIndex = 0;
+	}
 
 	/**
 	 * Gets the ints. Takes a String and returns all the ints from the line.
