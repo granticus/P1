@@ -37,8 +37,9 @@ public class HeapTest {
 	public void test() {
 		
         testHeap.minHeap();
+        Reaction testReaction = testHeap.remove();
         
-        assertEquals(.3, testHeap.getReaction(0));        
+        assertEquals(.3, testReaction.getReaction(0));        
         
         
         
