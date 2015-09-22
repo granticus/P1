@@ -145,7 +145,13 @@ public class InputParser {
 			int numSpecies = 1;
 			int species = 0;
 			
-			
+			if (elements[i].substring(0, 1).equals("+")) {
+				continue;
+			}
+
+			if (elements[i].matches("\\d+S\\d+")) {
+				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+			}
 			
 			reactants[species] += numSpecies;
 		}
