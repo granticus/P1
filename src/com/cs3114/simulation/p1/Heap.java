@@ -25,9 +25,9 @@ public class Heap {
 		this.size = 0;
 		Heap = new Reaction[this.maxsize + 1];
 		Heap[0] = new NullReaction(); */
-		this.maxsize = reactions.length +1;
+		this.maxsize = reactions.length;
 		this.size = reactions.length;
-		Heap = new Reaction[maxsize];
+		Heap = new Reaction[maxsize + 1];
 		Heap[0] = new NullReaction();
 		for (int i = 0; i < reactions.length; i++) {
 			Heap[i+1] = reactions[i]; 
