@@ -89,8 +89,8 @@ public class InputParser {
 
 		return netReaction;*/
 		
-
-		int[] reactants = new int[totalSpecies];
+		int[] netReaction = new int[totalSpecies];
+		
 		String[] equation = new String[2];
 		int splitIndex = line.indexOf("->");
 		if (splitIndex == 0) {
@@ -106,8 +106,6 @@ public class InputParser {
 				break;
 			
 			String[] elements = line.split(" ");
-			int side = 0;
-			int[] netReaction = new int[totalSpecies];
 
 			for (int j = 0; j < elements.length; j++) {
 
