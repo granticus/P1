@@ -136,7 +136,7 @@ public class InputParser {
 		
 		String[] elements = line.split(" ");
 		int[] reactants = new int[totalSpecies];
-		
+		if (elements[0].substring(0, 2).equals("->"))
 		return reactants;
 	}
 
