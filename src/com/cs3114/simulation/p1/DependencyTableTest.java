@@ -46,10 +46,27 @@ public class DependencyTableTest {
 	@Test
 	public void testGetSpeciesChange() {
 		boolean [] expected1 = {false, true, false, false};
-		boolean [] actual = tTable.getSpeciesChange(0);
+		boolean [] actual1 = tTable.getSpeciesChange(0);
 		for (int i = 0; i < expected1.length; i++) {
-			assertEquals( expected1[i],actual[i]);
+			assertEquals( expected1[i],actual1[i]);
 		}
+		
+		boolean [] expected2 = {false, true, false, false};
+		boolean [] actual2 = tTable.getSpeciesChange(0);
+		for (int i = 0; i < expected2.length; i++) {
+			assertEquals( expected2[i],actual2[i]);
+		}
+		
+		boolean [] expected3 = {false, true, false, false};
+		boolean [] actua3 = tTable.getSpeciesChange(0);
+		for (int i = 0; i < expected1.length; i++) {
+			assertEquals( expected1[i],actual3[i]);
+		}
+		
+		boolean [] expected3 = {false, true, false, false};
+		boolean [] actual = tTable.getSpeciesChange(0);
+		for (int i = 0; i < expected3.length; i++) {
+			assertEquals( expected3[i],actual3[i]);
 	}
 
 }
