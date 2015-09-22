@@ -102,12 +102,12 @@ public class InputParser {
 	 *         products.
 	 */
 	public int[] getReactants(String line, int totalSpecies) {
-		String[] elements = line.split(" ");
+/*		String[] elements = line.split(" ");
 		int[] reactants = new int[totalSpecies];
 
 		for (int i = 0; i < elements.length; i++) {
 
-/*			int numSpecies = 1;
+			int numSpecies = 1;
 			int species = 0;
 			//int sIndex = elements[i].indexOf('S');
 			if (elements[i].substring(0, 1).equals("+")) {
@@ -131,10 +131,12 @@ public class InputParser {
 			// careful,sometimes the reaction starts at zero.
 
 			reactants[species] += numSpecies;
-			
-			
-*/
-		}
+
+		}*/
+		
+		String[] elements = line.split(" ");
+		int[] reactants = new int[totalSpecies];
+		
 		return reactants;
 	}
 
