@@ -72,5 +72,9 @@ public class DependencyTable {
 	public boolean[][] getIR() {
 		return reactionIndex;
 	}
+	
+	public Reaction[] getTable() {
+		return table;
+	}
 
 }
