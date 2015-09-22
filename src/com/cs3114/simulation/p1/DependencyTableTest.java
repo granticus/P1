@@ -41,6 +41,7 @@ public class DependencyTableTest {
 			//System.out.println();
 		}
 		
+		int []pops = {1000, 100, 500};
 		
 		assertTrue(true);
 	}
