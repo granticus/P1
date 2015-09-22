@@ -33,39 +33,6 @@ import java.io.*;
 public class P1 {
 
 	public static void main(String[] args) throws IOException {
-/*
-		//SAMPLE HARDCODED DATA
-		int numSimulations = 1;
-		
-		int numSpecies = 3;
-		int totalReactions = 3;
-		int numOutputted = 2;
-		int finalSimTime = 10;
-		
-		int[] populations = new int[3];
-		populations[0] = 1000;
-		populations[1] = 1000;
-		populations[2] = 0;
-		
-		int[] trackedIndices = new int[2];
-		trackedIndices[0] = 0;
-		trackedIndices[1] = 1;
-		
-		Reaction [] reactions = new Reaction[totalReactions];
-		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
-		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
-		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1}); // FOR NOW, manually set
-		reactions[0] = reac1;
-		reactions[1] = reac2;
-		reactions[2] = reac3;
-		
-		File oFile = new File("output.output");
-		oFile.createNewFile();
-		BufferedWriter bw = new BufferedWriter(new FileWriter(oFile.getAbsoluteFile()));
-		System.out.println(oFile.getAbsolutePath());
-		
-		*/
-		
 	
 		
 		//INPUTTED DATA
@@ -119,6 +86,8 @@ public class P1 {
 					parse.getEquation(lines[reactionNum+3], numSpecies));
 		}
 		
+		Heap reactionHeap = new Heap(reactions);
+		
 		int [][] finalPops = new int[numSimulations][numSpecies];
 		
 		double currentTime;
@@ -145,25 +114,21 @@ public class P1 {
 				for(int j = 0; j < totalReactions; j++){
 					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 				}
+				reactionHeap.minHeap();
 				
 				//choose lowest fire time
-				int lowestFireTimeIndex = 0;
-				for(int j = 1; j < totalReactions; j++){
-					if(reactions[j].getCurrentTau() < reactions[lowestFireTimeIndex].getCurrentTau()){
-						lowestFireTimeIndex = j;		
-					}
-				}
+				Reaction minReaction = reactionHeap.minElement();
 				
 				//update populations using the netChange of the chosen reaction
-				int[] currNetChange = reactions[lowestFireTimeIndex].getNetChanges();
-				reactions[lowestFireTimeIndex].incrementFired();
+				int[] currNetChange = minReaction.getNetChanges();
+				minReaction.incrementFired();
 				
 				for(int j = 0; j < numSpecies; j++){
 					populations[j] += currNetChange[j];
 				}
 				
 				//add chosen time to currentTime
-				currentTime += reactions[lowestFireTimeIndex].getCurrentTau();
+				currentTime += minReaction.getCurrentTau();
 			}
 			for(int j = 0; j < numSpecies; j++){
 				finalPops[i][j] = populations[j];
