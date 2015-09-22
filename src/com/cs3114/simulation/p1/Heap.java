@@ -21,16 +21,14 @@ public class Heap {
 	 *            the maxsize
 	 */
 	public Heap(Reaction[] reactions) { //int maxsize) {
-		/*this.maxsize = maxsize;
-		this.size = 0;
-		Heap = new Reaction[this.maxsize + 1];
-		Heap[0] = new NullReaction(); */
+		
 		this.size = reactions.length;
-		Heap = new Reaction[size + 1];
+		/*Heap = new Reaction[size + 1];
 		Heap[0] = new NullReaction();
 		for (int i = 0; i < reactions.length; i++) {
 			Heap[i+1] = reactions[i]; 
-		}
+		}*/
+		Heap = reactions;
 	}
 
 	/**
