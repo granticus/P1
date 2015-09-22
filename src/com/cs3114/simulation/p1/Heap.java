@@ -23,6 +23,7 @@ public class Heap {
 	public Heap(Reaction [] mainReaction) {
 		this.maxsize = mainReaction.length +1;
 		this.size = mainReaction.length;
+		Heap = new Reaction[maxsize];
 		Heap[0] = new NullReaction();
 		for (int i = 0; i < mainReaction.length; i++) {
 			Heap[i+1] = mainReaction[i]; 
