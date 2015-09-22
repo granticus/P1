@@ -58,7 +58,7 @@ public class Heap {
 	}
 
 	/**
-	 * Right child.
+	 * Right child of the parent.
 	 *
 	 * @param pos
 	 *            the pos
