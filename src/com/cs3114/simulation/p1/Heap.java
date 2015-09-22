@@ -21,8 +21,8 @@ public class Heap {
 	 *            the maxsize
 	 */
 	public Heap(Reaction [] mainReaction) {
-		this.maxsize = mainReaction.length;
-		this.size = 4;
+		this.maxsize = mainReaction.length +1;
+		this.size = 4 + 1;
 		Heap = mainReaction;
 		Heap[0] = new NullReaction();
 	}
