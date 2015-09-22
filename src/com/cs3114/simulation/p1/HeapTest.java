@@ -15,9 +15,14 @@ public class HeapTest {
 		//testHeap = new Heap(15);
 		Reaction [] reactions = new Reaction[4];
 		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
+		reac1.setCurrentTau(.5);
 		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
+		reac1.setCurrentTau(.3);
 		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1});
+		reac1.setCurrentTau(.9);
 		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{0, 1, -1});
+		reac1.setCurrentTau(.6);
+		
 		reactions[0] = reac1;
 		reactions[1] = reac2;
 		reactions[2] = reac3;
