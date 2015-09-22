@@ -55,40 +55,6 @@ public class InputParser {
 	 */
 	public int[] getEquation(String line, int totalSpecies) {
 		
-		/*
-		String[] elements = line.split(" ");
-		int side = 0;
-		int[] netReaction = new int[totalSpecies];
-
-		for (int i = 0; i < elements.length; i++) {
-
-			int numSpecies = 1;
-			int species = 0;
-			int sIndex = elements[i].indexOf('S');
-
-			if (elements[i].substring(0, 1).equals("+")) {
-				continue;
-			}
-
-			else if (elements[i].substring(0, 2).equals("->")) {
-				side = 1;
-				continue;
-			}
-			if (elements[i].matches("\\d+S\\d+")) {
-				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
-			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
-			// careful,sometimes the reaction starts at zero.
-
-			if (side == 0) {
-				netReaction[species] -= numSpecies;
-			} else if (side == 1) {
-				netReaction[species] += numSpecies;
-			}
-		}
-
-		return netReaction;*/
-		
 		int[] netReaction = new int[totalSpecies];
 		
 		String[] equation = new String[2];
