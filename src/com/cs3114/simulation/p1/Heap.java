@@ -82,9 +82,9 @@ public class Heap {
 	 * Swap the position of the 2 taken elements in the array.
 	 *
 	 * @param fpos
-	 *            the fpos
+	 *            the fpos First Position that will be swapped.
 	 * @param spos
-	 *            the spos
+	 *            the spos The Second position that will swap into the first position.
 	 */
 	private void swap(int fpos, int spos) {
 		Reaction tmp;
