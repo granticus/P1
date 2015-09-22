@@ -114,37 +114,6 @@ public class InputParser {
 	 *         products.
 	 */
 	public int[] getReactants(String line, int totalSpecies) {
-/*		String[] elements = line.split(" ");
-		int[] reactants = new int[totalSpecies];
-
-		for (int i = 0; i < elements.length; i++) {
-
-			int numSpecies = 1;
-			int species = 0;
-			//int sIndex = elements[i].indexOf('S');
-			if (elements[i].substring(0, 1).equals("+")) {
-				continue;
-			}
-
-			else if (elements[i].substring(0, 2).equals("->")) {
-				break;
-			}
-			String [] newStr = elements[i].split("->");
-			int sIndex = newStr[0].indexOf('S');
-			
-			if (elements[i].matches("\\d+S\\d+")) {
-				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
-			}
-			
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
-			
-			//species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
-			
-			// careful,sometimes the reaction starts at zero.
-
-			reactants[species] += numSpecies;
-
-		}*/
 
 		int[] reactants = new int[totalSpecies];
 		if (line.substring(0, 2).equals("->")) {
