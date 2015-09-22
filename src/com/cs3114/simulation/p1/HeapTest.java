@@ -45,7 +45,7 @@ public class HeapTest {
         System.out.println(testHeap.print());
         
         testReaction = testHeap.remove();
-        //assertTrue(.5 == testReaction.getCurrentTau());
+        assertTrue(.5 == testReaction.getCurrentTau());
         testReaction.setCurrentTau(1.2);
         testHeap.insert(testReaction);
         
