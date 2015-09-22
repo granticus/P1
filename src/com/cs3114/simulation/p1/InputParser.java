@@ -91,9 +91,7 @@ public class InputParser {
 		
 
 		int[] reactants = new int[totalSpecies];
-		if (line.substring(0, 2).equals("->")) {
-			return reactants;
-		}
+		int splitIndex = line.indexOf("->");
 		String[] reac = line.split("->");
 		String[] elements = reac[0].split(" ");
 		
