@@ -120,6 +120,10 @@ public class InputParser {
 			//String [] newStr = elements[i].split("->");
 			//int sIndex = newStr[0].indexOf('S');
 			
+			if (elements[i].matches("\\d+S\\d+")) {
+				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+			}
+			
 			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
 			
 			//species = Integer.valueOf(newString.substring(0, endIndex)) - firstIndex;
