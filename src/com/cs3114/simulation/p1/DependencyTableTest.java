@@ -23,13 +23,6 @@ public class DependencyTableTest {
 		S1 + S2 ->.01 2S1
 		S2 ->10 S3
 		
-		Should get:
-		R:	1  2  3
-		
-		R1: 0, 1, 0
-		R2: 0, 0, 1
-		R3: 0, 0, 0
-		
 		 */
 		reactions[0] = reac1;
 		reactions[1] = reac2;
