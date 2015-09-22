@@ -38,12 +38,7 @@ public class HeapTest {
 		
         testHeap.minHeap();
         
-        assertEquals(.3, testHeap.getReaction(0));
- 
-        System.out.print(testHeap.print());
-        
-        
-        assertTrue(true);
+        assertEquals(.3, testHeap.getReaction(0));        
         
         
         
