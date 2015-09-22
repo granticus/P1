@@ -37,6 +37,8 @@ public class HeapTest {
 	public void test() {
 		
         testHeap.minHeap();
+        
+        assertEquals(.3, testHeap.getReaction(0));
  
         System.out.print(testHeap.print());
         
