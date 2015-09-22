@@ -1,8 +1,5 @@
 package com.cs3114.simulation.p1;
 
-import java.util.*;
-
-
 public class DependencyTable {
 
 	private Reaction[] table;
@@ -52,6 +49,10 @@ public class DependencyTable {
 				}
 			}
 		}
+	}
+
+	public boolean[][] getIR() {
+		return reactionIndex;
 	}
 
 }
