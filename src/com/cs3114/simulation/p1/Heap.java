@@ -151,7 +151,7 @@ public class Heap {
 	 *            the element that will be inserted inside the heap.
 	 */
 	public void insert(Reaction element) {
-		Heap[++size] = element;
+		Heap[size] = element;
 		int current = size;
 
 		while (Heap[current].compareTo(Heap[parent(current)]) < 0)
