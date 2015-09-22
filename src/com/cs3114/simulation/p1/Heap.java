@@ -12,7 +12,7 @@ public class Heap {
 	private int maxsize;*/
 
 	/** The Constant FRONT. */
-	private static final int FRONT = 1=0;
+	//private static final int FRONT =0;
 
 	/**
 	 * Instantiates a new heap.
