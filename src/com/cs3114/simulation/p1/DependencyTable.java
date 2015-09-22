@@ -47,14 +47,14 @@ public class DependencyTable {
 			int [] net = table[i].getNetChanges();
 			for (int k = 0; k < table.length; k++) {
 				if (net[k] != 0) {
-					reactionIndex[i] = getSpeciesChange(k);
+					reactionIndex[i] = getDependencies(k);
 				}
 			}
 		}
 		
 	}
 	
-	public boolean[] getSpeciesChange(int species) {
+	public boolean[] getDependencies(int species) {
 		boolean[] depen = new boolean[table.length];
 		for (int r = 0; r < specReactions.length; r++) {
 			if (specReactions[r][species] != 0) {
