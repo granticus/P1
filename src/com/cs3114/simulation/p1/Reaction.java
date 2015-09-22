@@ -125,4 +125,38 @@ public class Reaction implements Comparable<Reaction>{
 			return 0;
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(currentTau);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(k);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(propensity);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reaction other = (Reaction) obj;
+		if (Double.doubleToLongBits(currentTau) != Double
+				.doubleToLongBits(other.currentTau))
+			return false;
+		if (Double.doubleToLongBits(k) != Double.doubleToLongBits(other.k))
+			return false;
+		if (Double.doubleToLongBits(propensity) != Double
+				.doubleToLongBits(other.propensity))
+			return false;
+		return true;
+	}
 }

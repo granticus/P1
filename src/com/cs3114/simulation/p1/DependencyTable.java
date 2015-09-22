@@ -13,6 +13,7 @@ public class DependencyTable {
 	}
 
 	public Reaction[] updatePropensity(int curReactionIndex, int[] populations) {
+
 		
 		for (int i= 0; i < table.length;i++) {
 			//Update propensity for these reactions.
