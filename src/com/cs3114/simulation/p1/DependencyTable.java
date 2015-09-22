@@ -1,40 +1,28 @@
 package com.cs3114.simulation.p1;
 
+import java.util.*;
+
 
 public class DependencyTable {
 
 	private Reaction[] table;
-	private int[][] indexReaction;
+	private boolean[][] reactionIndex;
 
 	public DependencyTable(Reaction[] reactionArray) {
 		table = reactionArray;
-		indexReaction = new int[reactionArray.length][reactionArray.length];
+		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
 		setUpTable();
 	}
 
 	public int[] updatePropensity(Heap minHeap, int[] populations) {
-		/*
-		int curReactionIndex = 0;
-		
-		for (int indexTable = 0; indexTable < table.length; indexTable++) {
-			//2 reactions are equal if their propensity, tau, and k values are the same.
-			if (table[indexTable].equals(current)) {
-				curReactionIndex = indexTable;
-			}
-		}
-		
-		for (int i= 0; i < table.length;i++) {
-			//Update propensity for these reactions.
-			if (indexReaction[curReactionIndex][i] != 0) {
-				table[i].calculatePropensity(populations);
-			}
-		}
-		*/
+	
 		Reaction curFired = minHeap.remove();
 		int[] net = curFired.getNetChanges();
-		for (int i = 0; i < net.length; i++) {
-			if (net[i] != 0) {
-				table[i].calculatePropensity(populations);
+		
+		int currIndex;
+		for (currIndex =0; currIndex < table.length; currIndex++) {
+			if (curFired.equals(table[currIndex])) {
+				break;
 			}
 		}
 		
@@ -42,17 +30,25 @@ public class DependencyTable {
 			populations[k] += net[k];
 		}
 		
+		curFired.incrementFired();
+		minHeap.insert(curFired);
 		return populations;
 	}
 
 	private void setUpTable() {
-		for (int i = 0; i < table.length; i++) {
-			indexReaction[i] = table[i].getNetChanges();
+		
+		for (int r = 0; r < reactionIndex.length; r++) {
+			int [] netChange = table[r].getNetChanges();
+			if (netChange[r] != 0) {
+
+				int [] reactants = table[r].getReactants();
+				for (int iReactants = 0; iReactants < reactants.length; iReactants++) {
+					if (reactants[iReactants] != 0) {
+						reactionIndex[r][iReactants] = true;
+					}
+				}
+			}
 		}
-	}
-	
-	public int[][] getIR() {
-		return indexReaction;
 	}
 
 }
