@@ -17,11 +17,11 @@ public class HeapTest {
 		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0});
 		reac1.setCurrentTau(.5);
 		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[]{-1, 1, 0});
-		reac1.setCurrentTau(.3);
+		reac2.setCurrentTau(.3);
 		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[]{0, -1, 1});
-		reac1.setCurrentTau(.9);
+		reac3.setCurrentTau(.9);
 		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{0, 1, -1});
-		reac1.setCurrentTau(.6);
+		reac4.setCurrentTau(.6);
 		
 		reactions[0] = reac1;
 		reactions[1] = reac2;
