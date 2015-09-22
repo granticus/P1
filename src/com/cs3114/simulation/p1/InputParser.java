@@ -54,6 +54,8 @@ public class InputParser {
 	 *         or gain from the equation with the k at the end.
 	 */
 	public int[] getEquation(String line, int totalSpecies) {
+		
+		/*
 		String[] elements = line.split(" ");
 		int side = 0;
 		int[] netReaction = new int[totalSpecies];
@@ -85,7 +87,7 @@ public class InputParser {
 			}
 		}
 
-		return netReaction;
+		return netReaction;*/
 	}
 
 	/**
