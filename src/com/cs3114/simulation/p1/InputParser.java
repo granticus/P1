@@ -133,14 +133,16 @@ public class InputParser {
 			reactants[species] += numSpecies;
 
 		}*/
-		
-		String[] elements = line.split(" ");
+
 		int[] reactants = new int[totalSpecies];
-		
-		if (elements[0].substring(0, 2).equals("->")) {
+		if (line.substring(0, 2).equals("->")) {
 			return reactants;
 		}
-			
+		String[] elements = line.split(" ");
+		
+		
+		
+		
 		return reactants;
 	}
 
