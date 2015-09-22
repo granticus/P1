@@ -20,6 +20,7 @@ public class DependencyTableTest {
 		->10 S1
 		S1 + S2 ->.01 2S1
 		S2 ->10 S3
+		S3 ->25 S2
 		
 		 */
 		reactions[0] = reac1;
