@@ -31,7 +31,7 @@ public class DependencyTableTest {
 
 	@Test
 	public void test() {
-		int[][] table = tTable.getIR();
+		boolean[][] table = tTable.getIR();
 		for (int i = 0; i < table.length; i++) {
 			for (int j = 0; j < table[0].length; j++) {
 				System.out.print(table[i][j] + " ");
@@ -39,6 +39,11 @@ public class DependencyTableTest {
 			System.out.println();
 		}
 		assertTrue(true);
+	}
+	
+	@Test
+	public void testGetSpeciesChange() {
+		
 	}
 
 }
