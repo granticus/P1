@@ -170,7 +170,7 @@ public class Heap {
 	 * Minimize the heap to push the lowest one to the top.
 	 */
 	public void minHeap() {
-		for (int pos = (size / 2); pos >= 0; pos--) {
+		for (int pos = (size / 2) - 1; pos >= 0; pos--) {
 			minHeapify(pos);
 		}
 	}
