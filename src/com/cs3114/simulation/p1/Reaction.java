@@ -119,7 +119,7 @@ public class Reaction implements Comparable<Reaction>{
 	public int compareTo(Reaction other) {
 		if(currentTau > other.getCurrentTau()){
 			return 1;
-		}else if(currentTau > other.getCurrentTau()){
+		}else if(currentTau < other.getCurrentTau()){
 			return -1;
 		}else{
 			return 0;
