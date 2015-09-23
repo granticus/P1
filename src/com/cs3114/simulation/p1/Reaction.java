@@ -133,6 +133,28 @@ public class Reaction implements Comparable<Reaction>{
 		}
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + index;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reaction other = (Reaction) obj;
+		if (index != other.index)
+			return false;
+		return true;
+	}
+
 	public int getIndex() {
 		return index;
 	}
