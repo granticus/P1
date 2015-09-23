@@ -39,7 +39,7 @@ public class DependencyTable {
 	 * Gets the dependents.
 	 *
 	 * @param curFired
-	 *            the cur fired
+	 *            the current reaction that will be fired. Called from the main;
 	 * @return the dependents
 	 */
 	public ArrayList<Reaction> getDependents(Reaction curFired) {
