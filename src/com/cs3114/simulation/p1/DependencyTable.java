@@ -58,7 +58,7 @@ public class DependencyTable {
 	 */
 	private void setUpTable(Reaction[] reactionArray) {
 
-		/* Allocates the array for every reaction. */
+		/* Allocates the array to account for every reaction. */
 		for (int i = 0; i < reactionArray.length; i++) {
 			rTable.add(new ArrayList<Reaction>());
 		}
