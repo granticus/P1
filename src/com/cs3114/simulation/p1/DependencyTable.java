@@ -5,13 +5,11 @@ import java.util.*;
 public class DependencyTable {
 
 	private Reaction[] table;
-	private boolean[][] reactionIndex;	
-	private int [][] specReactions;
+	private boolean[][] reactionIndex;
 	ArrayList<ArrayList<Reaction>>  rTable;
 
 	public DependencyTable(Reaction[] reactionArray) {
 		table = reactionArray;
-		specReactions = new int[reactionArray.length][reactionArray.length];
 		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
 		rTable = new ArrayList<ArrayList<Reaction>>();
 		setUpTable();
@@ -47,10 +45,6 @@ public class DependencyTable {
 		}
 		
 		for (int i = 0; i < table.length; i++) {
-			specReactions[i] = table[i].getReactants();
-		}
-		
-		for (int i = 0; i < table.length; i++) {
 			int [] net = table[i].getNetChanges();
 			for (int k = 0; k < net.length; k++) {
 				if (net[k] != 0) {
@@ -71,17 +65,6 @@ public class DependencyTable {
 				}
 			}
 		}
-	}
-	
-	private boolean[] getDependencies(int species) {
-		boolean[] depen = new boolean[table.length];
-		for (int r = 0; r < specReactions.length; r++) {
-			if (specReactions[r][species] != 0) {
-				depen[r] = true;
-			}
-		}
-		
-		return depen;
 	}
 
 	public boolean[][] getIR() {
