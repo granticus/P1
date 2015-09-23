@@ -58,7 +58,7 @@ public class Heap {
 	 * Right child of the parent.
 	 *
 	 * @param pos
-	 *            the pos
+	 *            the pos of the parent
 	 * @return the int
 	 */
 	private int rightChild(int pos) {
