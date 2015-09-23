@@ -26,8 +26,10 @@ package com.cs3114.simulation.p1;
 //   of this program with other students, and that another student
 //   may help me debug my program so long as neither of us writes
 //   anything during the discussion or modifies any computer file
-//   during the discussion. I have violated neither the spiritnor
+//   during the discussion. I have violated neither the spirit nor
 //   letter of this restriction.
+
+import java.util.ArrayList;
 import java.io.*;
 
 public class P1 {
@@ -99,7 +101,8 @@ public class P1 {
 		double currentTime;
 		
 		Heap reactionHeap;
-		DependencyTable dependency = new DependencyTable(reactions);;
+		DependencyTable dependency = new DependencyTable(reactions);
+		ArrayList<reactions> dependents;
 		
 		for(int i = 0; i < numSimulations; i++){
 			
