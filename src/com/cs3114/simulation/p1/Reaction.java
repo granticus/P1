@@ -8,6 +8,8 @@ package com.cs3114.simulation.p1;
  */
 public class Reaction implements Comparable<Reaction>{
 
+	private int index;
+	
 	/** The k. */
 	private double k;
 
