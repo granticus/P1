@@ -86,7 +86,10 @@ public class DependencyTable {
 			}
 		}
 
-		/* Once the reactionIndex is set, we go through every row. If there is an element that is true, the we store that Reaction in the array. */
+		/*
+		 * Once the reactionIndex is set, we go through every row. If there is
+		 * an element that is true, the we store that Reaction in the array.
+		 */
 		for (int r = 0; r < rTable.size(); r++) {
 			for (int c = 0; c < reactionArray.length; c++) {
 				if (reactionIndex[r][c] == true) {
