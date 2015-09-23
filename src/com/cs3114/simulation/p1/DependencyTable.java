@@ -20,15 +20,14 @@ public class DependencyTable {
 	public int[] updatePropensity(Reaction curFired, int[] populations) {
 		int[] net = curFired.getNetChanges();
 
+		curFired.calculatePropensity(populations);
+		
 		int currIndex;
 		for (currIndex = 0; currIndex < table.length; currIndex++) {
 			if (curFired.equals(table[currIndex])) {
 				break;
 			}
 		}
-		curFired.calculatePropensity(populations);
-		
-		
 
 		for (int k = 0; k < net.length; k++) {
 			populations[k] += net[k];
