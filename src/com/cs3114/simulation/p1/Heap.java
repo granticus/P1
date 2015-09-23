@@ -9,12 +9,13 @@ public class Heap {
 	private int size;
 
 	/** The Constant FRONT. */
-	private static final int FRONT =0;
+	private static final int FRONT = 0;
 
 	/**
 	 * Instantiates a new heap.
 	 *
-	 * @param reactions the reactions
+	 * @param reactions
+	 *            the reactions
 	 */
 	public Heap(Reaction[] reactions) {
 		this.size = reactions.length;
@@ -25,13 +26,14 @@ public class Heap {
 	/**
 	 * Gets the reaction.
 	 *
-	 * @param pos the pos
+	 * @param pos
+	 *            the pos
 	 * @return the reaction
 	 */
 	public Reaction getReaction(int pos) {
 		return Heap[pos];
 	}
-	
+
 	/**
 	 * The index of the Parent.
 	 *
@@ -40,7 +42,7 @@ public class Heap {
 	 * @return the int the index of the parent
 	 */
 	private int parent(int pos) {
-		return (pos-1) / 2;
+		return (pos - 1) / 2;
 	}
 
 	/**
@@ -59,12 +61,13 @@ public class Heap {
 	 *
 	 * @param pos
 	 *            the pos of the parent
-	 * @return the int returns the right child if exists. Otherwise return -1 if there is no right child.
+	 * @return the int returns the right child if exists. Otherwise return -1 if
+	 *         there is no right child.
 	 */
 	private int rightChild(int pos) {
 		// The position is out of bounds.
-		if (pos >= (size-1)/2) {
-			return -1; 
+		if (pos >= (size - 1) / 2) {
+			return -1;
 		}
 		return (2 * pos) + 2;
 	}
@@ -89,7 +92,8 @@ public class Heap {
 	 * @param fpos
 	 *            the fpos First Position that will be swapped.
 	 * @param spos
-	 *            the spos The Second position that will swap into the first position.
+	 *            the spos The Second position that will swap into the first
+	 *            position.
 	 */
 	private void swap(int fpos, int spos) {
 		Reaction tmp;
@@ -97,7 +101,7 @@ public class Heap {
 		Heap[fpos] = Heap[spos];
 		Heap[spos] = tmp;
 	}
-	
+
 	/**
 	 * Takes the parent index, and first makes sure the element is not a leaf,
 	 * then makes sure the children of the index are bigger than the parent.
@@ -112,12 +116,9 @@ public class Heap {
 				if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0) {
 					swap(pos, leftChild(pos));
 				}
-			}
-			else if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
-					|| Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
-			{
-				if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0)
-				{
+			} else if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
+					|| Heap[pos].compareTo(Heap[rightChild(pos)]) > 0) {
+				if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0) {
 					swap(pos, leftChild(pos));
 					minHeapify(leftChild(pos));
 				} else {
@@ -135,11 +136,10 @@ public class Heap {
 	 *            the element that will be inserted inside the heap.
 	 */
 	public void insert(Reaction element) {
-		Heap[size-1] = element;
-		int current = size -1;
+		Heap[size - 1] = element;
+		int current = size - 1;
 
-		while (Heap[current].compareTo(Heap[parent(current)]) < 0)
-		{
+		while (Heap[current].compareTo(Heap[parent(current)]) < 0) {
 			swap(current, parent(current));
 			current = parent(current);
 		}
@@ -158,20 +158,21 @@ public class Heap {
 	}
 
 	/**
-	 * Minimize the heap to push the lowest one to the top. Starts at the parent of the last element.
+	 * Minimize the heap to push the lowest one to the top. Starts at the parent
+	 * of the last element.
 	 */
 	public void minHeap() {
 		for (int pos = (size / 2) - 1; pos >= 0; pos--) {
 			minHeapify(pos);
 		}
 	}
-	
+
 	/**
 	 * Minimum element of the heap.
 	 *
 	 * @return the reaction
 	 */
-	public Reaction minElement(){
+	public Reaction minElement() {
 		return Heap[FRONT];
 	}
 
@@ -179,11 +180,12 @@ public class Heap {
 	 * Removes the Reaction element at the top of the array, and sorts the heap
 	 * tree again. Sets the last element to the first element.
 	 *
-	 * @return the Reaction that was removed, which was the minimum value of the tree
+	 * @return the Reaction that was removed, which was the minimum value of the
+	 *         tree
 	 */
 	public Reaction remove() {
 		Reaction popped = Heap[FRONT];
-		Heap[FRONT] = Heap[size -1];
+		Heap[FRONT] = Heap[size - 1];
 		minHeapify(FRONT);
 		return popped;
 	}
