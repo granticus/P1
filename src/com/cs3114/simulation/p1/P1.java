@@ -106,6 +106,11 @@ public class P1 {
 			
 			currentTime = 0;
 			populations = parse.getInts(lines[1]);
+
+			for(int j = 0; j < totalReactions; j++){
+				reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
+			}
+
 			
 			while(currentTime < finalSimTime){
 				
@@ -119,18 +124,12 @@ public class P1 {
 					
 					bw.write(newLine);
 				}
-				
-				//Calculate fire times
-				/*
-				for(int j = 0; j < totalReactions; j++){
-					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
-				}
 
 				reactionHeap.minHeap();
 				
 				//choose lowest fire time
 				Reaction minReaction = reactionHeap.minElement();
-				*/
+				
 				
 				//update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();
