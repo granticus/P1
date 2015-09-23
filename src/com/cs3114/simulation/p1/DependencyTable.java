@@ -1,10 +1,13 @@
 package com.cs3114.simulation.p1;
 
+import java.util.*;
+
 public class DependencyTable {
 
 	private Reaction[] table;
-	private boolean[][] reactionIndex;
+	private boolean[][] reactionIndex;	
 	private int [][] specReactions;
+	ArrayList[][] rTable;
 
 	public DependencyTable(Reaction[] reactionArray) {
 		table = reactionArray;
