@@ -8,9 +8,6 @@ import java.util.*;
  */
 public class DependencyTable {
 
-	/** The table that keeps track of the reactions. */
-	private Reaction[] reactionArray;
-	
 	/** The reaction index. */
 	private boolean[][] reactionIndex;	
 	
