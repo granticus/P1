@@ -143,7 +143,6 @@ public class P1 {
 				// fired.
 				dependents = dependency.getDependents(minReaction);
 				minReaction.setCurrentTau(nTau(minReaction.getPropensity()));
-
 				reactionHeap.minHeap();
 
 				// update populations using the netChange of the chosen reaction
