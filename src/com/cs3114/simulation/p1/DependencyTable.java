@@ -66,7 +66,9 @@ public class DependencyTable {
 		}	
 		
 		for (int r = 0; r < rTable.size(); r++) {
-			
+			for (int c = 0; c < table.length; c++) {
+				
+			}
 		}
 	}
 	
