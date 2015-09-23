@@ -17,8 +17,7 @@ public class Heap {
 	 * @param maxsize
 	 *            the maxsize
 	 */
-	public Heap(Reaction[] reactions) { //int maxsize) {
-		
+	public Heap(Reaction[] reactions) {
 		this.size = reactions.length;
 		Heap = reactions;
 		minHeap();
