@@ -68,6 +68,7 @@ public class DependencyTable {
 			specReactions[i] = reactionArray[i].getReactants();
 		}
 
+		/* SetUps the reaction Index. This is to make it easier to store indo the arraylist */
 		for (int i = 0; i < reactionArray.length; i++) {
 			int[] net = reactionArray[i].getNetChanges();
 			for (int k = 0; k < net.length; k++) {
