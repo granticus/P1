@@ -121,7 +121,7 @@ public class P1 {
 				}
 				
 				//Calculate fire times
-				
+				/*
 				for(int j = 0; j < totalReactions; j++){
 					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 				}
@@ -130,6 +130,7 @@ public class P1 {
 				
 				//choose lowest fire time
 				Reaction minReaction = reactionHeap.minElement();
+				*/
 				
 				//update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();

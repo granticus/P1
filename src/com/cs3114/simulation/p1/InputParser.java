@@ -1,4 +1,5 @@
 package com.cs3114.simulation.p1;
+
 /**
  * The Class InputParser. This class has methods to take a String and return the
  * necessary data from the string. It can return an array of ints if the String
@@ -10,7 +11,8 @@ package com.cs3114.simulation.p1;
  */
 public class InputParser {
 
-	private int firstIndex; 
+	private int firstIndex;
+
 	/**
 	 * Instantiates a new input parser. The class should not store anything, so
 	 * the main method is empty and does nothing.
@@ -54,23 +56,22 @@ public class InputParser {
 	 *         or gain from the equation with the k at the end.
 	 */
 	public int[] getEquation(String line, int totalSpecies) {
-		
+
 		int[] netReaction = new int[totalSpecies];
-		
+
 		String[] equation = new String[2];
 		int splitIndex = line.indexOf("->");
 		if (splitIndex == 0) {
 			equation[0] = "";
 			equation[1] = line.substring(2);
-		}
-		else {
+		} else {
 			equation = line.split("->");
 		}
-		
+
 		for (int i = 0; i < equation.length; i++) {
 			if (equation[i].equals(""))
 				continue;
-			
+
 			String[] elements = equation[i].split(" ");
 
 			for (int j = 0; j < elements.length; j++) {
@@ -81,13 +82,16 @@ public class InputParser {
 				if (sIndex == -1)
 					continue;
 
-				if (elements[j].substring(0, 1).equals("+") || elements[j].substring(0, 2).equals("->")) {
+				if (elements[j].substring(0, 1).equals("+")
+						|| elements[j].substring(0, 2).equals("->")) {
 					continue;
 				}
 				if (elements[j].matches("\\d+S\\d+")) {
-					numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
+					numSpecies = Integer.valueOf(elements[i].substring(0,
+							sIndex));
 				}
-				species = Integer.valueOf(elements[j].substring(sIndex + 1)) - firstIndex;
+				species = Integer.valueOf(elements[j].substring(sIndex + 1))
+						- firstIndex;
 
 				if (i == 0) {
 					netReaction[species] -= numSpecies;
@@ -98,7 +102,7 @@ public class InputParser {
 		}
 
 		return netReaction;
-}
+	}
 
 	/**
 	 * Gets the reactants and outputs them onto a table.
@@ -119,14 +123,18 @@ public class InputParser {
 		if (line.substring(0, 2).equals("->")) {
 			return reactants;
 		}
+		/*
+		 * Separates the equation into reactants and products. We only care
+		 * about the reactants
+		 */
 		String[] reac = line.split("->");
 		String[] elements = reac[0].split(" ");
-		
+
 		for (int i = 0; i < elements.length; i++) {
 			int numSpecies = 1;
 			int species = 0;
 			int sIndex = elements[i].indexOf('S');
-			
+
 			if (elements[i].substring(0, 1).equals("+")) {
 				continue;
 			}
@@ -134,11 +142,12 @@ public class InputParser {
 			if (elements[i].matches("\\d+S\\d+")) {
 				numSpecies = Integer.valueOf(elements[i].substring(0, sIndex));
 			}
-			species = Integer.valueOf(elements[i].substring(sIndex + 1)) - firstIndex;
+			species = Integer.valueOf(elements[i].substring(sIndex + 1))
+					- firstIndex;
 
 			reactants[species] += numSpecies;
 		}
-		
+
 		return reactants;
 	}
 
@@ -152,20 +161,32 @@ public class InputParser {
 	 */
 	public double getKConstant(String line) {
 		int kIndex = line.indexOf("->") + 2;
-		if (kIndex != 1)
-		{
+		if (kIndex != 1) {
 			int endKIndex = line.substring(kIndex).indexOf(' ');
 			if (endKIndex == -1) {
-				return Double.parseDouble(line.substring(kIndex, line.length()));
+				return Double
+						.parseDouble(line.substring(kIndex, line.length()));
 			}
-			return Double.parseDouble(line.substring(kIndex, kIndex + endKIndex));
-			
+			return Double.parseDouble(line
+					.substring(kIndex, kIndex + endKIndex));
+
 		}
 		return 0;
 	}
-	
+
+	/**
+	 * Gets the first reaction element and determines whether the reaction
+	 * starts with a 0 or a 1.
+	 *
+	 * @param line4
+	 *            the line4 The very first line that will have the reaction
+	 *            equation. The first species that appears here is guaranteed to
+	 *            be the first species, which will determine if an offset is
+	 *            necessary or not.
+	 * @return the first index that corresponds to the species.
+	 */
 	public int getFirstIndex(String line4) {
-		String [] lines = line4.split("->");
+		String[] lines = line4.split("->");
 		int sIndex = 0;
 		int i;
 		for (i = 0; i < lines.length; i++) {
@@ -178,21 +199,11 @@ public class InputParser {
 		if (endIndex == -1) {
 			endIndex = lines[i].length();
 		}
-		if (Integer.valueOf(lines[i].substring(sIndex +1, endIndex)) != 0) {
+		if (Integer.valueOf(lines[i].substring(sIndex + 1, endIndex)) != 0) {
 			firstIndex = 1;
 		}
-		/*
-		firstIndex = 0;
-		int sIndex = line4.indexOf('S');
-		int endIndex = line4.substring(sIndex).indexOf(' ');
-		if (endIndex == -1) {
-			endIndex = line4.length();
-		}
-		if (Integer.valueOf(line4.substring(sIndex + 1, endIndex)) != 0) {
-			firstIndex = 1;
-		}*/
-		
+
 		return firstIndex;
 	}
-	
+
 }
