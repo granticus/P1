@@ -127,9 +127,7 @@ public class P1 {
 				
 				//choose lowest fire time
 				Reaction minReaction = reactionHeap.minElement();
-				
 				minReaction.calculatePropensity(populations);
-				
 				reactionHeap.minHeap();
 				
 				//update populations using the netChange of the chosen reaction
