@@ -40,7 +40,8 @@ public class DependencyTable {
 	 *
 	 * @param curFired
 	 *            the current reaction that will be fired. Called from the main;
-	 * @return an arraylist that will return all the reactions that depends on the population that will change when the current reaction fires.
+	 * @return an arraylist that will return all the reactions that depends on
+	 *         the population that will change when the current reaction fires.
 	 */
 	public ArrayList<Reaction> getDependents(Reaction curFired) {
 		return rTable.get(curFired.getIndex());
