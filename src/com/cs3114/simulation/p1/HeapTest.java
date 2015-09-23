@@ -43,22 +43,33 @@ public class HeapTest {
 		Reaction testReaction = testHeap.remove();
 		assertTrue(.3 == testReaction.getCurrentTau());
 		testReaction.setCurrentTau(1.2);
+		assertTrue(1.2 == testReaction.getCurrentTau());
 		testHeap.insert(testReaction);
 
 		testReaction = testHeap.remove();
 		assertTrue(.5 == testReaction.getCurrentTau());
 		testReaction.setCurrentTau(1.5);
+		assertTrue(1.5 == testReaction.getCurrentTau());
 		testHeap.insert(testReaction);
 
 		testReaction = testHeap.remove();
 		assertTrue(.6 == testReaction.getCurrentTau());
 		testReaction.setCurrentTau(.8);
+		assertTrue(.8 == testReaction.getCurrentTau());
 		testHeap.insert(testReaction);
 
 		testReaction = testHeap.remove();
 		assertTrue(.8 == testReaction.getCurrentTau());
 		testReaction.setCurrentTau(2.0);
+		assertTrue(2.0 == testReaction.getCurrentTau());
 		testHeap.insert(testReaction);
+		
+		testReaction = testHeap.minElement();
+		assertTrue(.9 == testReaction.getCurrentTau());
+		testReaction.setCurrentTau(5.0);
+		assertTrue(5.0 == testReaction.getCurrentTau());
+		testHeap.minHeap();
+		assertTrue(1.2 == testHeap.minElement().getCurrentTau());
 
 	}
 

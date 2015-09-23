@@ -111,6 +111,10 @@ public class P1 {
 			currentTime = 0;
 			populations = parse.getInts(lines[1]);
 
+			/*
+			 * Calculates and sets the tau to be initialized so that we can sort
+			 * the Heap.
+			 */
 			for (int j = 0; j < totalReactions; j++) {
 				reactions[j].setCurrentTau(nTau(reactions[j]
 						.calculatePropensity(populations)));
@@ -139,10 +143,11 @@ public class P1 {
 				Reaction minReaction = reactionHeap.minElement();
 
 				// Gets the arraylist of dependents from the current reaction
-				// fired.
+				// fired. Then updates the current reaction with a new tau. The
+				// heap sort function is called to bring the smallest element to
+				// the front.
 				dependents = dependency.getDependents(minReaction);
-				minReaction.calculatePropensity(populations);
-
+				minReaction.setCurrentTau(nTau(minReaction.getPropensity()));
 				reactionHeap.minHeap();
 
 				// update populations using the netChange of the chosen reaction
@@ -157,11 +162,13 @@ public class P1 {
 				/*
 				 * Once the population has been updated, we need to update the
 				 * propensities that have been changed because of the reaction
-				 * that was just fired
+				 * that was just fired. Also updates the propensity of the
+				 * current reaction fired.
 				 */
 				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
 					dependents.get(dIndex).calculatePropensity(populations);
 				}
+				minReaction.calculatePropensity(populations);
 
 				// add chosen time to currentTime
 				currentTime += minReaction.getCurrentTau();
