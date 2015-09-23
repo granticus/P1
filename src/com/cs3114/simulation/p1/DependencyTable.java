@@ -95,7 +95,7 @@ public class DependencyTable {
 	 * True if the reaction depends on this species, false if not.
 	 *
 	 * @param species
-	 *            the species
+	 *            the species that will be checked to be part of the reactants.
 	 * @return the dependencies
 	 */
 	private boolean[] getDependencies(int species) {
