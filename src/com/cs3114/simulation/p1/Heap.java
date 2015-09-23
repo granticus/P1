@@ -146,7 +146,7 @@ public class Heap {
 	}
 
 	/**
-	 * Prints the Heap.
+	 * Prints the Heap as the array.
 	 */
 	public String print() {
 		String heap = "";
