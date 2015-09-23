@@ -59,7 +59,7 @@ public class Heap {
 	 *
 	 * @param pos
 	 *            the pos of the parent
-	 * @return the int
+	 * @return the int returns the right child if exists. Otherwise return -1 if there is no right child.
 	 */
 	private int rightChild(int pos) {
 		// The position is out of bounds.
