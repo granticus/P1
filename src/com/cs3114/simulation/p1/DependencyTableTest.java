@@ -12,10 +12,11 @@ public class DependencyTableTest {
 	@Before
 	public void setUp() throws Exception {
 		Reaction[] reactions = new Reaction[4];
-		Reaction reac1 = new Reaction(10, new int[]{0, 0, 0}, new int[] {1, 0, 0});
-		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[] {-1, 1, 0});
-		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[] {0, -1, 1});
-		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{0, 2, -1});
+		int counter = 0;
+		Reaction reac1 = new Reaction(10, new int[]{0, 0, 0}, new int[] {1, 0, 0}, counter++);
+		Reaction reac2 = new Reaction(.01, new int[]{1, 1, 0}, new int[] {-1, 1, 0},counter++);
+		Reaction reac3 = new Reaction(10, new int[]{0, 1, 0}, new int[] {0, -1, 1},counter++);
+		Reaction reac4 = new Reaction(25, new int[]{0, 0, 1}, new int[]{0, 2, -1},counter++);
 		/**
 		
 		->10 S1
@@ -42,7 +43,7 @@ public class DependencyTableTest {
 		}
 		
 		int []pops = {1000, 100, 500};
-		Reaction curFired = new Reaction(10, new int[]{0, 0, 0}, new int[] {1, 0, 0});
+		Reaction curFired = new Reaction(10, new int[]{0, 0, 0}, new int[] {1, 0, 0}, 0);
 		pops = tTable.updatePropensity(curFired, pops);
 		assertEquals(1001, pops[0]);
 		

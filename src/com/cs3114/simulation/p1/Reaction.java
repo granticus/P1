@@ -166,4 +166,8 @@ public class Reaction implements Comparable<Reaction>{
 			return false;
 		return true;
 	}
+	
+	public int getIndex() {
+		return index;
+	}
 }
