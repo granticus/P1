@@ -167,7 +167,7 @@ public class Heap {
 	}
 	
 	/**
-	 * Min element.
+	 * Minimum element of the heap.
 	 *
 	 * @return the reaction
 	 */
