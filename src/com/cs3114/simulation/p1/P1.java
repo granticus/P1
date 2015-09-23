@@ -141,7 +141,7 @@ public class P1 {
 				// Gets the arraylist of dependents from the current reaction
 				// fired.
 				dependents = dependency.getDependents(minReaction);
-				minReaction.setCurrentTau(nTau(minReaction.calculatePropensity(populations)));
+				minReaction.setCurrentTau(nTau(minReaction.getPropensity()));
 
 				reactionHeap.minHeap();
 
