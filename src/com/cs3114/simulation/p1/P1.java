@@ -135,9 +135,7 @@ public class P1 {
 				//Gets the arraylist of dependents from the current reaction fired.
 				dependents = dependency.getDependents(minReaction);
 				minReaction.calculatePropensity(populations);
-				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
-					
-				}
+				
 				reactionHeap.minHeap();
 				
 				//update populations using the netChange of the chosen reaction
@@ -147,6 +145,9 @@ public class P1 {
 				
 				for(int j = 0; j < numSpecies; j++){
 					populations[j] += currNetChange[j];
+				}
+				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
+					dependents.get(dIndex).calculatePropensity(populations);
 				}
 				
 				//add chosen time to currentTime
