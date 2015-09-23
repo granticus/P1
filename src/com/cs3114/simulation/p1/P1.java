@@ -82,25 +82,30 @@ public class P1 {
 		//THIRD LINE
 		//stores the array of indices to be tracked
 		int[] trackedIndices = parse.getInts(lines[2]);
-		//this loop updates 
+		//this loop updates the tracked indices array so it is correctly lined up, starting at 0
 		for(int i = 0; i < numOutputted; i++){
 			trackedIndices[i] = trackedIndices[i] - offset;
 		}
+		
+		//keeps track of the index to be stored in the Reaction object, for use in the Dependency Table
 		int counter = 0;
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
-			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
+			//creates a new reaction with a k value, array of reactant values, and array of netchange values, and the index
+			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), 
+					parse.getReactants(lines[reactionNum+3], numSpecies),
 					parse.getEquation(lines[reactionNum+3], numSpecies), counter++);
 		}
 		
+		//Put the reactions into a heap
 		Heap reactionHeap = new Heap(reactions);
 		
+		//The final populations at the end of each simulation run
 		int [][] finalPops = new int[numSimulations][numSpecies];
 		
+		//current simulation time
 		double currentTime;
-		
-		
 		
 		for(int i = 0; i < numSimulations; i++){
 			
@@ -109,6 +114,7 @@ public class P1 {
 			
 			while(currentTime < finalSimTime){
 				
+				//if only 1 simulation, output every step with the current time and the tracked populations
 				if(numSimulations == 1){
 					String newLine = currentTime + "\t";
 					for(int j = 0; j < numOutputted; j++){
@@ -121,11 +127,9 @@ public class P1 {
 				}
 				
 				//Calculate fire times
-				
 				for(int j = 0; j < totalReactions; j++){
 					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 				}
-
 				reactionHeap.minHeap();
 				
 				//choose lowest fire time
@@ -142,16 +146,22 @@ public class P1 {
 				//add chosen time to currentTime
 				currentTime += minReaction.getCurrentTau();
 			}
+			//store the final populations when the current run is over
 			for(int j = 0; j < numSpecies; j++){
 				finalPops[i][j] = populations[j];
 			}
 		}
 
+		//if only 1 simulation, additionally output number of times each reaction fired
 		if (numSimulations == 1){
 			for(int i = 0; i < totalReactions; i++){
 				bw.write(reactions[i].getNumFired() + "\n");
 			}
-		}else { // more than 1 sim
+		}
+		//if more than 1, calculate the mean and variances for all the simulation runs and output it
+		else {
+			
+			//Calculate mean
 			double[] sum = new double[numSpecies];
 			double[] mean = new double[numSpecies];
 			
@@ -165,6 +175,7 @@ public class P1 {
 				mean[i] = sum[i]/numSimulations;
 			}
 			
+			//Calculate variance
 			double[] variances = new double[numSpecies];
 			
 			for(int i = 0; i < numSimulations; i++){
@@ -177,13 +188,7 @@ public class P1 {
 				variances[i] /= (numSimulations - 1);
 			}
 			
-			//STANDARD DEVIATION
-			double []stdPops = new double[numSpecies];
-			for(int i = 0; i < numSpecies; i++){
-				stdPops[i] = Math.sqrt(variances[i]);
-			}
-			
-			//OUTPUT THIS STUFF
+			//OUTPUT EVERYTHING
 			
 			for(int i = 0; i < numSimulations; i++){
 				for(int j = 0; j < numOutputted; j++){
@@ -220,6 +225,7 @@ public class P1 {
 		
 	}
 	
+	//Calculates the next tau, given a propensity
 	private static double nTau(double propensity) {
 		return Math.log(1/Math.random())/propensity;
 	}
