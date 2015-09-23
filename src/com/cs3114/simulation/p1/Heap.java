@@ -8,34 +8,32 @@ public class Heap {
 	/** The size. */
 	private int size;
 
-	/** The maxsize. 
-	private int maxsize;*/
-
 	/** The Constant FRONT. */
-	private static final int FRONT =0;
+	private static final int FRONT = 0;
 
 	/**
 	 * Instantiates a new heap.
 	 *
-	 * @param maxsize
-	 *            the maxsize
+	 * @param reactions
+	 *            the reactions that will be sorts in the heap.
 	 */
-	public Heap(Reaction[] reactions) { //int maxsize) {
-		
+	public Heap(Reaction[] reactions) {
 		this.size = reactions.length;
-		/*Heap = new Reaction[size + 1];
-		Heap[0] = new NullReaction();
-		for (int i = 0; i < reactions.length; i++) {
-			Heap[i+1] = reactions[i]; 
-		}*/
 		Heap = reactions;
 		minHeap();
 	}
 
+	/**
+	 * Gets the reaction at a specific index. Should never be called.
+	 *
+	 * @param pos
+	 *            the pos of the reaction.
+	 * @return the reaction
+	 */
 	public Reaction getReaction(int pos) {
 		return Heap[pos];
 	}
-	
+
 	/**
 	 * The index of the Parent.
 	 *
@@ -44,15 +42,17 @@ public class Heap {
 	 * @return the int the index of the parent
 	 */
 	private int parent(int pos) {
-		return (pos-1) / 2;
+		return (pos - 1) / 2;
 	}
 
 	/**
 	 * Left child.
 	 *
 	 * @param pos
-	 *            the pos
-	 * @return the int
+	 *            the pos pf the left child.
+	 * @return the int position of the left child. No need for error checking
+	 *         since if there is no left, the the index is a leaf, so this
+	 *         should never be called.
 	 */
 	private int leftChild(int pos) {
 		return (2 * pos) + 1;
@@ -62,13 +62,14 @@ public class Heap {
 	 * Right child of the parent.
 	 *
 	 * @param pos
-	 *            the pos
-	 * @return the int
+	 *            the pos of the parent
+	 * @return the int returns the right child if exists. Otherwise return -1 if
+	 *         there is no right child.
 	 */
 	private int rightChild(int pos) {
 		// The position is out of bounds.
-		if (pos >= (size-1)/2) {
-			return -1; 
+		if (pos >= (size - 1) / 2) {
+			return -1;
 		}
 		return (2 * pos) + 2;
 	}
@@ -77,7 +78,7 @@ public class Heap {
 	 * Checks if the position in the heap is leaf, it has no children.
 	 *
 	 * @param pos
-	 *            the pos
+	 *            the pos of the current index that is being checked.
 	 * @return true, if is leaf
 	 */
 	private boolean isLeaf(int pos) {
@@ -93,7 +94,8 @@ public class Heap {
 	 * @param fpos
 	 *            the fpos First Position that will be swapped.
 	 * @param spos
-	 *            the spos The Second position that will swap into the first position.
+	 *            the spos The Second position that will swap into the first
+	 *            position.
 	 */
 	private void swap(int fpos, int spos) {
 		Reaction tmp;
@@ -101,19 +103,6 @@ public class Heap {
 		Heap[fpos] = Heap[spos];
 		Heap[spos] = tmp;
 	}
-	/*
-	 
-	public int compareTo(Reaction other) {
-		if(currentTau > other.getCurrentTau()){
-			return 1;
-		}else if(currentTau > other.getCurrentTau()){
-			return -1;
-		}else{
-			return 0;
-		}
-	}
-	
-	 */
 
 	/**
 	 * Takes the parent index, and first makes sure the element is not a leaf,
@@ -129,12 +118,9 @@ public class Heap {
 				if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0) {
 					swap(pos, leftChild(pos));
 				}
-			}
-			else if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
-					|| Heap[pos].compareTo(Heap[rightChild(pos)]) > 0)
-			{
-				if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0)
-				{
+			} else if (Heap[pos].compareTo(Heap[leftChild(pos)]) > 0
+					|| Heap[pos].compareTo(Heap[rightChild(pos)]) > 0) {
+				if (Heap[leftChild(pos)].compareTo(Heap[rightChild(pos)]) < 0) {
 					swap(pos, leftChild(pos));
 					minHeapify(leftChild(pos));
 				} else {
@@ -152,26 +138,20 @@ public class Heap {
 	 *            the element that will be inserted inside the heap.
 	 */
 	public void insert(Reaction element) {
-		Heap[size-1] = element;
-		int current = size -1;
+		Heap[size - 1] = element;
+		int current = size - 1;
 
-		while (Heap[current].compareTo(Heap[parent(current)]) < 0)
-		{
+		while (Heap[current].compareTo(Heap[parent(current)]) < 0) {
 			swap(current, parent(current));
 			current = parent(current);
 		}
 	}
 
 	/**
-	 * Prints the Heap.
+	 * Prints the Heap as the array.
 	 */
 	public String print() {
 		String heap = "";
-		/*
-		 * for (int i = 1; i <= size / 2; i++ ) { heap = " PARENT : " + Heap[i]
-		 * + " LEFT CHILD : " + Heap[2*i] + " RIGHT CHILD :" + Heap[2 * i + 1] +
-		 * "\n"; }
-		 */
 
 		for (int i = 0; i < Heap.length; i++) {
 			heap += Heap[i].getCurrentTau() + " ";
@@ -180,15 +160,21 @@ public class Heap {
 	}
 
 	/**
-	 * Minimize the heap to push the lowest one to the top. Starts at the parent of the last element.
+	 * Minimize the heap to push the lowest one to the top. Starts at the parent
+	 * of the last element.
 	 */
 	public void minHeap() {
 		for (int pos = (size / 2) - 1; pos >= 0; pos--) {
 			minHeapify(pos);
 		}
 	}
-	
-	public Reaction minElement(){
+
+	/**
+	 * Minimum element of the heap.
+	 *
+	 * @return the reaction
+	 */
+	public Reaction minElement() {
 		return Heap[FRONT];
 	}
 
@@ -196,11 +182,12 @@ public class Heap {
 	 * Removes the Reaction element at the top of the array, and sorts the heap
 	 * tree again. Sets the last element to the first element.
 	 *
-	 * @return the Reaction that was removed, which was the minimum value of the tree
+	 * @return the Reaction that was removed, which was the minimum value of the
+	 *         tree
 	 */
 	public Reaction remove() {
 		Reaction popped = Heap[FRONT];
-		Heap[FRONT] = Heap[size -1];
+		Heap[FRONT] = Heap[size - 1];
 		minHeapify(FRONT);
 		return popped;
 	}
