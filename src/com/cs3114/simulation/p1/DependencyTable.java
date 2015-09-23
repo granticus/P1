@@ -7,12 +7,13 @@ public class DependencyTable {
 	private Reaction[] table;
 	private boolean[][] reactionIndex;	
 	private int [][] specReactions;
-	ArrayList[][] rTable;
+	ArrayList<ArrayList<Reaction>>  rTable;
 
 	public DependencyTable(Reaction[] reactionArray) {
 		table = reactionArray;
 		specReactions = new int[reactionArray.length][reactionArray.length];
 		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
+		rTable= new ArrayList<ArrayList<String>>();
 		setUpTable();
 	}
 
