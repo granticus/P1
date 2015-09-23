@@ -16,7 +16,12 @@ public class DependencyTable {
 		rTable = new ArrayList<ArrayList<Reaction>>();
 		setUpTable();
 	}
-
+	
+	public ArrayList<Reaction> getDependents(Reaction curFired) {
+		return rTable.get(curFired.getIndex());
+	}
+	
+/*
 	public int[] updatePropensity(Reaction curFired, int[] populations) {
 		int[] net = curFired.getNetChanges();
 
@@ -26,12 +31,7 @@ public class DependencyTable {
 			populations[k] += net[k];
 		}
 		
-		int currIndex;
-		for (currIndex = 0; currIndex < table.length; currIndex++) {
-			if (curFired.equals(table[currIndex])) {
-				break;
-			}
-		}
+		int currIndex = curFired.getIndex();
 		
 		for (int i = 0; i < rTable.get(currIndex).size(); i++) {
 			rTable.get(currIndex).get(i).calculatePropensity(populations);
@@ -39,7 +39,7 @@ public class DependencyTable {
 		
 		return populations;
 	}
-
+*/
 	private void setUpTable() {
 
 		for(int i = 0; i < table.length; i++) {
