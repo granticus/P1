@@ -135,6 +135,9 @@ public class P1 {
 				//Gets the arraylist of dependents from the current reaction fired.
 				dependents = dependency.getDependents(minReaction);
 				minReaction.calculatePropensity(populations);
+				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
+					
+				}
 				reactionHeap.minHeap();
 				
 				//update populations using the netChange of the chosen reaction
