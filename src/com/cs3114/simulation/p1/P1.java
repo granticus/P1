@@ -167,6 +167,7 @@ public class P1 {
 				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
 					dependents.get(dIndex).calculatePropensity(populations);
 				}
+				minReaction.calculatePropensity(populations);
 
 				// add chosen time to currentTime
 				currentTime += minReaction.getCurrentTau();
