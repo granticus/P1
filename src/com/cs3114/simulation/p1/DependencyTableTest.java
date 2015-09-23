@@ -34,17 +34,9 @@ public class DependencyTableTest {
 
 	@Test
 	public void test() {
-		boolean[][] table = tTable.getIR();
-		for (int i = 0; i < table.length; i++) {
-			for (int j = 0; j < table[0].length; j++) {
-				//System.out.print(table[i][j] + " ");
-			}
-			//System.out.println();
-		}
-		
 		int []pops = {1000, 100, 500};
 		Reaction curFired = new Reaction(10, new int[]{0, 0, 0}, new int[] {1, 0, 0}, 0);
-		//pops = tTable.updatePropensity(curFired, pops);
+		pops = tTable.updatePropensity(curFired, pops);
 		assertEquals(1001, pops[0]);
 		
 		assertTrue(true);
