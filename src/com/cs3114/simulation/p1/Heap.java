@@ -150,11 +150,6 @@ public class Heap {
 	 */
 	public String print() {
 		String heap = "";
-		/*
-		 * for (int i = 1; i <= size / 2; i++ ) { heap = " PARENT : " + Heap[i]
-		 * + " LEFT CHILD : " + Heap[2*i] + " RIGHT CHILD :" + Heap[2 * i + 1] +
-		 * "\n"; }
-		 */
 
 		for (int i = 0; i < Heap.length; i++) {
 			heap += Heap[i].getCurrentTau() + " ";
