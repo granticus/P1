@@ -40,7 +40,8 @@ public class Reaction implements Comparable<Reaction>{
 	 *            the net changes The net population that will decreased or
 	 *            increased in the whole reaction.
 	 */
-	public Reaction(double k, int[] reactants, int[] netChanges) {
+	public Reaction(double k, int[] reactants, int[] netChanges, int index) {
+		this.index = index;
 		this.reactants = reactants;
 		this.netChanges = netChanges;
 		this.k = k;
