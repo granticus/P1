@@ -3,7 +3,7 @@ package com.cs3114.simulation.p1;
 import java.util.*;
 
 /**
- * The Class Dependency Table. The primary purpose of this class is to
+ * The Class Dependency Table. The primary purpose of this class is to return an arraylist of all the Reactions that will be updated when a specific reaction fires.
  */
 public class DependencyTable {
 
