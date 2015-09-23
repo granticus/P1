@@ -102,7 +102,7 @@ public class P1 {
 		
 		Heap reactionHeap;
 		DependencyTable dependency = new DependencyTable(reactions);
-		ArrayList<reactions> dependents;
+		ArrayList<Reaction> dependents;
 		
 		for(int i = 0; i < numSimulations; i++){
 			
@@ -130,6 +130,7 @@ public class P1 {
 				
 				//choose lowest fire time
 				Reaction minReaction = reactionHeap.minElement();
+				dependents = dependency.getDependents(minReaction);
 				minReaction.calculatePropensity(populations);
 				reactionHeap.minHeap();
 				
