@@ -24,7 +24,7 @@ public class Heap {
 	}
 
 	/**
-	 * Gets the reaction.
+	 * Gets the reaction at a specific index. Should never be called.
 	 *
 	 * @param pos
 	 *            the pos of the reaction.
