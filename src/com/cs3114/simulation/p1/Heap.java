@@ -166,6 +166,11 @@ public class Heap {
 		}
 	}
 	
+	/**
+	 * Min element.
+	 *
+	 * @return the reaction
+	 */
 	public Reaction minElement(){
 		return Heap[FRONT];
 	}
