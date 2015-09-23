@@ -94,8 +94,6 @@ public class P1 {
 					parse.getEquation(lines[reactionNum+3], numSpecies), counter++);
 		}
 		
-		Heap reactionHeap = new Heap(reactions);
-		
 		int [][] finalPops = new int[numSimulations][numSpecies];
 		
 		double currentTime;
@@ -111,6 +109,8 @@ public class P1 {
 				reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 			}
 
+
+			Heap reactionHeap = new Heap(reactions);
 			
 			while(currentTime < finalSimTime){
 				
