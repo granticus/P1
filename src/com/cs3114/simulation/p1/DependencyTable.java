@@ -8,6 +8,9 @@ import java.util.*;
  */
 public class DependencyTable {
 
+	/** The total number  of reactions. */
+	private int totSpecies;
+	
 	/** The reaction index. */
 	private boolean[][] reactionIndex;	
 	
@@ -23,9 +26,9 @@ public class DependencyTable {
 	 * @param reactionArray the reaction array
 	 */
 	public DependencyTable(Reaction[] reactionArray) {
-		this.reactionArray = reactionArray;
-		specReactions = new int[reactionArray.length][reactionArray.length];
-		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
+		totSpecies = reactionArray.length;
+		specReactions = new int[totSpecies][totSpecies];
+		reactionIndex = new boolean[totSpecies][totSpecies];
 		rTable = new ArrayList<ArrayList<Reaction>>();
 		setUpTable(reactionArray);
 	}
@@ -42,6 +45,8 @@ public class DependencyTable {
 	
 	/**
 	 * Sets the up table.
+	 *
+	 * @param reactionArray the new up table
 	 */
 	private void setUpTable(Reaction [] reactionArray) {
 
@@ -83,7 +88,7 @@ public class DependencyTable {
 	 * @return the dependencies
 	 */
 	private boolean[] getDependencies(int species) {
-		boolean[] depen = new boolean[reactionArray.length];
+		boolean[] depen = new boolean[totSpecies];
 		for (int r = 0; r < specReactions.length; r++) {
 			if (specReactions[r][species] != 0) {
 				depen[r] = true;
@@ -100,15 +105,6 @@ public class DependencyTable {
 	 */
 	public boolean[][] getIR() {
 		return reactionIndex;
-	}
-	
-	/**
-	 * Gets the table.
-	 *
-	 * @return the table
-	 */
-	public Reaction[] getTable() {
-		return reactionArray;
 	}
 
 }
