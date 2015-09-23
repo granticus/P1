@@ -20,11 +20,6 @@ public class Heap {
 	public Heap(Reaction[] reactions) { //int maxsize) {
 		
 		this.size = reactions.length;
-		/*Heap = new Reaction[size + 1];
-		Heap[0] = new NullReaction();
-		for (int i = 0; i < reactions.length; i++) {
-			Heap[i+1] = reactions[i]; 
-		}*/
 		Heap = reactions;
 		minHeap();
 	}
