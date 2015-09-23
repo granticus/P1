@@ -11,7 +11,7 @@ public class HeapTest {
 	Heap testHeap;
 	@Before
 	public void setUp() throws Exception {
-		
+	
 		Reaction [] reactions = new Reaction[4];
 		int counter = 0;
 		Reaction reac1 = new Reaction(10, new int[]{1, 0, 0}, new int[]{1, 0, 0}, counter++);
