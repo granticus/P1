@@ -59,6 +59,8 @@ public class HeapTest {
 		assertTrue(.8 == testReaction.getCurrentTau());
 		testReaction.setCurrentTau(2.0);
 		testHeap.insert(testReaction);
+		
+		testReaction = testHeap.minElement();
 
 	}
 
