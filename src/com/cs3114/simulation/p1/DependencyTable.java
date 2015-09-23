@@ -13,7 +13,7 @@ public class DependencyTable {
 		table = reactionArray;
 		specReactions = new int[reactionArray.length][reactionArray.length];
 		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
-		rTable= new ArrayList<ArrayList<String>>();
+		rTable = new ArrayList<ArrayList<Reaction>>();
 		setUpTable();
 	}
 
