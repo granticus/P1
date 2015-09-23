@@ -28,6 +28,10 @@ public class DependencyTable {
 				break;
 			}
 		}
+		
+		for (int i = 0; i < rTable.get(currIndex).size(); i++) {
+			rTable.get(currIndex).get(i).calculatePropensity(populations);
+		}
 
 		for (int k = 0; k < net.length; k++) {
 			populations[k] += net[k];
