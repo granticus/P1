@@ -111,7 +111,7 @@ public class P1 {
 			}
 
 			reactionHeap = new Heap(reactions);
-			dependency new DependencyTable(reactions);
+			dependency = new DependencyTable(reactions);
 			
 			while(currentTime < finalSimTime){
 				
