@@ -146,6 +146,8 @@ public class P1 {
 				for(int j = 0; j < numSpecies; j++){
 					populations[j] += currNetChange[j];
 				}
+				
+				/**/
 				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
 					dependents.get(dIndex).calculatePropensity(populations);
 				}
