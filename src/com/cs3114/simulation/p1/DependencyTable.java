@@ -107,13 +107,4 @@ public class DependencyTable {
 		return depen;
 	}
 
-	/**
-	 * Gets the ir.
-	 *
-	 * @return the ir
-	 */
-	public boolean[][] getIR() {
-		return reactionIndex;
-	}
-
 }
