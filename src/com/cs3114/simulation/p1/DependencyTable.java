@@ -37,7 +37,6 @@ public class DependencyTable {
 		for (int k = 0; k < net.length; k++) {
 			populations[k] += net[k];
 		}
-		System.out.println(curFired.getPropensity());
 		return populations;
 	}
 
