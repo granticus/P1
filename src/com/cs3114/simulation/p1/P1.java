@@ -105,6 +105,7 @@ public class P1 {
 		Heap reactionHeap;
 		DependencyTable dependency = new DependencyTable(reactions);
 		ArrayList<Reaction> dependents;
+	
 
 		for (int i = 0; i < numSimulations; i++) {
 
@@ -121,6 +122,7 @@ public class P1 {
 			}
 
 			reactionHeap = new Heap(reactions);
+			
 
 			while (currentTime < finalSimTime) {
 
@@ -147,7 +149,7 @@ public class P1 {
 				// heap sort function is called to bring the smallest element to
 				// the front.
 				dependents = dependency.getDependents(minReaction);
-				minReaction.setCurrentTau(nTau(minReaction.getPropensity()));
+				minReaction.setCurrentTau(nTau(minReaction.calculatePropensity(populations)));
 				reactionHeap.minHeap();
 
 				// update populations using the netChange of the chosen reaction
@@ -166,9 +168,10 @@ public class P1 {
 				 * current reaction fired.
 				 */
 				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
-					dependents.get(dIndex).calculatePropensity(populations);
+					Reaction temp = dependents.get(dIndex);
+					temp.setCurrentTau(nTau(temp.calculatePropensity(populations)));
 				}
-				minReaction.calculatePropensity(populations);
+				//minReaction.calculatePropensity(populations);
 
 				// add chosen time to currentTime
 				currentTime += minReaction.getCurrentTau();
