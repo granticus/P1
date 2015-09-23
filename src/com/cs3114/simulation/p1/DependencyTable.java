@@ -2,9 +2,8 @@ package com.cs3114.simulation.p1;
 
 import java.util.*;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DependencyTable.
+ * The Class Dependency Table. The primary purpose of this class is to
  */
 public class DependencyTable {
 
@@ -14,7 +13,7 @@ public class DependencyTable {
 	/** The reaction index. */
 	private boolean[][] reactionIndex;	
 	
-	/** The spec reactions. */
+	/** The species of all the reactions. */
 	private int [][] specReactions;
 	
 	/** The r table. */
