@@ -70,7 +70,6 @@ public class DependencyTable {
 				if (reactionIndex[r][c] == true) {
 					rTable.get(r).add(table[c]);
 				}
-				
 			}
 		}
 	}
