@@ -21,6 +21,10 @@ public class DependencyTable {
 		int[] net = curFired.getNetChanges();
 
 		curFired.calculatePropensity(populations);
+
+		for (int k = 0; k < net.length; k++) {
+			populations[k] += net[k];
+		}
 		
 		int currIndex;
 		for (currIndex = 0; currIndex < table.length; currIndex++) {
@@ -32,10 +36,7 @@ public class DependencyTable {
 		for (int i = 0; i < rTable.get(currIndex).size(); i++) {
 			rTable.get(currIndex).get(i).calculatePropensity(populations);
 		}
-
-		for (int k = 0; k < net.length; k++) {
-			populations[k] += net[k];
-		}
+		
 		return populations;
 	}
 
