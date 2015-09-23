@@ -15,7 +15,7 @@ public class Heap {
 	 * Instantiates a new heap.
 	 *
 	 * @param reactions
-	 *            the reactions
+	 *            the reactions that will be sorts in the heap.
 	 */
 	public Heap(Reaction[] reactions) {
 		this.size = reactions.length;
