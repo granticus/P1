@@ -99,6 +99,7 @@ public class P1 {
 		double currentTime;
 		
 		Heap reactionHeap;
+		DependencyTable dependency;
 		
 		for(int i = 0; i < numSimulations; i++){
 			
