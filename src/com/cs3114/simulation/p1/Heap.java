@@ -8,9 +8,6 @@ public class Heap {
 	/** The size. */
 	private int size;
 
-	/** The maxsize. 
-	private int maxsize;*/
-
 	/** The Constant FRONT. */
 	private static final int FRONT =0;
 
