@@ -51,7 +51,7 @@ public class DependencyTable {
 	 * Sets the 2d arraylist of all the reactions that depend on each other and stores that in a 2d table.
 	 *
 	 * @param reactionArray
-	 *            the new up table
+	 *            The reaction array that needs to be set up. However, since we only care about it to set up the arraylist, we do not need to store it in for later.
 	 */
 	private void setUpTable(Reaction[] reactionArray) {
 
