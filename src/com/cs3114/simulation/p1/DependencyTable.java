@@ -64,6 +64,10 @@ public class DependencyTable {
 				}
 			}
 		}	
+		
+		for (int r = 0; r < rTable.size(); r++) {
+			
+		}
 	}
 	
 	private boolean[] getDependencies(int species) {
