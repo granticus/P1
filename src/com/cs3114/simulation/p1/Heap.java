@@ -14,8 +14,7 @@ public class Heap {
 	/**
 	 * Instantiates a new heap.
 	 *
-	 * @param maxsize
-	 *            the maxsize
+	 * @param reactions the reactions
 	 */
 	public Heap(Reaction[] reactions) {
 		this.size = reactions.length;
@@ -23,6 +22,12 @@ public class Heap {
 		minHeap();
 	}
 
+	/**
+	 * Gets the reaction.
+	 *
+	 * @param pos the pos
+	 * @return the reaction
+	 */
 	public Reaction getReaction(int pos) {
 		return Heap[pos];
 	}
@@ -92,20 +97,7 @@ public class Heap {
 		Heap[fpos] = Heap[spos];
 		Heap[spos] = tmp;
 	}
-	/*
-	 
-	public int compareTo(Reaction other) {
-		if(currentTau > other.getCurrentTau()){
-			return 1;
-		}else if(currentTau > other.getCurrentTau()){
-			return -1;
-		}else{
-			return 0;
-		}
-	}
 	
-	 */
-
 	/**
 	 * Takes the parent index, and first makes sure the element is not a leaf,
 	 * then makes sure the children of the index are bigger than the parent.
