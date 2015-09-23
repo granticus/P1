@@ -90,7 +90,9 @@ public class DependencyTable {
 	}
 
 	/**
-	 * Gets the dependencies.
+	 * Gets the dependencies and outputs them into an array of boolean. Takes a
+	 * species, and goes through every reactant that this species is a part of.
+	 * True if the reaction depends on this species, false if not.
 	 *
 	 * @param species
 	 *            the species
