@@ -48,7 +48,7 @@ public class DependencyTable {
 	}
 
 	/**
-	 * Sets the up table.
+	 * Sets the 2d arraylist of all the reactions that depend on each other and stores that in a 2d table.
 	 *
 	 * @param reactionArray
 	 *            the new up table
