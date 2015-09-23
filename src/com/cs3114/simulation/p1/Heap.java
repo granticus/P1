@@ -49,7 +49,7 @@ public class Heap {
 	 * Left child.
 	 *
 	 * @param pos
-	 *            the pos
+	 *            the pos pf the left child.
 	 * @return the int
 	 */
 	private int leftChild(int pos) {
