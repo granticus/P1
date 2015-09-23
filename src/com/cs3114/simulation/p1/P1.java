@@ -86,12 +86,12 @@ public class P1 {
 		for(int i = 0; i < numOutputted; i++){
 			trackedIndices[i] = trackedIndices[i] - offset;
 		}
-		
+		int counter = 0;
 		//REST OF LINES
 		Reaction [] reactions = new Reaction[totalReactions];
 		for(int reactionNum = 0; reactionNum < totalReactions; reactionNum++){
 			reactions[reactionNum] = new Reaction(parse.getKConstant(lines[reactionNum+3]), parse.getReactants(lines[reactionNum+3], numSpecies),
-					parse.getEquation(lines[reactionNum+3], numSpecies));
+					parse.getEquation(lines[reactionNum+3], numSpecies), counter++);
 		}
 		
 		Heap reactionHeap = new Heap(reactions);

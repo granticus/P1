@@ -8,6 +8,8 @@ package com.cs3114.simulation.p1;
  */
 public class Reaction implements Comparable<Reaction>{
 
+	private int index;
+	
 	/** The k. */
 	private double k;
 
@@ -38,7 +40,8 @@ public class Reaction implements Comparable<Reaction>{
 	 *            the net changes The net population that will decreased or
 	 *            increased in the whole reaction.
 	 */
-	public Reaction(double k, int[] reactants, int[] netChanges) {
+	public Reaction(double k, int[] reactants, int[] netChanges, int index) {
+		this.index = index;
 		this.reactants = reactants;
 		this.netChanges = netChanges;
 		this.k = k;
@@ -134,13 +137,7 @@ public class Reaction implements Comparable<Reaction>{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(currentTau);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(k);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(propensity);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + index;
 		return result;
 	}
 
@@ -153,14 +150,12 @@ public class Reaction implements Comparable<Reaction>{
 		if (getClass() != obj.getClass())
 			return false;
 		Reaction other = (Reaction) obj;
-		if (Double.doubleToLongBits(currentTau) != Double
-				.doubleToLongBits(other.currentTau))
-			return false;
-		if (Double.doubleToLongBits(k) != Double.doubleToLongBits(other.k))
-			return false;
-		if (Double.doubleToLongBits(propensity) != Double
-				.doubleToLongBits(other.propensity))
+		if (index != other.index)
 			return false;
 		return true;
+	}
+
+	public int getIndex() {
+		return index;
 	}
 }
