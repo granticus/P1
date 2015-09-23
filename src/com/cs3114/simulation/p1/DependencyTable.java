@@ -63,7 +63,7 @@ public class DependencyTable {
 			rTable.add(new ArrayList<Reaction>());
 		}
 
-		/*  */
+		/* Stores the reactants into a 2d array of [Reactions][reactants] */
 		for (int i = 0; i < reactionArray.length; i++) {
 			specReactions[i] = reactionArray[i].getReactants();
 		}
