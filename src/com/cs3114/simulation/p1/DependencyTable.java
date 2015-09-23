@@ -2,13 +2,27 @@ package com.cs3114.simulation.p1;
 
 import java.util.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DependencyTable.
+ */
 public class DependencyTable {
 
-	private Reaction[] table;
+	
+	/** The reaction index. */
 	private boolean[][] reactionIndex;	
+	
+	/** The spec reactions. */
 	private int [][] specReactions;
+	
+	/** The r table. */
 	ArrayList<ArrayList<Reaction>>  rTable;
 
+	/**
+	 * Instantiates a new dependency table.
+	 *
+	 * @param reactionArray the reaction array
+	 */
 	public DependencyTable(Reaction[] reactionArray) {
 		table = reactionArray;
 		specReactions = new int[reactionArray.length][reactionArray.length];
@@ -17,29 +31,19 @@ public class DependencyTable {
 		setUpTable();
 	}
 	
+	/**
+	 * Gets the dependents.
+	 *
+	 * @param curFired the cur fired
+	 * @return the dependents
+	 */
 	public ArrayList<Reaction> getDependents(Reaction curFired) {
 		return rTable.get(curFired.getIndex());
 	}
 	
-/*
-	public int[] updatePropensity(Reaction curFired, int[] populations) {
-		int[] net = curFired.getNetChanges();
-
-		curFired.calculatePropensity(populations);
-
-		for (int k = 0; k < net.length; k++) {
-			populations[k] += net[k];
-		}
-		
-		int currIndex = curFired.getIndex();
-		
-		for (int i = 0; i < rTable.get(currIndex).size(); i++) {
-			rTable.get(currIndex).get(i).calculatePropensity(populations);
-		}
-		
-		return populations;
-	}
-*/
+	/**
+	 * Sets the up table.
+	 */
 	private void setUpTable() {
 
 		for(int i = 0; i < table.length; i++) {
@@ -73,6 +77,12 @@ public class DependencyTable {
 		}
 	}
 	
+	/**
+	 * Gets the dependencies.
+	 *
+	 * @param species the species
+	 * @return the dependencies
+	 */
 	private boolean[] getDependencies(int species) {
 		boolean[] depen = new boolean[table.length];
 		for (int r = 0; r < specReactions.length; r++) {
@@ -84,10 +94,20 @@ public class DependencyTable {
 		return depen;
 	}
 
+	/**
+	 * Gets the ir.
+	 *
+	 * @return the ir
+	 */
 	public boolean[][] getIR() {
 		return reactionIndex;
 	}
 	
+	/**
+	 * Gets the table.
+	 *
+	 * @return the table
+	 */
 	public Reaction[] getTable() {
 		return table;
 	}
