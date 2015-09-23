@@ -3,26 +3,29 @@ package com.cs3114.simulation.p1;
 import java.util.*;
 
 /**
- * The Class Dependency Table. The primary purpose of this class is to return an arraylist of all the Reactions that will be updated when a specific reaction fires.
+ * The Class Dependency Table. The primary purpose of this class is to return an
+ * arraylist of all the Reactions that will be updated when a specific reaction
+ * fires.
  */
 public class DependencyTable {
 
-	/** The total number  of reactions. */
+	/** The total number of reactions. */
 	private int totReactions;
-	
+
 	/** The reaction index. */
-	private boolean[][] reactionIndex;	
-	
+	private boolean[][] reactionIndex;
+
 	/** The species of all the reactions. */
-	private int [][] specReactions;
-	
+	private int[][] specReactions;
+
 	/** The r table. */
-	ArrayList<ArrayList<Reaction>>  rTable;
+	ArrayList<ArrayList<Reaction>> rTable;
 
 	/**
 	 * Instantiates a new dependency table.
 	 *
-	 * @param reactionArray the reaction array
+	 * @param reactionArray
+	 *            the reaction array
 	 */
 	public DependencyTable(Reaction[] reactionArray) {
 		totReactions = reactionArray.length;
@@ -31,34 +34,36 @@ public class DependencyTable {
 		rTable = new ArrayList<ArrayList<Reaction>>();
 		setUpTable(reactionArray);
 	}
-	
+
 	/**
 	 * Gets the dependents.
 	 *
-	 * @param curFired the cur fired
+	 * @param curFired
+	 *            the cur fired
 	 * @return the dependents
 	 */
 	public ArrayList<Reaction> getDependents(Reaction curFired) {
 		return rTable.get(curFired.getIndex());
 	}
-	
+
 	/**
 	 * Sets the up table.
 	 *
-	 * @param reactionArray the new up table
+	 * @param reactionArray
+	 *            the new up table
 	 */
-	private void setUpTable(Reaction [] reactionArray) {
+	private void setUpTable(Reaction[] reactionArray) {
 
-		for(int i = 0; i < reactionArray.length; i++) {
+		for (int i = 0; i < reactionArray.length; i++) {
 			rTable.add(new ArrayList<Reaction>());
 		}
-		
+
 		for (int i = 0; i < reactionArray.length; i++) {
 			specReactions[i] = reactionArray[i].getReactants();
 		}
-		
+
 		for (int i = 0; i < reactionArray.length; i++) {
-			int [] net = reactionArray[i].getNetChanges();
+			int[] net = reactionArray[i].getNetChanges();
 			for (int k = 0; k < net.length; k++) {
 				if (net[k] != 0) {
 					boolean[] dep = getDependencies(k);
@@ -69,8 +74,8 @@ public class DependencyTable {
 					}
 				}
 			}
-		}	
-		
+		}
+
 		for (int r = 0; r < rTable.size(); r++) {
 			for (int c = 0; c < reactionArray.length; c++) {
 				if (reactionIndex[r][c] == true) {
@@ -79,11 +84,12 @@ public class DependencyTable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Gets the dependencies.
 	 *
-	 * @param species the species
+	 * @param species
+	 *            the species
 	 * @return the dependencies
 	 */
 	private boolean[] getDependencies(int species) {
@@ -93,7 +99,7 @@ public class DependencyTable {
 				depen[r] = true;
 			}
 		}
-		
+
 		return depen;
 	}
 
