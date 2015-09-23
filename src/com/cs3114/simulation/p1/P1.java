@@ -124,8 +124,6 @@ public class P1 {
 					
 					bw.write(newLine);
 				}
-
-				reactionHeap.minHeap();
 				
 				//choose lowest fire time
 				Reaction minReaction = reactionHeap.minElement();
