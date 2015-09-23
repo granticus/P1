@@ -9,7 +9,7 @@ import java.util.*;
 public class DependencyTable {
 
 	/** The total number  of reactions. */
-	private int totSpecies;
+	private int totReactions;
 	
 	/** The reaction index. */
 	private boolean[][] reactionIndex;	
@@ -26,9 +26,9 @@ public class DependencyTable {
 	 * @param reactionArray the reaction array
 	 */
 	public DependencyTable(Reaction[] reactionArray) {
-		totSpecies = reactionArray.length;
-		specReactions = new int[totSpecies][totSpecies];
-		reactionIndex = new boolean[totSpecies][totSpecies];
+		totReactions = reactionArray.length;
+		specReactions = new int[totReactions][totReactions];
+		reactionIndex = new boolean[totReactions][totReactions];
 		rTable = new ArrayList<ArrayList<Reaction>>();
 		setUpTable(reactionArray);
 	}
@@ -88,7 +88,7 @@ public class DependencyTable {
 	 * @return the dependencies
 	 */
 	private boolean[] getDependencies(int species) {
-		boolean[] depen = new boolean[totSpecies];
+		boolean[] depen = new boolean[totReactions];
 		for (int r = 0; r < specReactions.length; r++) {
 			if (specReactions[r][species] != 0) {
 				depen[r] = true;
