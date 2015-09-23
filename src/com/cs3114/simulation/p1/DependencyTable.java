@@ -8,6 +8,8 @@ import java.util.*;
  */
 public class DependencyTable {
 
+	/** The table that keeps track of the reactions. */
+	private Reaction[] reactionArray;
 	
 	/** The reaction index. */
 	private boolean[][] reactionIndex;	
@@ -24,7 +26,7 @@ public class DependencyTable {
 	 * @param reactionArray the reaction array
 	 */
 	public DependencyTable(Reaction[] reactionArray) {
-		table = reactionArray;
+		this.reactionArray = reactionArray;
 		specReactions = new int[reactionArray.length][reactionArray.length];
 		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
 		rTable = new ArrayList<ArrayList<Reaction>>();
@@ -46,16 +48,16 @@ public class DependencyTable {
 	 */
 	private void setUpTable() {
 
-		for(int i = 0; i < table.length; i++) {
+		for(int i = 0; i < reactionArray.length; i++) {
 			rTable.add(new ArrayList<Reaction>());
 		}
 		
-		for (int i = 0; i < table.length; i++) {
-			specReactions[i] = table[i].getReactants();
+		for (int i = 0; i < reactionArray.length; i++) {
+			specReactions[i] = reactionArray[i].getReactants();
 		}
 		
-		for (int i = 0; i < table.length; i++) {
-			int [] net = table[i].getNetChanges();
+		for (int i = 0; i < reactionArray.length; i++) {
+			int [] net = reactionArray[i].getNetChanges();
 			for (int k = 0; k < net.length; k++) {
 				if (net[k] != 0) {
 					boolean[] dep = getDependencies(k);
@@ -69,9 +71,9 @@ public class DependencyTable {
 		}	
 		
 		for (int r = 0; r < rTable.size(); r++) {
-			for (int c = 0; c < table.length; c++) {
+			for (int c = 0; c < reactionArray.length; c++) {
 				if (reactionIndex[r][c] == true) {
-					rTable.get(r).add(table[c]);
+					rTable.get(r).add(reactionArray[c]);
 				}
 			}
 		}
@@ -84,7 +86,7 @@ public class DependencyTable {
 	 * @return the dependencies
 	 */
 	private boolean[] getDependencies(int species) {
-		boolean[] depen = new boolean[table.length];
+		boolean[] depen = new boolean[reactionArray.length];
 		for (int r = 0; r < specReactions.length; r++) {
 			if (specReactions[r][species] != 0) {
 				depen[r] = true;
@@ -109,7 +111,7 @@ public class DependencyTable {
 	 * @return the table
 	 */
 	public Reaction[] getTable() {
-		return table;
+		return reactionArray;
 	}
 
 }
