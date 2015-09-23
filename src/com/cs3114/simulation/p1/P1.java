@@ -162,7 +162,8 @@ public class P1 {
 				/*
 				 * Once the population has been updated, we need to update the
 				 * propensities that have been changed because of the reaction
-				 * that was just fired
+				 * that was just fired. Also updates the propensity of the
+				 * current reaction fired.
 				 */
 				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
 					dependents.get(dIndex).calculatePropensity(populations);
