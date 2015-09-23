@@ -129,6 +129,7 @@ public class P1 {
 				}
 				
 				//choose lowest fire time
+				//Gets the lowest firing time from the heap.
 				Reaction minReaction = reactionHeap.minElement();
 				dependents = dependency.getDependents(minReaction);
 				minReaction.calculatePropensity(populations);
