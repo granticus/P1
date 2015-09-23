@@ -13,6 +13,7 @@ import org.junit.Test;
  * @author Alex Hsu
  * @author Grant Golden
  *
+ *	Tests the parser.
  */
 public class InputParserTest {
 	
