@@ -27,7 +27,7 @@ public class Heap {
 	 * Gets the reaction.
 	 *
 	 * @param pos
-	 *            the pos
+	 *            the pos of the reaction.
 	 * @return the reaction
 	 */
 	public Reaction getReaction(int pos) {
