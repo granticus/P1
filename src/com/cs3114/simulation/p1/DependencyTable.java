@@ -30,7 +30,7 @@ public class DependencyTable {
 		specReactions = new int[reactionArray.length][reactionArray.length];
 		reactionIndex = new boolean[reactionArray.length][reactionArray.length];
 		rTable = new ArrayList<ArrayList<Reaction>>();
-		setUpTable();
+		setUpTable(reactionArray);
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class DependencyTable {
 	/**
 	 * Sets the up table.
 	 */
-	private void setUpTable() {
+	private void setUpTable(Reaction [] reactionArray) {
 
 		for(int i = 0; i < reactionArray.length; i++) {
 			rTable.add(new ArrayList<Reaction>());
