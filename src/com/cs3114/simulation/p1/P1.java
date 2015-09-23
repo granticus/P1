@@ -99,7 +99,7 @@ public class P1 {
 		double currentTime;
 		
 		Heap reactionHeap;
-		DependencyTable dependency;
+		DependencyTable dependency = new DependencyTable(reactions);;
 		
 		for(int i = 0; i < numSimulations; i++){
 			
@@ -111,7 +111,6 @@ public class P1 {
 			}
 
 			reactionHeap = new Heap(reactions);
-			dependency = new DependencyTable(reactions);
 			
 			while(currentTime < finalSimTime){
 				
@@ -129,9 +128,11 @@ public class P1 {
 				//choose lowest fire time
 				Reaction minReaction = reactionHeap.minElement();
 				
+				minReaction.calculatePropensity(populations);
 				
 				//update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();
+				
 				minReaction.incrementFired();
 				
 				for(int j = 0; j < numSpecies; j++){
