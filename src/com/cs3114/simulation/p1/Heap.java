@@ -50,7 +50,9 @@ public class Heap {
 	 *
 	 * @param pos
 	 *            the pos pf the left child.
-	 * @return the int
+	 * @return the int position of the left child. No need for error checking
+	 *         since if there is no left, the the index is a leaf, so this
+	 *         should never be called.
 	 */
 	private int leftChild(int pos) {
 		return (2 * pos) + 1;
