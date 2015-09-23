@@ -130,6 +130,8 @@ public class P1 {
 				
 				minReaction.calculatePropensity(populations);
 				
+				reactionHeap.minHeap();
+				
 				//update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();
 				
