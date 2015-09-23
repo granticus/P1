@@ -29,6 +29,7 @@ public class Heap {
 			Heap[i+1] = reactions[i]; 
 		}*/
 		Heap = reactions;
+		minHeap();
 	}
 
 	public Reaction getReaction(int pos) {

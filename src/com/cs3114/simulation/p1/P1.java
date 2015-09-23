@@ -61,20 +61,28 @@ public class P1 {
 		}
 		String [] lines = file.split("\n");
 		
+		//gets where the indexing starts, either 0 (S0), or 1 (S1)
 		int offset = parse.getFirstIndex(lines[3]);
 		
 		//FIRST LINE
 		int[] fline = parse.getInts(lines[0]);
+		//total number of species
 		int numSpecies = fline[0];
+		//total number of reactions
 		int totalReactions = fline[1];
+		//total number of outputted
 		int numOutputted = fline[2];
+		//the final simulation time
 		int finalSimTime = fline[3];
 		
 		//SECOND LINE
+		//stores the current populations for each species
 		int[] populations;
 
 		//THIRD LINE
-		int[] trackedIndices = parse.getInts(lines[2]); // SUBTRACT 1 MAYBE LATER
+		//stores the array of indices to be tracked
+		int[] trackedIndices = parse.getInts(lines[2]);
+		//this loop updates 
 		for(int i = 0; i < numOutputted; i++){
 			trackedIndices[i] = trackedIndices[i] - offset;
 		}
@@ -91,6 +99,8 @@ public class P1 {
 		int [][] finalPops = new int[numSimulations][numSpecies];
 		
 		double currentTime;
+		
+		
 		
 		for(int i = 0; i < numSimulations; i++){
 			
@@ -110,10 +120,12 @@ public class P1 {
 					bw.write(newLine);
 				}
 				
-				//calculate fire times
+				//Calculate fire times
+				
 				for(int j = 0; j < totalReactions; j++){
 					reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 				}
+
 				reactionHeap.minHeap();
 				
 				//choose lowest fire time
