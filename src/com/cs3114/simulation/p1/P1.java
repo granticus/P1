@@ -140,10 +140,11 @@ public class P1 {
 					bw.write(newLine);
 				}
 
+				
 				// choose lowest fire time
 				// Gets the lowest firing time from the heap.
 				Reaction minReaction = reactionHeap.minElement();
-
+				double cTau = minReaction.getCurrentTau();
 				// Gets the arraylist of dependents from the current reaction
 				// fired. Then updates the current reaction with a new tau. The
 				// heap sort function is called to bring the smallest element to
@@ -151,7 +152,7 @@ public class P1 {
 				dependents = dependency.getDependents(minReaction);
 				minReaction.setCurrentTau(nTau(minReaction.calculatePropensity(populations)));
 				
-		
+				
 				
 				// update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();
@@ -160,9 +161,7 @@ public class P1 {
 
 				for (int j = 0; j < numSpecies; j++) {
 					populations[j] += currNetChange[j];
-					System.out.print(populations[j] + "\t");
 				}
-				System.out.print("\n");
 
 				/*
 				 * Once the population has been updated, we need to update the
@@ -178,7 +177,7 @@ public class P1 {
 				//minReaction.calculatePropensity(populations);
 
 				// add chosen time to currentTime
-				currentTime += minReaction.getCurrentTau();
+				currentTime += cTau;
 			}
 			for (int j = 0; j < numSpecies; j++) {
 				finalPops[i][j] = populations[j];
