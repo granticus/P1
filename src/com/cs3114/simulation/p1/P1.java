@@ -150,8 +150,9 @@ public class P1 {
 				// the front.
 				dependents = dependency.getDependents(minReaction);
 				minReaction.setCurrentTau(nTau(minReaction.calculatePropensity(populations)));
-				reactionHeap.minHeap();
-
+				
+		
+				
 				// update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();
 
@@ -159,7 +160,9 @@ public class P1 {
 
 				for (int j = 0; j < numSpecies; j++) {
 					populations[j] += currNetChange[j];
+					System.out.print(populations[j] + "\t");
 				}
+				System.out.print("\n");
 
 				/*
 				 * Once the population has been updated, we need to update the
@@ -171,6 +174,7 @@ public class P1 {
 					Reaction temp = dependents.get(dIndex);
 					temp.setCurrentTau(nTau(temp.calculatePropensity(populations)));
 				}
+				reactionHeap.minHeap();
 				//minReaction.calculatePropensity(populations);
 
 				// add chosen time to currentTime
