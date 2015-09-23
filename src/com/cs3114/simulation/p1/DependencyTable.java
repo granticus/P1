@@ -63,6 +63,7 @@ public class DependencyTable {
 			rTable.add(new ArrayList<Reaction>());
 		}
 
+		/*  */
 		for (int i = 0; i < reactionArray.length; i++) {
 			specReactions[i] = reactionArray[i].getReactants();
 		}
