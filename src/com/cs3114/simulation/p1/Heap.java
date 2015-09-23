@@ -73,7 +73,7 @@ public class Heap {
 	 * Checks if the position in the heap is leaf, it has no children.
 	 *
 	 * @param pos
-	 *            the pos
+	 *            the pos of the current index that is being checked
 	 * @return true, if is leaf
 	 */
 	private boolean isLeaf(int pos) {
