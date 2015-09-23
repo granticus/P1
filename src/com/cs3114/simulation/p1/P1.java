@@ -109,7 +109,6 @@ public class P1 {
 				reactions[j].setCurrentTau(nTau(reactions[j].calculatePropensity(populations)));
 			}
 
-
 			Heap reactionHeap = new Heap(reactions);
 			
 			while(currentTime < finalSimTime){
