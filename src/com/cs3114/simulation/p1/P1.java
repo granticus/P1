@@ -111,6 +111,7 @@ public class P1 {
 			currentTime = 0;
 			populations = parse.getInts(lines[1]);
 
+			/* Calculates and sets the tau to be initialized so that we can sort the Heap. */
 			for (int j = 0; j < totalReactions; j++) {
 				reactions[j].setCurrentTau(nTau(reactions[j]
 						.calculatePropensity(populations)));
