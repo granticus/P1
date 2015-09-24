@@ -105,8 +105,7 @@ public class P1 {
 		Heap reactionHeap;
 		DependencyTable dependency = new DependencyTable(reactions);
 		ArrayList<Reaction> dependents;
-	
-
+		
 		for (int i = 0; i < numSimulations; i++) {
 
 			currentTime = 0;
@@ -117,13 +116,12 @@ public class P1 {
 			 * the Heap.
 			 */
 			for (int j = 0; j < totalReactions; j++) {
-				reactions[j].setCurrentTau(nTau(reactions[j]
-						.calculatePropensity(populations)));
+				//reactions[j].updateTau(populations);
+				reactions[j].updateTau(populations);
 			}
 
 			reactionHeap = new Heap(reactions);
 			
-
 			while (currentTime < finalSimTime) {
 
 				if (numSimulations == 1) {
@@ -140,19 +138,18 @@ public class P1 {
 					bw.write(newLine);
 				}
 
-				
 				// choose lowest fire time
 				// Gets the lowest firing time from the heap.
 				Reaction minReaction = reactionHeap.minElement();
-				double cTau = minReaction.getCurrentTau();
+
+				double curTau = minReaction.getCurrentTau();
+				
 				// Gets the arraylist of dependents from the current reaction
 				// fired. Then updates the current reaction with a new tau. The
 				// heap sort function is called to bring the smallest element to
 				// the front.
 				dependents = dependency.getDependents(minReaction);
-				minReaction.setCurrentTau(nTau(minReaction.calculatePropensity(populations)));
-				
-				
+				//minReaction.setCurrentTau(nTau(minReaction.calculatePropensity(populations)));
 				
 				// update populations using the netChange of the chosen reaction
 				int[] currNetChange = minReaction.getNetChanges();
@@ -169,15 +166,17 @@ public class P1 {
 				 * that was just fired. Also updates the propensity of the
 				 * current reaction fired.
 				 */
+				
+				
 				for (int dIndex = 0; dIndex < dependents.size(); dIndex++) {
 					Reaction temp = dependents.get(dIndex);
-					temp.setCurrentTau(nTau(temp.calculatePropensity(populations)));
+					//temp.updateTau(populations);
+					temp.updateTau(populations);
+					//temp.setCurrentTau(nTau(temp.calculatePropensity(populations)));
 				}
 				reactionHeap.minHeap();
-				//minReaction.calculatePropensity(populations);
 
-				// add chosen time to currentTime
-				currentTime += cTau;
+				currentTime += curTau;
 			}
 			for (int j = 0; j < numSpecies; j++) {
 				finalPops[i][j] = populations[j];
@@ -256,9 +255,5 @@ public class P1 {
 		bw.close();
 		bReader.close();
 
-	}
-
-	private static double nTau(double propensity) {
-		return Math.log(1 / Math.random()) / propensity;
 	}
 }

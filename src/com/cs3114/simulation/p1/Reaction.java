@@ -70,6 +70,13 @@ public class Reaction implements Comparable<Reaction>{
 		return propensity;
 	}
 
+
+	public void updateTau(int [] pop) {
+		double temp = this.calculatePropensity(pop);
+		temp = nTau(temp);
+		currentTau = temp;
+	}
+
 	/**
 	 * Gets the number that this reaction has fired.
 	 *
@@ -157,5 +164,10 @@ public class Reaction implements Comparable<Reaction>{
 
 	public int getIndex() {
 		return index;
+	}
+	
+	private double nTau(double propensity) {
+		double temp = Math.log(1 / Math.random()) / propensity;
+		return Math.log(1 / Math.random()) / propensity;
 	}
 }

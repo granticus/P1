@@ -87,6 +87,18 @@ public class DependencyTable {
 		}
 
 		/*
+		 * Always add current reaction fired index so the program will know to
+		 * update its own propensity
+		 */
+		for (int r = 0; r < reactionIndex.length; r++) {
+			for (int c = 0; c < reactionIndex[0].length; c++) {
+				if (r == c) {
+					reactionIndex[r][c] = true;
+				}
+			}
+		}
+
+		/*
 		 * Once the reactionIndex is set, we go through every row. If there is
 		 * an element that is true, the we store that Reaction in the array.
 		 */
@@ -96,6 +108,16 @@ public class DependencyTable {
 					rTable.get(r).add(reactionArray[c]);
 				}
 			}
+		}
+	}
+
+	public void print() {
+
+		for (int r = 0; r < reactionIndex.length; r++) {
+			for (int c = 0; c < reactionIndex[0].length; c++) {
+				System.out.print(reactionIndex[r][c] + "\t");
+			}
+			System.out.println();
 		}
 	}
 
